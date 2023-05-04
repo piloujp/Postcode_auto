@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS zones_to_post_code_us;
 CREATE TABLE IF NOT EXISTS zones_to_post_code_us (
   post_zone_id int NOT NULL AUTO_INCREMENT,
   zone_country_id int NOT NULL DEFAULT '223',
-  zone_id int NOT NULL DEFAULT '0',
+  zone_id int NOT NULL,
   delivery_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   post_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   zip4_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -11,7 +11,9 @@ CREATE TABLE IF NOT EXISTS zones_to_post_code_us (
   PRIMARY KEY (post_zone_id),
   UNIQUE KEY delivery_code (delivery_code,post_code,zip4_code),
   KEY post_code (post_code),
-  KEY deli_code (delivery_code)
+  KEY deli_code (delivery_code),
+  KEY zone_id (zone_id),
+  KEY zone_name (zone_name)
 ) ENGINE=MyISAM AUTO_INCREMENT=45759 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO zones_to_post_code_us (post_zone_id, zone_country_id, zone_id, delivery_code, post_code, zip4_code, zone_name, zone_city_name) VALUES

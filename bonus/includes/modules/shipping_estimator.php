@@ -82,6 +82,13 @@ if ($_SESSION['cart']->count_contents() > 0) {
 					$state_zone_id = $result->fields['zone_id'];
 				}
 				break;
+			case 195:
+				$result = $db->Execute("SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_es WHERE zone_country_id = " . $_POST['zone_country_id'] . " AND post_code = '" . $_POST['postcode'] . "' LIMIT 1;");
+				if (isset($result)) {
+					$selectedState = $result->fields['zone_name'];
+					$state_zone_id = $result->fields['zone_id'];
+				}
+				break;
 		}
 	}
 	
