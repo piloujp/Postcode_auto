@@ -3,7 +3,7 @@ It uses extra tables with postal codes data for one country at a time.
 An external jQuery plugin is used to display multiple possible answers in a JavaScript popup tool window:
 PowerTip  from Steven Benner at https://stevenbenner.github.io/jquery-powertip/.
 
-'Postcode auto fill' is provided with four countries data/tables: United States, Spain, Japan and France. If you want to add a country, you must build a new table with necessary data and add some php code (in SWITCH loop) to the ajax query function.
+'Postcode auto fill' is provided with five countries data/tables: United States, Spain, France, Germany and Japan. If you want to add a country, you must build a new table with necessary data and add some php code (in SWITCH loop) to the ajax query function.
 Instructions for that are at the end of this files.
 
 INSTALL:
@@ -32,17 +32,16 @@ Bonus:
  Or add this code around line 41:
  
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	if (!empty($_POST['postcode']) and $_POST['zone_country_id'] == STORE_COUNTRY) { // uses postcode to define zone, limited to store country and if postcode zones have been put in database.
-		switch ($_POST['zone_country_id']) {
+	if (!empty($_POST['postcode'])) { // uses postcode to define zone if postcode zones have been put in database.
+	// To display zone/state only for shop's country, comment precedent line and uncomment next one, and reverse.
+	//if (!empty($_POST['postcode']) and $_POST['zone_country_id'] == STORE_COUNTRY) { // uses postcode to define zone, limited to store country and if postcode zones have been put in database.
+		$_POST['postcode'] = preg_replace('/[-―ー\s]/u','',$_POST['postcode']);
+		switch ((int)$_POST['zone_country_id']) {
 			case 107:
 				if ($_SESSION['language'] == 'japanese') {
-				$result = $db->Execute("SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = " . $_POST['zone_country_id'] . " AND post_code = '" . $_POST['postcode'] . "' LIMIT 1;");
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				} else {
-				$result = $db->Execute("SELECT zone_name_romaji AS zone_name, zone_id_romaji AS zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = " . $_POST['zone_country_id'] . " AND post_code = '" . $_POST['postcode'] . "' LIMIT 1;");
-				}
-				if (isset($result)) {
-					$selectedState = $result->fields['zone_name'];
-					$state_zone_id = $result->fields['zone_id'];
+				$sql = "SELECT zone_name_romaji AS zone_name, zone_id_romaji AS zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				}
 				break;
 			case 233:
@@ -55,26 +54,27 @@ Bonus:
 			case 76:
 			case 77:
 			case 73:
-				$result = $db->Execute("SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_fr WHERE zone_country_id = " . $_POST['zone_country_id'] . " AND post_code = '" . $_POST['postcode'] . "' LIMIT 1;");
-				if (isset($result)) {
-					$selectedState = $result->fields['zone_name'];
-					$state_zone_id = $result->fields['zone_id'];
-				}
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_fr WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
 			case 223:
-				$result = $db->Execute("SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_us WHERE zone_country_id = " . $_POST['zone_country_id'] . " AND post_code = '" . $_POST['postcode'] . "' LIMIT 1;");
-				if (isset($result)) {
-					$selectedState = $result->fields['zone_name'];
-					$state_zone_id = $result->fields['zone_id'];
-				}
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_us WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
 			case 195:
-				$result = $db->Execute("SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_es WHERE zone_country_id = " . $_POST['zone_country_id'] . " AND post_code = '" . $_POST['postcode'] . "' LIMIT 1;");
-				if (isset($result)) {
-					$selectedState = $result->fields['zone_name'];
-					$state_zone_id = $result->fields['zone_id'];
-				}
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_es WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
+			case 81:
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_de WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
+				break;
+		}
+		$sql = $db->bindVars($sql, ':zonecountryid', $_POST['zone_country_id'], 'integer');
+		$sql = $db->bindVars($sql, ':postcode', $_POST['postcode'], 'string');
+		$result = $db->Execute($sql, 1);
+		if (isset($result) and !empty($result->fields)) {
+			$selectedState = $result->fields['zone_name'];
+			$state_zone_id = (int)$result->fields['zone_id'];
+		} else {
+			$selectedState = '';
+			$state_zone_id = 0;
 		}
 	}
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -87,6 +87,7 @@ DROP TABLE zones_to_post_code_us;
 DROP TABLE zones_to_post_code_fr;
 DROP TABLE zones_to_post_code_jp;
 DROP TABLE zones_to_post_code_es;
+DROP TABLE zones_to_post_code_de;
 
 - Remove files by following install steps but instead of copy, delete files or added code (shipping estimator only).
 
@@ -99,10 +100,12 @@ BUILDING A NEW COUNTRY TABLE DATA:
 'zone_id' for this country zones id numbers in Zen Cart if they exist. First setting it to zero is easier and then when table is created (and zones exist), update it with a query like this:
 
 (example for United States):
-	UPDATE zones_to_post_code_us INNER JOIN zones ON zones_to_post_code_us.zone_name = zones.zone_name SET zones_to_post_code_us.zone_id = zones.zone_id;
+	UPDATE zones_to_post_code_us INNER JOIN zones ON zones_to_post_code_us.zone_name = zones.zone_name AND zen_zones.zone_country_id = 223 SET zones_to_post_code_us.zone_id = zones.zone_id;
+(example for France):
+	UPDATE zones_to_post_code_fr INNER JOIN zones ON zones_to_post_code_fr.zone_name = zones.zone_name SET zones_to_post_code_fr.zone_id = zones.zone_id;
 (example for Japan):
-	UPDATE zones_to_post_code_jp INNER JOIN zen_zones ON zones_to_post_code_jp.zone_name = zen_zones.zone_name SET zones_to_post_code_jp.zone_id = zen_zones.zone_id;
-	UPDATE zones_to_post_code_jp INNER JOIN zen_zones ON zones_to_post_code_jp.zone_name_romaji = zen_zones.zone_name SET zones_to_post_code_jp.zone_id_romaji = zen_zones.zone_id;
+	UPDATE zones_to_post_code_jp INNER JOIN zen_zones ON zones_to_post_code_jp.zone_name = zen_zones.zone_name AND zen_zones.zone_country_id = 107 SET zones_to_post_code_jp.zone_id = zen_zones.zone_id;
+	UPDATE zones_to_post_code_jp INNER JOIN zen_zones ON zones_to_post_code_jp.zone_name_romaji = zen_zones.zone_name AND zen_zones.zone_country_id = 107 SET zones_to_post_code_jp.zone_id_romaji = zen_zones.zone_id;
 
 'post_code' obviously for postal/zip code. This plugin is programed for a minimum of five characters long.
 'zone_name' for state, district, prefecture or whatever it is called in the country.

@@ -1,5 +1,5 @@
 /**
- * @requires jquery.powertip.min.js and jQuery 3.6+
+ * @requires jquery.powertip.min.js and jQuery 1.36+
  * @copyright Copyright 2003-2023 Zen Cart Development Team
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: pilou2 Apr 11 Modified in v1.5.8a $
@@ -12,7 +12,7 @@ $.when(
 ).done(function(){
 
 	$('#postcode').on('keyup change', function() {
-		var cleancode = $('#postcode').val().replace(/[-|―|ー]/g,'');
+		var cleancode = $('#postcode').val().replace(/[-|―|ー|\s]/g,'');
 		if (cleancode.length >= 5) {
 			var donnees = 'country=' + $('#country').val() + '&postcode=' + cleancode;
 			zcJS.ajax({
