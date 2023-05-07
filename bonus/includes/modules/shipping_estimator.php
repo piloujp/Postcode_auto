@@ -84,6 +84,10 @@ if ($_SESSION['cart']->count_contents() > 0) {
 			case 105:
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_it WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
+			case 122:
+			case 204:
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_ch WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
+				break;
 		}
 		$sql = $db->bindVars($sql, ':zonecountryid', $_POST['zone_country_id'], 'integer');
 		$sql = $db->bindVars($sql, ':postcode', $_POST['postcode'], 'string');

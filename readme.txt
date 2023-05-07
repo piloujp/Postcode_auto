@@ -3,7 +3,7 @@ It uses extra tables with postal codes data for one country at a time.
 An external jQuery plugin is used to display multiple possible answers in a JavaScript popup tool window:
 PowerTip  from Steven Benner at https://stevenbenner.github.io/jquery-powertip/.
 
-'Postcode auto fill' is provided with six countries data/tables: United States, Spain, France, Germany Italy and Japan. If you want to add a country, you must build a new table with necessary data and add some php code (in SWITCH loop) to the ajax query function.
+'Postcode auto fill' is provided with height countries data/tables: United States, Spain, France, Germany Italy, Swiss, Liechtenstein and Japan. If you want to add a country, you must build a new table with necessary data and add some php code (in SWITCH loop) to the ajax query function.
 Instructions for that are at the end of this files.
 
 INSTALL:
@@ -70,6 +70,10 @@ Bonus:
 			case 105:
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_it WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
+			case 122:
+			case 204:
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_ch WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
+				break;
 		}
 		$sql = $db->bindVars($sql, ':zonecountryid', $_POST['zone_country_id'], 'integer');
 		$sql = $db->bindVars($sql, ':postcode', $_POST['postcode'], 'string');
@@ -94,6 +98,7 @@ DROP TABLE zones_to_post_code_jp;
 DROP TABLE zones_to_post_code_es;
 DROP TABLE zones_to_post_code_de;
 DROP TABLE zones_to_post_code_it;
+DROP TABLE zones_to_post_code_ch;
 
 - Remove files by following install steps but instead of copy, delete files or added code (shipping estimator only).
 
@@ -107,7 +112,7 @@ BUILDING A NEW COUNTRY TABLE DATA:
 
 (example for United States):
 	UPDATE zones_to_post_code_us INNER JOIN zones ON zones_to_post_code_us.zone_name = zones.zone_name AND zen_zones.zone_country_id = 223 SET zones_to_post_code_us.zone_id = zones.zone_id;
-(example for France):
+(example for France and other countries that includes territories or other small coutries):
 	UPDATE zones_to_post_code_fr INNER JOIN zones ON zones_to_post_code_fr.zone_name = zones.zone_name SET zones_to_post_code_fr.zone_id = zones.zone_id;
 (example for Japan):
 	UPDATE zones_to_post_code_jp INNER JOIN zen_zones ON zones_to_post_code_jp.zone_name = zen_zones.zone_name AND zen_zones.zone_country_id = 107 SET zones_to_post_code_jp.zone_id = zen_zones.zone_id;
