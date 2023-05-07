@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS zones_to_post_code_de;
 CREATE TABLE IF NOT EXISTS zones_to_post_code_de (
   post_zone_id int NOT NULL AUTO_INCREMENT,
-  zone_country_id int NOT NULL DEFAULT '223',
-  zone_id int NOT NULL,
+  zone_country_id int NOT NULL DEFAULT '81',
+  zone_id int NOT NULL DEFAULT '0',
   post_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   zone_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   zone_city_name varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,

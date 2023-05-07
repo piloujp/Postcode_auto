@@ -12,8 +12,8 @@ $.when(
 ).done(function(){
 
 	$('#postcode').on('keyup change', function() {
-		var cleancode = $('#postcode').val().replace(/[-|―|ー|\s]/g,'');
-		if (cleancode.length >= 5) {
+		var cleancode = $('#postcode').val().replace(/[-|―|ー]/g,'');
+		if (cleancode.length >= 4) {
 			var donnees = 'country=' + $('#country').val() + '&postcode=' + cleancode;
 			zcJS.ajax({
 				url: "ajax.php?act=AjaxPostcodeQuery&method=postcodequery",
