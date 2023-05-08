@@ -3,19 +3,19 @@ It uses extra tables with postal codes data for one country at a time.
 An external jQuery plugin is used to display multiple possible answers in a JavaScript popup tool window:
 PowerTip  from Steven Benner at https://stevenbenner.github.io/jquery-powertip/.
 
-'Postcode auto fill' is provided with nine countries data/tables: United States, Spain, France and its territories, Germany, Italy, Swiss, Liechtenstein (included with Swiss), Australia and Japan. If you want to add a country, you must build a new table with necessary data and add some php code (in SWITCH loop) to the ajax query function.
+'Postcode auto fill' is provided with ten countries data/tables: United States, Spain, France and its territories, Germany, Italy, Swiss, Liechtenstein (included with Swiss), Austria, Australia and Japan. If you want to add a country, you must build a new table with necessary data and add some php code (in SWITCH loop) to the ajax query function.
 Instructions for that are at the end of this files.
 
 INSTALL:
 --------
 --------
-- Run SQL query from SQL folder for each country you want to use in Zen Cart SQL tool or from PhpMyAdmin. If your country is not available, you will have to build the table. See how at the end of this file.
+- Run SQL query from files (zones_to_post_code_2letterscountrycode.sql) in SQL folder for each country you want to use in Zen Cart SQL tool or from PhpMyAdmin. If your country is not available, you will have to build the table. See how at the end of this file.
 Be aware that it could take some time for country like Japan where you have more than 120 000 entries. If you added some prefix to your Zen cart database, you have to modify these queries before running them.
 IMPORTANT notes:
-	1- Japanese table uses Japanese zones installed with Japanese language pack. If they are not installed in your cart, use 'zones_to_post_code_jp_zone0.sql' which has all zones ids set to zero.
-	2- If you have added country zones for other countries before adding Japanese ones then zone ids are different than those in the 'zones_to_post_code_jp.sql'. In this case use 'zones_to_post_code_jp_zone0.sql' 
+	1- Some data in zones table are outdated or have errors. Run queries in files 'zones_2letterscountrycode_update.sql' FIRST to correct them.
+	2- Japanese table uses Japanese zones installed with Japanese language pack. If they are not installed in your cart, use 'zones_to_post_code_jp_zone0.sql' which has all zones ids set to zero.
+	3- If you have added country zones for other countries before adding Japanese ones then zone ids are different than those in the 'zones_to_post_code_jp.sql'. In this case use 'zones_to_post_code_jp_zone0.sql' 
 	to create table and apply SQL queries provided at the end of this file in section 'BUILDING A NEW COUNTRY TABLE DATA' to update them.
-	3- Italian zones installed in Zen Cart by default are outdated. You might want to update them by running/importing SQL queries in file 'zones_it_update.sql' in sql folder.
 
 - Copy following files to your cart respecting folder tree:
 includes/classes/ajax/zcAjaxPostcodeQuery.php
@@ -77,6 +77,9 @@ Bonus:
 			case 13:
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_au WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
+			case 14:
+				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_at WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
+				break;
 		}
 		$sql = $db->bindVars($sql, ':zonecountryid', $_POST['zone_country_id'], 'integer');
 		$sql = $db->bindVars($sql, ':postcode', $_POST['postcode'], 'string');
@@ -103,6 +106,7 @@ DROP TABLE zones_to_post_code_de;
 DROP TABLE zones_to_post_code_it;
 DROP TABLE zones_to_post_code_ch;
 DROP TABLE zones_to_post_code_au;
+DROP TABLE zones_to_post_code_at;
 
 - Remove files by following install steps but instead of copy, delete files or added code (shipping estimator only).
 

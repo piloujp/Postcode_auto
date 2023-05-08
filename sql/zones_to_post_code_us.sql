@@ -3,15 +3,15 @@ CREATE TABLE IF NOT EXISTS zones_to_post_code_us (
   post_zone_id int NOT NULL AUTO_INCREMENT,
   zone_country_id int NOT NULL DEFAULT '223',
   zone_id int NOT NULL DEFAULT '0',
-  post_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  zip4_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  zone_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  zone_city_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  post_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
+  zip4_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
+  zone_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
+  zone_city_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
   PRIMARY KEY (post_zone_id),
   UNIQUE KEY post_code_2 (post_code,zip4_code,zone_city_name),
   KEY zone_name (zone_name),
   KEY zone_id (zone_id)
-) ENGINE=MyISAM AUTO_INCREMENT=31439 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31439 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_cs;
 
 INSERT INTO zones_to_post_code_us (post_zone_id, zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (1, 223, 52, '00601', '9998', 'Puerto Rico', 'Adjuntas'),

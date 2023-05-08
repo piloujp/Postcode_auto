@@ -56,6 +56,9 @@ class zcAjaxPostcodeQuery extends base
 				case 13:
 					$request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . DB_PREFIX . "zones_to_post_code_au WHERE post_code = ?;");
 					break;
+				case 14:
+					$request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . DB_PREFIX . "zones_to_post_code_at WHERE post_code = ?;");
+					break;
 			}
 
 			if (!empty($request)){

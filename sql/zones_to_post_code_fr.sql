@@ -3,16 +3,16 @@ CREATE TABLE IF NOT EXISTS zones_to_post_code_fr (
   post_zone_id int NOT NULL AUTO_INCREMENT,
   zone_country_id int NOT NULL DEFAULT '73',
   zone_id int NOT NULL DEFAULT '0',
-  post_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  zone_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  zone_city_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  zone_street_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  post_code varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
+  zone_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
+  zone_city_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs NOT NULL,
+  zone_street_name varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs DEFAULT NULL,
   PRIMARY KEY (post_zone_id),
   UNIQUE KEY post_code_2 (post_code,zone_city_name,zone_street_name),
   KEY post_code (post_code),
   KEY zone_id (zone_id),
   KEY zone_name (zone_name)
-) ENGINE=MyISAM AUTO_INCREMENT=39230 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=39230 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_cs;
 
 INSERT INTO zones_to_post_code_fr (post_zone_id, zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (1, 73, 0, '01400', '﻿Ain', 'L\'Abergement Clemenciat', ''),
