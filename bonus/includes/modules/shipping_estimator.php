@@ -49,47 +49,58 @@ if ($_SESSION['cart']->count_contents() > 0) {
 	// To display zone/state only for shop's country, comment precedent line and uncomment next one, and reverse.
 	//if (!empty($_POST['postcode']) and $_POST['zone_country_id'] == STORE_COUNTRY) { // uses postcode to define zone, limited to store country and if postcode zones have been put in database.
 		$_POST['postcode'] = preg_replace('/[-―ー\s]/u','',$_POST['postcode']);
-		switch ((int)$_POST['zone_country_id']) {
-			case 107:
+		
+		$reqcountcodeiso = 'SELECT countries_iso_code_3 FROM ' . DB_PREFIX . 'countries WHERE countries_id = :zonecountryid';
+		$reqcountcodeiso = $db->bindVars($reqcountcodeiso, ':zonecountryid', $_POST['zone_country_id'], 'integer');
+		$contryresult = $db->execute($reqcountcodeiso, 1);
+		if (!empty($contryresult)) {
+			$codeiso3 = $contryresult->fields['countries_iso_code_3'];
+		} else {
+			$codeiso3 = '';
+		}
+		
+		switch ($codeiso3) {
+			case 'JPN':
 				if ($_SESSION['language'] == 'japanese') {
-				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
+					$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				} else {
-				$sql = "SELECT zone_name_romaji AS zone_name, zone_id_romaji AS zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
+					$sql = "SELECT zone_name_romaji AS zone_name, zone_id_romaji AS zone_id FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				}
 				break;
-			case 233:
-			case 174:
-			case 141:
-			case 137:
-			case 134:
-			case 87:
-			case 75:
-			case 76:
-			case 77:
-			case 73:
+			case 'FRA':
+			case 'GUF':
+			case 'PYF':
+			case 'ATF':
+			case 'GLP':
+			case 'MTQ':
+			case 'MYT':
+			case 'MCO':
+			case 'REU':
+			case 'WLF':
+			case 'SPM':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_fr WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 163:
-			case 223:
+			case 'PLW':
+			case 'USA':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_us WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 195:
+			case 'ESP':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_es WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 81:
+			case 'DEU':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_de WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 105:
+			case 'ITA':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_it WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 122:
-			case 204:
+			case 'LIE':
+			case 'CHE':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_ch WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 13:
+			case 'AUS':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_au WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
-			case 14:
+			case 'AUT':
 				$sql = "SELECT zone_name, zone_id FROM " . DB_PREFIX . "zones_to_post_code_at WHERE zone_country_id = :zonecountryid AND post_code = :postcode";
 				break;
 		}
@@ -215,7 +226,6 @@ if ($_SESSION['cart']->count_contents() > 0) {
     // some shipping modules need subtotal to be set.
     $order->info['subtotal'] = $_SESSION['cart']->show_total();
     $quotes = $shipping_modules->quote();
-
     // set selections for displaying
     $selected_country = $order->delivery['country']['id'];
     $selected_address = $sendto;
