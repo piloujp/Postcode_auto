@@ -2,7 +2,7 @@
 /**
  * @copyright Copyright 2003-2023 Zen Cart Development Team
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: pilou2 2023 Apr 11 Modified in v1.5.8a $
+ * @version $Id: pilou2 2024 Feb 14 Modified in v2.0.0-alpha1 $
 */
 class zcAjaxPostcodeQuery extends base
 {
@@ -26,7 +26,7 @@ class zcAjaxPostcodeQuery extends base
 					if ($_SESSION['language'] == 'japanese') {
 						$request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name, zone_street_name FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE post_code = ?;");
 					} else {
-						$request = $conn->prepare("SELECT zone_id_romaji AS zone_id, zone_name_romaji AS zone_name, zone_city_name_romaji AS zone_city_name, zone_street_name_romaji AS zone_street_name FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE post_code = ?;");
+						$request = $conn->prepare("SELECT zone_id, zone_name_romaji AS zone_name, zone_city_name_romaji AS zone_city_name, zone_street_name_romaji AS zone_street_name FROM " . DB_PREFIX . "zones_to_post_code_jp WHERE post_code = ?;");
 					}
 					break;
 				case 'FRA':
