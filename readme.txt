@@ -12,11 +12,9 @@ INSTALL:
 - Run SQL query from files (zones_to_post_code_2letterscountrycode.sql) in SQL folder for each country you want to use in Zen Cart SQL tool or from PhpMyAdmin. If your country is not available, you will have to build the table. See how at the end of this file.
 Be aware that it could take some time for country like Japan where you have more than 120 000 entries. If you added some prefix to your Zen cart database, you have to modify these queries before running them.
 IMPORTANT notes:
-	1- Some data in zones table are outdated or have errors. Run queries in files 'zones_2letterscountrycode_update.sql' FIRST to correct them.
-	2- Japanese table uses Japanese zones installed with Japanese language pack. If they are not installed in your cart, use 'zones_to_post_code_jp_zone0.sql' which has all zones ids set to zero.
-	3- If you have added country zones for other countries before adding Japanese ones then zone ids are different than those in the 'zones_to_post_code_jp.sql'. In this case use 'zones_to_post_code_jp_zone0.sql' 
-	to create table and apply SQL queries provided at the end of this file in section 'BUILDING A NEW COUNTRY TABLE DATA' to update them.
-
+	1- For Zen Cart v1.58a and below, some data in zones table are outdated or have errors. Run queries in files '../sql/V1.5.8a-and-lower/zones_*2letterscountrycode*_update.sql' FIRST to correct them.
+	2- Japanese table uses Japanese zones installed with Japanese language pack. If they are not installed in your cart, use 'zones_to_post_code_jp_zone0.sql' which has all zones ids set to zero. It will be faster like this as this table is pretty big.
+	
 - Copy following files to your cart respecting folder tree:
 includes/classes/ajax/zcAjaxPostcodeQuery.php
 includes/modules/pages/address_book_process/jscript_postcode.js
@@ -30,7 +28,7 @@ Bonus:
  If you want to use database postal codes data in shipping estimator merge the provided file (in bonus folder) but there is no ajax here, you must click on submit button to update form:
  includes/modules/shipping_estimator.php
  
- Or add this code around line 48 after --- '$selectedState = (isset($_POST['state']) ? zen_output_string_protected($_POST['state']) : ''); ---:
+ Or add this code around line 48 or 53 depending on ZC version after --- '$selectedState = (isset($_POST['state']) ? zen_output_string_protected($_POST['state']) : ''); ---:
  
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	if (!empty($_POST['postcode'])) { // uses postcode to define zone if postcode zones have been put in database.
@@ -145,8 +143,3 @@ Then I add a 'post_zone_id' field as an auto_increment index. Have a look at pro
 With countries using non-alphabet writting you might want to double fields (adding an aplhabet written field), but it will make sql requests and PHP loops more complicated. have a look at Japanese version.
 
 - Finally, 'zcAjaxPostcodeQuery.php' (and eventually 'shipping_estimator.php') file must be modified. In the 'switch' loop you need to add a 'case' for the new country. You can copy an existing one and modify country code and SQL request especially if you have street data or not.
-
-EXTRAS:
--------
--------
-In Powertip plugin files and folders you can find a readable version of 'jquery.powertip.min.js' and some css files with different designs (for popup menu) you can try.
