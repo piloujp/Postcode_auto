@@ -11,7 +11,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * portions Copyright (c) 2003 Edwin Bekaert (edwin@ednique.com)
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: piloujp 2024 Feb 14 Modified in v2.0.0-alpha1 $
+ * @version $Id: piloujp 2024 Feb 14 Modified in v2.0.0 $
  */
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
@@ -285,7 +285,7 @@ if ($_SESSION['cart']->count_contents() > 0) {
                     $selected_quote[0] = $value;
                     if (!empty($method)) {
                         foreach ($selected_quote[0]['methods'] as $qkey => $qval) {
-                            if ($qval['id'] == $method) {
+                            if (($qval['id'] ?? '') == $method) {
                                 $selected_quote[0]['methods'] = [$qval];
                                 continue 2;
                             }

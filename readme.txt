@@ -106,7 +106,7 @@ Bonus:
 UNINSTALL:
 ----------
 ----------
-- Run these SQL query to remove database tables:
+- Run these SQL queries to remove database tables:
 DROP TABLE zones_to_post_code_us;
 DROP TABLE zones_to_post_code_fr;
 DROP TABLE zones_to_post_code_jp;
