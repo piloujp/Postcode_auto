@@ -17,12 +17,16 @@ IMPORTANT notes:
 	
 - Copy following files to your cart respecting folder tree:
 includes/classes/ajax/zcAjaxPostcodeQuery.php
-includes/modules/pages/address_book_process/jscript_postcode.js
-includes/modules/pages/checkout_shipping_address/jscript_postcode.js
-includes/modules/pages/login/jscript_postcode.js
+includes/modules/pages/address_book_process/jscript_postcode.js ** NEEDS TO BE MODIFIED TO FIT YOUR TEMPLATE **
+includes/modules/pages/checkout_shipping_address/jscript_postcode.js ** NEEDS TO BE MODIFIED TO FIT YOUR TEMPLATE **
+includes/modules/pages/login/jscript_postcode.js ** NEEDS TO BE MODIFIED TO FIT YOUR TEMPLATE **
 includes/templates/YOUR_TEMPLATE/css/stylesheet_jquery.powertip.min.css
 includes/templates/YOUR_TEMPLATE/jscript/jquery.powertip.min.js
 To do so, first RENAME folder 'YOUR_TEMPLATE' to the template name you use, then COPY 'includes' folder content to your cart 'includes' folder.
+In 'jscript_postcode.js' files there are lines like this:
+    $.getScript( "includes/templates/responsive_classic/jscript/jquery.powertip.min.js" ),
+Where path needs to be changed to fit your template name if it is not 'responsive_classic':
+    $.getScript( "includes/templates/YOUR_ACTUAL_TEMPLATE_NAME/jscript/jquery.powertip.min.js" ),
 
 Bonus:
  If you want to use database postal codes data in shipping estimator merge the provided file (in bonus folder) but there is no ajax here, you must click on submit button to update form:
