@@ -12,15 +12,15 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_ES . " (
     KEY post_code (post_code),
     KEY zone_id (zone_id),
     KEY zone_name (zone_name)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid := countries_id FROM countries WHERE countries_iso_code_3 = 'ESP'";
+$sql = "SET @coid = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'ESP' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Álava' AND zone_country_id = @coid), '01001', 'Álava', 'Vitoria-Gasteiz'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Álava' AND zone_country_id = @coid), '01002', 'Álava', 'Vitoria-Gasteiz'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Álava' AND zone_country_id = @coid), '01003', 'Álava', 'Vitoria-Gasteiz'),
@@ -1032,7 +1032,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alicante' AND zone_country_id = @coid), '03187', 'Alicante', 'Perez, Los (Ayuntamiento Los Montesinos)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alicante' AND zone_country_id = @coid), '03187', 'Alicante', 'Las Casitas'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alicante' AND zone_country_id = @coid), '03187', 'Alicante', 'Miras, Los (Montesinos)'),
@@ -1898,7 +1898,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alicante' AND zone_country_id = @coid), '03841', 'Alicante', 'Alcocer De Planes'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alicante' AND zone_country_id = @coid), '03850', 'Alicante', 'Beniarres'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alicante' AND zone_country_id = @coid), '03860', 'Alicante', 'Lorcha/Orxa, L\''),
@@ -2857,7 +2857,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ávila' AND zone_country_id = @coid), '05410', 'Ávila', 'Mombeltran'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ávila' AND zone_country_id = @coid), '05412', 'Ávila', 'San Esteban Del Valle'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ávila' AND zone_country_id = @coid), '05413', 'Ávila', 'Santa Cruz Del Valle'),
@@ -3753,7 +3753,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Barcelona' AND zone_country_id = @coid), '08183', 'Barcelona', 'Castellcir'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Barcelona' AND zone_country_id = @coid), '08183', 'Barcelona', 'Granera'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Barcelona' AND zone_country_id = @coid), '08184', 'Barcelona', 'Palau-Solita I Plegamans'),
@@ -4642,7 +4642,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Burgos' AND zone_country_id = @coid), '09219', 'Burgos', 'Villanueva De Teba'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Burgos' AND zone_country_id = @coid), '09219', 'Burgos', 'Montañana'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Burgos' AND zone_country_id = @coid), '09219', 'Burgos', 'Santa Maria Ribarredonda'),
@@ -5594,7 +5594,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cáceres' AND zone_country_id = @coid), '10320', 'Cáceres', 'Bohonal De Ibor'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cáceres' AND zone_country_id = @coid), '10328', 'Cáceres', 'Fresnedoso De Ibor'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cáceres' AND zone_country_id = @coid), '10329', 'Cáceres', 'Campillo De Deleitosa'),
@@ -6524,7 +6524,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Córdoba' AND zone_country_id = @coid), '14008', 'Córdoba', 'Cordoba'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Córdoba' AND zone_country_id = @coid), '14009', 'Córdoba', 'Cordoba'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Córdoba' AND zone_country_id = @coid), '14010', 'Córdoba', 'Camino Lope Garcia (Cordoba)'),
@@ -7359,7 +7359,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15173', 'A Coruña', 'Pousada (Oleiros)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15174', 'A Coruña', 'Telva, A (San Xian De Almeiras-Culleredo)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15174', 'A Coruña', 'Silva, A (San Xian De Almeiras-Culleredo)'),
@@ -8116,7 +8116,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15594', 'A Coruña', 'Covarradeiras (Pª San Martiño De Covas)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15594', 'A Coruña', 'Aldea (Pª San Martiño De Covas)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15594', 'A Coruña', 'Pedreira, A (Covas-Ferrol)'),
@@ -8874,7 +8874,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15893', 'A Coruña', 'Veiga, A (San Cristovo Do Eixo-Santiago)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15893', 'A Coruña', 'Corexo (Santa Maria De Marrozos-Santiago)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'A Coruña' AND zone_country_id = @coid), '15893', 'A Coruña', 'Piñeiro Do Eixo (San Cristovo Do Eixo-Santiago)'),
@@ -9741,7 +9741,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Girona' AND zone_country_id = @coid), '17466', 'Girona', 'Olives, Les'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Girona' AND zone_country_id = @coid), '17467', 'Girona', 'Sant Mori'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Girona' AND zone_country_id = @coid), '17467', 'Girona', 'Saus'),
@@ -10675,7 +10675,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Guadalajara' AND zone_country_id = @coid), '19262', 'Guadalajara', 'Estriegana'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Guadalajara' AND zone_country_id = @coid), '19262', 'Guadalajara', 'Sauca'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Guadalajara' AND zone_country_id = @coid), '19262', 'Guadalajara', 'Jodra Del Pinar'),
@@ -11614,7 +11614,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Huesca' AND zone_country_id = @coid), '22280', 'Huesca', 'Gurrea De Gallego'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Huesca' AND zone_country_id = @coid), '22280', 'Huesca', 'Camporredondo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Huesca' AND zone_country_id = @coid), '22281', 'Huesca', 'El Temple'),
@@ -12616,7 +12616,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'León' AND zone_country_id = @coid), '24142', 'León', 'Mena'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'León' AND zone_country_id = @coid), '24142', 'León', 'Peñalba De Cilleros'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'León' AND zone_country_id = @coid), '24142', 'León', 'Las Murias'),
@@ -13570,7 +13570,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'León' AND zone_country_id = @coid), '24733', 'León', 'Quintanilla De Florez'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'León' AND zone_country_id = @coid), '24734', 'León', 'Pobladura Del Yuso'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'León' AND zone_country_id = @coid), '24734', 'León', 'Pinilla De La Valderia'),
@@ -14540,7 +14540,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lérida' AND zone_country_id = @coid), '25633', 'Lérida', 'Puigmaçana'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lérida' AND zone_country_id = @coid), '25633', 'Lérida', 'Puigcercos'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lérida' AND zone_country_id = @coid), '25634', 'Lérida', 'Figols De Tremp'),
@@ -15467,7 +15467,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lugo' AND zone_country_id = @coid), '27246', 'Lugo', 'Crecente'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lugo' AND zone_country_id = @coid), '27246', 'Lugo', 'Saldanxe'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lugo' AND zone_country_id = @coid), '27246', 'Lugo', 'Paraxes'),
@@ -16364,7 +16364,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lugo' AND zone_country_id = @coid), '27791', 'Lugo', 'Sasdonigas (San Lourenzo)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lugo' AND zone_country_id = @coid), '27792', 'Lugo', 'Benquerencia'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lugo' AND zone_country_id = @coid), '27793', 'Lugo', 'Reinante (San Miguel)'),
@@ -17280,7 +17280,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Málaga' AND zone_country_id = @coid), '29712', 'Málaga', 'La Aldea'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Málaga' AND zone_country_id = @coid), '29712', 'Málaga', 'Portugalejo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Málaga' AND zone_country_id = @coid), '29712', 'Málaga', 'Viñuela'),
@@ -18230,7 +18230,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Navarra' AND zone_country_id = @coid), '31241', 'Navarra', 'Iguzquiza'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Navarra' AND zone_country_id = @coid), '31241', 'Navarra', 'Ollobarren'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Navarra' AND zone_country_id = @coid), '31242', 'Navarra', 'Villamayor De Monjardin'),
@@ -19189,7 +19189,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32160', 'Ourense', 'Nogueira De Ramuin'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32160', 'Ourense', 'Alcouce, O'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32160', 'Ourense', 'Cinseiro'),
@@ -20068,7 +20068,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32548', 'Ourense', 'Chaguazoso (Mezquita, A)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32548', 'Ourense', 'Cadavos'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32548', 'Ourense', 'Castromil'),
@@ -20936,7 +20936,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32792', 'Ourense', 'Reboredo (Pereiro De Aguiar)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32792', 'Ourense', 'Derrasa, A'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ourense' AND zone_country_id = @coid), '32792', 'Ourense', 'Calvelle (San Miguel)'),
@@ -21819,7 +21819,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33127', 'Asturias', 'Santa Eulalia (Soto Del Barco)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33127', 'Asturias', 'Castillo (Soto Del Barco)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33127', 'Asturias', 'Llana, La (Pravia)'),
@@ -22697,7 +22697,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33316', 'Asturias', 'Vega (Quintana)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33316', 'Asturias', 'Sienra, La (Tornon - Villaviciosa)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33316', 'Asturias', 'Torre, La (Carda-Villaviciosa)'),
@@ -23581,7 +23581,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33509', 'Asturias', 'Pereda, La (Llanes)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33509', 'Asturias', 'Portiella, La (Llanes)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33509', 'Asturias', 'Poo De Llanes'),
@@ -24488,7 +24488,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33614', 'Asturias', 'El Sordan'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33614', 'Asturias', 'La Xagosa'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33614', 'Asturias', 'Canto'),
@@ -25388,7 +25388,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33747', 'Asturias', 'Lantrapiñan'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33748', 'Asturias', 'Ol'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33748', 'Asturias', 'Casariego'),
@@ -26293,7 +26293,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33819', 'Asturias', 'Porley'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33819', 'Asturias', 'Castiello (Cangas De Narcea)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33819', 'Asturias', 'Porciles (Cangas De Narcea)'),
@@ -27191,7 +27191,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33887', 'Asturias', 'Villasonte'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33888', 'Asturias', 'Penouta (Pola De Allande)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Asturias' AND zone_country_id = @coid), '33888', 'Asturias', 'Meres (Pola De Allande)'),
@@ -28056,7 +28056,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Palencia' AND zone_country_id = @coid), '34110', 'Palencia', 'Pino Del Rio'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Palencia' AND zone_country_id = @coid), '34111', 'Palencia', 'Poza De La Vega'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Palencia' AND zone_country_id = @coid), '34111', 'Palencia', 'Acera De La Vega'),
@@ -28906,7 +28906,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Las Palmas' AND zone_country_id = @coid), '35299', 'Las Palmas', 'Perera'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Las Palmas' AND zone_country_id = @coid), '35299', 'Las Palmas', 'Hoya Garcia'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Las Palmas' AND zone_country_id = @coid), '35299', 'Las Palmas', 'Lomo De La Palma'),
@@ -29745,7 +29745,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pontevedra' AND zone_country_id = @coid), '36314', 'Pontevedra', 'Vigo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pontevedra' AND zone_country_id = @coid), '36315', 'Pontevedra', 'Vigo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pontevedra' AND zone_country_id = @coid), '36316', 'Pontevedra', 'Fraga, A (Vincios)'),
@@ -30514,7 +30514,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pontevedra' AND zone_country_id = @coid), '36814', 'Pontevedra', 'Negros (Santo Estevo)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pontevedra' AND zone_country_id = @coid), '36814', 'Pontevedra', 'Pregal (Negros)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pontevedra' AND zone_country_id = @coid), '36815', 'Pontevedra', 'Vilar De Infesta (San Martiño)'),
@@ -31344,7 +31344,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Salamanca' AND zone_country_id = @coid), '37609', 'Salamanca', 'Herreros De Peña Cabra'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Salamanca' AND zone_country_id = @coid), '37609', 'Salamanca', 'Pedro Martin (Finca)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Salamanca' AND zone_country_id = @coid), '37609', 'Salamanca', 'Peralejos De Solis'),
@@ -32089,7 +32089,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Santa Cruz de Tenerife' AND zone_country_id = @coid), '38729', 'Santa Cruz de Tenerife', 'Roque, El (San Andres Y Sauces)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Santa Cruz de Tenerife' AND zone_country_id = @coid), '38729', 'Santa Cruz de Tenerife', 'Verada De Lomadas'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Santa Cruz de Tenerife' AND zone_country_id = @coid), '38729', 'Santa Cruz de Tenerife', 'Bermudez'),
@@ -32948,7 +32948,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cantabria' AND zone_country_id = @coid), '39593', 'Cantabria', 'Venta, La (Valdaliga)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cantabria' AND zone_country_id = @coid), '39593', 'Cantabria', 'La Peñia'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cantabria' AND zone_country_id = @coid), '39593', 'Cantabria', 'Bustriguado'),
@@ -33867,7 +33867,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Sevilla' AND zone_country_id = @coid), '41370', 'Sevilla', 'Solana Del Valle'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Sevilla' AND zone_country_id = @coid), '41380', 'Sevilla', 'Alanis'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Sevilla' AND zone_country_id = @coid), '41388', 'Sevilla', 'San Nicolas Del Puerto'),
@@ -34808,7 +34808,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tarragona' AND zone_country_id = @coid), '43729', 'Tarragona', 'Valdemar (Urbanitzacio)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tarragona' AND zone_country_id = @coid), '43730', 'Tarragona', 'Falset'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tarragona' AND zone_country_id = @coid), '43736', 'Tarragona', 'La Figuera'),
@@ -35737,7 +35737,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Valencia' AND zone_country_id = @coid), '46220', 'Valencia', 'Picassent'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Valencia' AND zone_country_id = @coid), '46225', 'Valencia', 'Centro Penitenciario Picassent'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Valencia' AND zone_country_id = @coid), '46229', 'Valencia', 'Fuente Del Omet'),
@@ -36654,7 +36654,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vizcaya' AND zone_country_id = @coid), '48291', 'Vizcaya', 'Artia-Jauregi (Poligono Industrial)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vizcaya' AND zone_country_id = @coid), '48291', 'Vizcaya', 'San Juan (Atxondo)'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vizcaya' AND zone_country_id = @coid), '48291', 'Vizcaya', 'Axpe (Atxondo)'),
@@ -37597,7 +37597,7 @@ INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_es (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_ES . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Zamora' AND zone_country_id = @coid), '49719', 'Zamora', 'El Maderal'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Zamora' AND zone_country_id = @coid), '49719', 'Zamora', 'Villamor De Los Escuderos'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Zamora' AND zone_country_id = @coid), '49720', 'Zamora', 'El Perdigon'),

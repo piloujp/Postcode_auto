@@ -12,17 +12,17 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_US . " (
     UNIQUE KEY post_code_2 (post_code,zip4_code,zone_city_name),
     KEY zone_name (zone_name),
     KEY zone_id (zone_id)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid0 := countries_id FROM countries WHERE countries_iso_code_3 = 'USA'";
+$sql = "SET @coid0 = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'USA' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
-$sql = "SELECT @coid1 := countries_id FROM countries WHERE countries_iso_code_3 = 'PLW'";
+$sql = "SET @coid1 = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'PLW' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Puerto Rico' AND zone_country_id = @coid0), '00601', '9998', 'Puerto Rico', 'Adjuntas'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Puerto Rico' AND zone_country_id = @coid0), '00602', '9998', 'Puerto Rico', 'Aguada'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Puerto Rico' AND zone_country_id = @coid0), '00603', '9998', 'Puerto Rico', 'Aguadilla'),
@@ -850,7 +850,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), '02910', '3499', 'Rhode Island', 'Cranston'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), '02911', '9998', 'Rhode Island', 'North Providence'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), '02919', '9998', 'Rhode Island', 'Johnston'),
@@ -1731,7 +1731,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), '05777', '9998', 'Vermont', 'West Rutland'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), '05737', '9998', 'Vermont', 'Chittenden'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), '05738', '9998', 'Vermont', 'Cuttingsville'),
@@ -2573,7 +2573,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), '08069', '9998', 'New Jersey', 'Penns Grove'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), '08070', '9998', 'New Jersey', 'Pennsville'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), '08071', '9998', 'New Jersey', 'Pitman'),
@@ -3434,7 +3434,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), '12058', '9998', 'New York', 'Earlton'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), '12059', '9998', 'New York', 'East Berne'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), '12060', '9998', 'New York', 'East Chatham'),
@@ -4303,7 +4303,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), '14035', '9800', 'New York', 'Collins Center'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), '14036', '9998', 'New York', 'Corfu'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), '14039', '9998', 'New York', 'Dale'),
@@ -5149,7 +5149,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), '15954', '9998', 'Pennsylvania', 'Seward'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), '15955', '9998', 'Pennsylvania', 'Sidman'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), '15956', '9998', 'Pennsylvania', 'South Fork'),
@@ -5966,7 +5966,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), '18225', '9998', 'Pennsylvania', 'Harleigh'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), '18229', '9998', 'Pennsylvania', 'Jim Thorpe'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), '18229', '1406', 'Pennsylvania', 'Jim Thorpe'),
@@ -6789,7 +6789,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), '20904', '7878', 'Maryland', 'Silver Spring'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), '20902', '9997', 'Maryland', 'Silver Spring'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), '20904', '9996', 'Maryland', 'Silver Spring'),
@@ -7663,7 +7663,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), '24060', '9998', 'Virginia', 'Blacksburg'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), '24060', '9997', 'Virginia', 'Blacksburg'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), '24064', '9998', 'Virginia', 'Blue Ridge'),
@@ -8501,7 +8501,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), '26506', '9997', 'West Virginia', 'Morgantown'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), '26505', '9998', 'West Virginia', 'Morgantown'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), '26537', '9998', 'West Virginia', 'Kingwood'),
@@ -9302,7 +9302,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), '28675', '9598', 'North Carolina', 'Sparta'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), '28624', '9033', 'North Carolina', 'Ferguson'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), '28677', '9998', 'North Carolina', 'Statesville'),
@@ -10130,7 +10130,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), '30501', '9996', 'Georgia', 'Gainesville'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), '30502', '9800', 'Georgia', 'Chestnut Mountain'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), '30501', '3310', 'Georgia', 'Gainesville'),
@@ -11012,7 +11012,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), '33160', '9998', 'Florida', 'North Miami Beach'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), '33181', '9998', 'Florida', 'North Miami'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), '33180', '2635', 'Florida', 'Miami'),
@@ -11901,7 +11901,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), '36609', '9998', 'Alabama', 'Mobile'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), '36610', '9998', 'Alabama', 'Mobile'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), '36606', '3405', 'Alabama', 'Mobile'),
@@ -12753,7 +12753,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), '39042', '9998', 'Mississippi', 'Brandon'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), '39044', '9998', 'Mississippi', 'Braxton'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), '39045', '9998', 'Mississippi', 'Camden'),
@@ -13614,7 +13614,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), '42333', '9565', 'Kentucky', 'Cromwell'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), '42339', '9998', 'Kentucky', 'Dunmor'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), '42343', '9998', 'Kentucky', 'Fordsville'),
@@ -14535,7 +14535,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), '45142', '9998', 'Ohio', 'Lynchburg'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), '45144', '9998', 'Ohio', 'Manchester'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), '45146', '9998', 'Ohio', 'Martinsville'),
@@ -15434,7 +15434,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), '47590', '9998', 'Indiana', 'Velpen'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), '47591', '9998', 'Indiana', 'Vincennes'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), '47596', '9998', 'Indiana', 'Westphalia'),
@@ -16309,7 +16309,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), '49666', '9800', 'Michigan', 'Mayfield'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), '49667', '9758', 'Michigan', 'Merritt'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), '49668', '9258', 'Michigan', 'Mesick'),
@@ -17238,7 +17238,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), '52535', '7706', 'Iowa', 'Birmingham'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), '52565', '7730', 'Iowa', 'Keosauqua'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), '52536', '8212', 'Iowa', 'Blakesburg'),
@@ -18104,7 +18104,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), '54977', '9307', 'Wisconsin', 'Scandinavia'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), '54978', '9700', 'Wisconsin', 'Tilleda'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), '54979', '9427', 'Wisconsin', 'Van Dyne'),
@@ -18961,7 +18961,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), '57048', '9998', 'South Dakota', 'Montrose'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), '57050', '9998', 'South Dakota', 'Nunda'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), '57054', '9998', 'South Dakota', 'Ramona'),
@@ -19811,7 +19811,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), '59802', '9998', 'Montana', 'Missoula'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), '59808', '9998', 'Montana', 'Missoula'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), '59820', '9998', 'Montana', 'Alberton'),
@@ -20688,7 +20688,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), '61920', '9998', 'Illinois', 'Charleston'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), '61924', '9998', 'Illinois', 'Chrisman'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), '61925', '9998', 'Illinois', 'Dalton City'),
@@ -21560,7 +21560,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), '64021', '9998', 'Missouri', 'Corder'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), '64022', '9998', 'Missouri', 'Dover'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), '64024', '9998', 'Missouri', 'Excelsior Springs'),
@@ -22445,7 +22445,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), '67062', '9998', 'Kansas', 'Hesston'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), '67063', '9998', 'Kansas', 'Hillsboro'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), '67065', '9997', 'Kansas', 'Isabel'),
@@ -23338,7 +23338,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), '70514', '9998', 'Louisiana', 'Baldwin'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), '70515', '5437', 'Louisiana', 'Basile'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), '70516', '3640', 'Louisiana', 'Branch'),
@@ -24217,7 +24217,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), '72680', '9998', 'Arkansas', 'Timbo'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), '72683', '9998', 'Arkansas', 'Vendor'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), '72685', '9998', 'Arkansas', 'Western Grove'),
@@ -25118,7 +25118,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), '75491', '9998', 'Texas', 'Whitewright'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), '75492', '9998', 'Texas', 'Windom'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), '75493', '9998', 'Texas', 'Winfield'),
@@ -26048,7 +26048,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), '78163', '9997', 'Texas', 'Bulverde'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), '78164', '9998', 'Texas', 'Yorktown'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), '78201', '9998', 'Texas', 'San Antonio'),
@@ -26955,7 +26955,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), '81242', '9990', 'Colorado', 'Poncha Springs'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), '81244', '9990', 'Colorado', 'Rockvale'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), '81248', '9990', 'Colorado', 'Sargents'),
@@ -27874,7 +27874,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), '85926', '5300', 'Arizona', 'Fort Apache'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), '85927', '9802', 'Arizona', 'Greer'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), '85928', '9800', 'Arizona', 'Heber'),
@@ -28725,7 +28725,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), '91791', '9998', 'California', 'West Covina'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), '91802', '9998', 'California', 'Alhambra'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), '91803', '9998', 'California', 'Alhambra'),
@@ -29556,7 +29556,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), '95013', '9800', 'California', 'Coyote'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), '95014', '9998', 'California', 'Cupertino'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), '95017', '9998', 'California', 'Davenport'),
@@ -30414,7 +30414,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), '97368', '9544', 'Oregon', 'Otis'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), '97370', '9416', 'Oregon', 'Philomath'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), '97371', '9770', 'Oregon', 'Rickreall'),
@@ -31284,7 +31284,7 @@ INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_cod
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_us (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zip4_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alaska' AND zone_country_id = @coid0), '99615', '6090', 'Alaska', 'Kodiak'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alaska' AND zone_country_id = @coid0), '99615', '6995', 'Alaska', 'Kodiak'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Alaska' AND zone_country_id = @coid0), '99615', '9998', 'Alaska', 'Kodiak'),

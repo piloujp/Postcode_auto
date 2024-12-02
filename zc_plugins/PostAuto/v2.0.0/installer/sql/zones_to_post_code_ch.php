@@ -12,17 +12,17 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_CH . " (
     KEY zone_country_id (zone_country_id),
     KEY post_code_2 (post_code),
     KEY zone_id (zone_id)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid0 := countries_id FROM countries WHERE countries_iso_code_3 = 'CHE'";
+$sql = "SET @coid0 = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'CHE' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
-$sql = "SELECT @coid1 := countries_id FROM countries WHERE countries_iso_code_3 = 'LIE'";
+$sql = "SET @coid1 = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'LIE' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_CH . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vaud' AND zone_country_id = @coid0), '1000', 'Vaud', 'Lausanne 22'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vaud' AND zone_country_id = @coid0), '1000', 'Vaud', 'Lausanne 26'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vaud' AND zone_country_id = @coid0), '1000', 'Vaud', 'Lausanne 25'),
@@ -1086,7 +1086,7 @@ INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_CH . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Neuchâtel' AND zone_country_id = @coid0), '2052', 'Neuchâtel', 'Fontainemelon'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Neuchâtel' AND zone_country_id = @coid0), '2053', 'Neuchâtel', 'Cernier'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Neuchâtel' AND zone_country_id = @coid0), '2054', 'Neuchâtel', 'Les Vieux-Prés'),
@@ -2136,7 +2136,7 @@ INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_CH . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Basel-Landschaft' AND zone_country_id = @coid0), '4434', 'Basel-Landschaft', 'Hölstein'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Basel-Landschaft' AND zone_country_id = @coid0), '4435', 'Basel-Landschaft', 'Niederdorf'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Basel-Landschaft' AND zone_country_id = @coid0), '4436', 'Basel-Landschaft', 'Oberdorf BL'),
@@ -3182,7 +3182,7 @@ INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_CH . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ticino' AND zone_country_id = @coid0), '6944', 'Ticino', 'Cureglia'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ticino' AND zone_country_id = @coid0), '6945', 'Ticino', 'Origlio'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ticino' AND zone_country_id = @coid0), '6946', 'Ticino', 'Ponte Capriasca'),
@@ -4197,7 +4197,7 @@ INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_ch (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_CH . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Zürich' AND zone_country_id = @coid0), '8901', 'Zürich', 'Urdorf Tessi'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Zürich' AND zone_country_id = @coid0), '8901', 'Zürich', 'Urdorf'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Zürich' AND zone_country_id = @coid0), '8902', 'Zürich', 'Urdorf'),

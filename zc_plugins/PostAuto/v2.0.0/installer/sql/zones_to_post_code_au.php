@@ -11,15 +11,15 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_AU . " (
     UNIQUE KEY post_code (post_code,zone_name,zone_city_name),
     KEY zone_name (zone_name),
     KEY zone_id (zone_id)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid := countries_id FROM countries WHERE countries_iso_code_3 = 'AUS'";
+$sql = "SET @coid = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'AUS' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Australian Capital Territory' AND zone_country_id = @coid), '0200', 'Australian Capital Territory', 'Australian National University'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Australian Capital Territory' AND zone_country_id = @coid), '0221', 'Australian Capital Territory', 'Barton'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Northern Territory' AND zone_country_id = @coid), '0800', 'Northern Territory', 'Darwin'),
@@ -911,7 +911,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2084', 'New South Wales', 'Duffys Forest'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2085', 'New South Wales', 'Belrose'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2085', 'New South Wales', 'Davidson'),
@@ -1797,7 +1797,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2328', 'New South Wales', 'Denman'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2328', 'New South Wales', 'Giants Creek'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2328', 'New South Wales', 'Hollydeen'),
@@ -2697,7 +2697,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2446', 'New South Wales', 'Bagnoo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2446', 'New South Wales', 'Yarras'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2446', 'New South Wales', 'Forbes River'),
@@ -3585,7 +3585,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2540', 'New South Wales', 'Mayfield'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2540', 'New South Wales', 'Myola'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2540', 'New South Wales', 'Parma'),
@@ -4467,7 +4467,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2650', 'New South Wales', 'Wantabadgery'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2650', 'New South Wales', 'Oberne Creek'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2650', 'New South Wales', 'San Isidore'),
@@ -5370,7 +5370,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2831', 'New South Wales', 'Quambone'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2831', 'New South Wales', 'Girilambone'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'New South Wales' AND zone_country_id = @coid), '2831', 'New South Wales', 'Hermidale'),
@@ -6332,7 +6332,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3249', 'Victoria', 'Pirron Yallock'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3249', 'Victoria', 'Larpent'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3249', 'Victoria', 'Barongarook West'),
@@ -7367,7 +7367,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3517', 'Victoria', 'Powlett Plains'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3517', 'Victoria', 'Brenanah'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3517', 'Victoria', 'Jarklin'),
@@ -8394,7 +8394,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3832', 'Victoria', 'Neerim North'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3833', 'Victoria', 'Loch Valley'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Victoria' AND zone_country_id = @coid), '3833', 'Victoria', 'Baw Baw Village'),
@@ -9390,7 +9390,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4229', 'Queensland', 'Bond University'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4230', 'Queensland', 'Robina Town Centre'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4270', 'Queensland', 'Tamborine'),
@@ -10372,7 +10372,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4512', 'Queensland', 'Bracalba'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4512', 'Queensland', 'Wamuran'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4512', 'Queensland', 'Wamuran Basin'),
@@ -11343,7 +11343,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4711', 'Queensland', 'Glendale'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4711', 'Queensland', 'Glenlee'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4712', 'Queensland', 'Duaringa'),
@@ -12312,7 +12312,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4885', 'Queensland', 'Tarzali'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4885', 'Queensland', 'Topaz'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Queensland' AND zone_country_id = @coid), '4885', 'Queensland', 'Peeramon'),
@@ -13188,7 +13188,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Australia' AND zone_country_id = @coid), '5268', 'South Australia', 'Lowan Vale'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Australia' AND zone_country_id = @coid), '5269', 'South Australia', 'Pine Hill'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Australia' AND zone_country_id = @coid), '5269', 'South Australia', 'Custon'),
@@ -14080,7 +14080,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Australia' AND zone_country_id = @coid), '5700', 'South Australia', 'Mundallio'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Australia' AND zone_country_id = @coid), '5701', 'South Australia', 'Cook'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'South Australia' AND zone_country_id = @coid), '5701', 'South Australia', 'Woolundunga'),
@@ -14933,7 +14933,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Western Australia' AND zone_country_id = @coid), '6311', 'Western Australia', 'Wardering'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Western Australia' AND zone_country_id = @coid), '6311', 'Western Australia', 'Townsendale'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Western Australia' AND zone_country_id = @coid), '6311', 'Western Australia', 'Commodine'),
@@ -15790,7 +15790,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Western Australia' AND zone_country_id = @coid), '6635', 'Western Australia', 'Yalgoo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Western Australia' AND zone_country_id = @coid), '6635', 'Western Australia', 'South Murchison'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Western Australia' AND zone_country_id = @coid), '6638', 'Western Australia', 'Cooladar Hill'),
@@ -16747,7 +16747,7 @@ INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_au (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AU . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tasmania' AND zone_country_id = @coid), '7316', 'Tasmania', 'Sulphur Creek'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tasmania' AND zone_country_id = @coid), '7316', 'Tasmania', 'Riana'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tasmania' AND zone_country_id = @coid), '7316', 'Tasmania', 'Cuprona'),

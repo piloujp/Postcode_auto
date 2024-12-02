@@ -13,18 +13,18 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_FR . " (
     KEY post_code (post_code),
     KEY zone_id (zone_id),
     KEY zone_name (zone_name)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
 $frenchcountries = ['FRA', 'GLP', 'GUF', 'PYF', 'MTQ', 'MYT', 'MCO', 'REU', 'NCL', 'SPM', 'WLF'];
-for ( $i = 0; $i < count($frenchcountries); $i++) {
-$sql = "SELECT @coid" . $i . " := countries_id FROM countries WHERE countries_iso_code_3 = '" . $frenchcountries[$i] . "';";
-$this->executeInstallerSql($sql);
+for ($i = 0; $i < count($frenchcountries); $i++) {
+    $sql = "SET @coid" . $i . " = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = '" . $frenchcountries[$i] . "' ORDER BY countries_id DESC LIMIT 1);";
+    $this->executeInstallerSql($sql);
 }
 
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ain' AND zone_country_id = @coid0), '01000', 'Ain', 'Bourg-en-Bresse', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ain' AND zone_country_id = @coid0), '01000', 'Ain', 'Bourg-en-Bresse', 'Brou'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ain' AND zone_country_id = @coid0), '01000', 'Ain', 'Saint-Denis-lès-Bourg', ''),
@@ -1025,7 +1025,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aisne' AND zone_country_id = @coid0), '02400', 'Aisne', 'Lucy-le-Bocage', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aisne' AND zone_country_id = @coid0), '02400', 'Aisne', 'Monthiers', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aisne' AND zone_country_id = @coid0), '02400', 'Aisne', 'Mont-Saint-Père', ''),
@@ -1912,7 +1912,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hautes-Alpes' AND zone_country_id = @coid0), '05130', 'Hautes-Alpes', 'Saint-Étienne-le-Laus', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hautes-Alpes' AND zone_country_id = @coid0), '05130', 'Hautes-Alpes', 'Sigoyer', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hautes-Alpes' AND zone_country_id = @coid0), '05130', 'Hautes-Alpes', 'Tallard', ''),
@@ -2789,7 +2789,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ardennes' AND zone_country_id = @coid0), '08220', 'Ardennes', 'Sévigny-Waleppe', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ardennes' AND zone_country_id = @coid0), '08220', 'Ardennes', 'Vaux-lès-Rubigny', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Ardennes' AND zone_country_id = @coid0), '08230', 'Ardennes', 'Bourg-Fidèle', ''),
@@ -3754,7 +3754,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aube' AND zone_country_id = @coid0), '10320', 'Aube', 'Jeugny', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aube' AND zone_country_id = @coid0), '10320', 'Aube', 'Lirey', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aube' AND zone_country_id = @coid0), '10320', 'Aube', 'Longeville-sur-Mogne', ''),
@@ -4713,7 +4713,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Aveyron' AND zone_country_id = @coid0), '12850', 'Aveyron', 'Sainte-Radegonde', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bouches-du-Rhône' AND zone_country_id = @coid0), '13001', 'Bouches-du-Rhône', 'Marseille-01', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bouches-du-Rhône' AND zone_country_id = @coid0), '13002', 'Bouches-du-Rhône', 'Marseille-02', ''),
@@ -5519,7 +5519,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Calvados' AND zone_country_id = @coid0), '14620', 'Calvados', 'Le Marais-la-Chapelle', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Calvados' AND zone_country_id = @coid0), '14620', 'Calvados', 'Morteaux-Couliboeuf', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Calvados' AND zone_country_id = @coid0), '14620', 'Calvados', 'Les Moutiers-en-Auge', ''),
@@ -6417,7 +6417,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Charente-Maritime' AND zone_country_id = @coid0), '17137', 'Charente-Maritime', 'Nieul-sur-Mer', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Charente-Maritime' AND zone_country_id = @coid0), '17137', 'Charente-Maritime', 'Nieul-sur-Mer', 'Lauzieres'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Charente-Maritime' AND zone_country_id = @coid0), '17138', 'Charente-Maritime', 'Puilboreau', ''),
@@ -7275,7 +7275,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Corrèze' AND zone_country_id = @coid0), '19210', 'Corrèze', 'Saint-eloy-les-Tuileries', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Corrèze' AND zone_country_id = @coid0), '19210', 'Corrèze', 'Saint-Julien-le-Vendômois', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Corrèze' AND zone_country_id = @coid0), '19210', 'Corrèze', 'Saint-Martin-Sepert', ''),
@@ -8169,7 +8169,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Côte-d\'Or' AND zone_country_id = @coid0), '21310', 'Côte-d\'Or', 'Beaumont-sur-Vingeanne', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Côte-d\'Or' AND zone_country_id = @coid0), '21310', 'Côte-d\'Or', 'Beire-le-Châtel', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Côte-d\'Or' AND zone_country_id = @coid0), '21310', 'Côte-d\'Or', 'Belleneuve', ''),
@@ -9018,7 +9018,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Côtes-d\'Armor' AND zone_country_id = @coid0), '22940', 'Côtes-d\'Armor', 'Saint-Julien', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Côtes-d\'Armor' AND zone_country_id = @coid0), '22950', 'Côtes-d\'Armor', 'Trégueux', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Côtes-d\'Armor' AND zone_country_id = @coid0), '22950', 'Côtes-d\'Armor', 'Trégueux', 'Creac-H-Tregueux'),
@@ -9887,7 +9887,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Doubs' AND zone_country_id = @coid0), '25110', 'Doubs', 'Grosbois', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Doubs' AND zone_country_id = @coid0), '25110', 'Doubs', 'Guillon-les-Bains', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Doubs' AND zone_country_id = @coid0), '25110', 'Doubs', 'Hyèvre-Magny', ''),
@@ -10834,7 +10834,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Drôme' AND zone_country_id = @coid0), '26570', 'Drôme', 'Aulan', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Drôme' AND zone_country_id = @coid0), '26570', 'Drôme', 'Barret-de-Lioure', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Drôme' AND zone_country_id = @coid0), '26570', 'Drôme', 'Ferrassières', ''),
@@ -11715,7 +11715,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Eure-et-Loir' AND zone_country_id = @coid0), '28170', 'Eure-et-Loir', 'Serazereux', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Eure-et-Loir' AND zone_country_id = @coid0), '28170', 'Eure-et-Loir', 'Thimert-Gâtelles', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Eure-et-Loir' AND zone_country_id = @coid0), '28170', 'Eure-et-Loir', 'Thimert-Gâtelles', 'Gatelles'),
@@ -12593,7 +12593,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Gard' AND zone_country_id = @coid0), '30480', 'Gard', 'Cendras', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Gard' AND zone_country_id = @coid0), '30480', 'Gard', 'Saint-paul-la-Coste', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Gard' AND zone_country_id = @coid0), '30490', 'Gard', 'Montfrin', ''),
@@ -13482,7 +13482,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Gers' AND zone_country_id = @coid0), '32230', 'Gers', 'Marciac', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Gers' AND zone_country_id = @coid0), '32230', 'Gers', 'Mascaras', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Gers' AND zone_country_id = @coid0), '32230', 'Gers', 'Monlezun', ''),
@@ -14428,7 +14428,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hérault' AND zone_country_id = @coid0), '34210', 'Hérault', 'Olonzac', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hérault' AND zone_country_id = @coid0), '34210', 'Hérault', 'Oupia', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hérault' AND zone_country_id = @coid0), '34210', 'Hérault', 'Siran', ''),
@@ -15298,7 +15298,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Indre' AND zone_country_id = @coid0), '36500', 'Indre', 'Saint-Genou', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Indre' AND zone_country_id = @coid0), '36500', 'Indre', 'Saint-Lactencin', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Indre' AND zone_country_id = @coid0), '36500', 'Indre', 'Sougé', ''),
@@ -16181,7 +16181,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Isère' AND zone_country_id = @coid0), '38980', 'Isère', 'Châtenay', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Isère' AND zone_country_id = @coid0), '38980', 'Isère', 'Marnans', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Isère' AND zone_country_id = @coid0), '38980', 'Isère', 'Viriville', ''),
@@ -17149,7 +17149,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Loir-et-Cher' AND zone_country_id = @coid0), '41110', 'Loir-et-Cher', 'Châteauvieux', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Loir-et-Cher' AND zone_country_id = @coid0), '41110', 'Loir-et-Cher', 'Couffy', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Loir-et-Cher' AND zone_country_id = @coid0), '41110', 'Loir-et-Cher', 'Mareuil-sur-Cher', ''),
@@ -18014,7 +18014,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Loire' AND zone_country_id = @coid0), '43750', 'Haute-Loire', 'Vals-près-le-Puy', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Loire' AND zone_country_id = @coid0), '43770', 'Haute-Loire', 'Chadrac', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Loire' AND zone_country_id = @coid0), '43800', 'Haute-Loire', 'Beaulieu', ''),
@@ -18894,7 +18894,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lot' AND zone_country_id = @coid0), '46330', 'Lot', 'Tour-de-Faure', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lot' AND zone_country_id = @coid0), '46340', 'Lot', 'Dégagnac', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Lot' AND zone_country_id = @coid0), '46340', 'Lot', 'Lavercantière', ''),
@@ -19692,7 +19692,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Maine-et-Loire' AND zone_country_id = @coid0), '49330', 'Maine-et-Loire', 'Les Hauts-d\'Anjou', 'Soeurdres'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Maine-et-Loire' AND zone_country_id = @coid0), '49330', 'Maine-et-Loire', 'Étriché', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Maine-et-Loire' AND zone_country_id = @coid0), '49330', 'Maine-et-Loire', 'Juvardeil', ''),
@@ -20494,7 +20494,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Manche' AND zone_country_id = @coid0), '50760', 'Manche', 'Réville', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Manche' AND zone_country_id = @coid0), '50760', 'Manche', 'Sainte-Geneviève', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Manche' AND zone_country_id = @coid0), '50760', 'Manche', 'Valcanville', ''),
@@ -21399,7 +21399,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Marne' AND zone_country_id = @coid0), '52200', 'Haute-Marne', 'Vauxbons', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Marne' AND zone_country_id = @coid0), '52200', 'Haute-Marne', 'Voisines', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Marne' AND zone_country_id = @coid0), '52210', 'Haute-Marne', 'Arc-en-Barrois', ''),
@@ -22216,7 +22216,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Meurthe-et-Moselle' AND zone_country_id = @coid0), '54290', 'Meurthe-et-Moselle', 'Rozelieures', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Meurthe-et-Moselle' AND zone_country_id = @coid0), '54290', 'Meurthe-et-Moselle', 'Saint-Boingt', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Meurthe-et-Moselle' AND zone_country_id = @coid0), '54290', 'Meurthe-et-Moselle', 'Saint-Germain', ''),
@@ -23042,7 +23042,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Meuse' AND zone_country_id = @coid0), '55290', 'Meuse', 'Morley', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Meuse' AND zone_country_id = @coid0), '55290', 'Meuse', 'Ribeaucourt', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Meuse' AND zone_country_id = @coid0), '55300', 'Meuse', 'Ambly-sur-Meuse', ''),
@@ -23975,7 +23975,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Moselle' AND zone_country_id = @coid0), '57580', 'Moselle', 'Thimonville', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Moselle' AND zone_country_id = @coid0), '57580', 'Moselle', 'Tragny', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Moselle' AND zone_country_id = @coid0), '57580', 'Moselle', 'Vatimont', ''),
@@ -24942,7 +24942,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nord' AND zone_country_id = @coid0), '59285', 'Nord', 'Buysscheure', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nord' AND zone_country_id = @coid0), '59285', 'Nord', 'Rubrouck', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nord' AND zone_country_id = @coid0), '59286', 'Nord', 'Roost-Warendin', ''),
@@ -25923,7 +25923,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oise' AND zone_country_id = @coid0), '60790', 'Oise', 'Saint-Crépin-Ibouvillers', 'Montherlant'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oise' AND zone_country_id = @coid0), '60790', 'Oise', 'Valdampierre', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oise' AND zone_country_id = @coid0), '60800', 'Oise', 'Auger-Saint-Vincent', ''),
@@ -26790,7 +26790,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pas-de-Calais' AND zone_country_id = @coid0), '62170', 'Pas-de-Calais', 'Aix-en-Issart', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pas-de-Calais' AND zone_country_id = @coid0), '62170', 'Pas-de-Calais', 'Attin', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pas-de-Calais' AND zone_country_id = @coid0), '62170', 'Pas-de-Calais', 'Beaumerie-Saint-Martin', ''),
@@ -27637,7 +27637,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Puy-de-Dôme' AND zone_country_id = @coid0), '63390', 'Puy-de-Dôme', 'Saint-Gervais-d\'Auvergne', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Puy-de-Dôme' AND zone_country_id = @coid0), '63390', 'Puy-de-Dôme', 'Saint-Julien-la-Geneste', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Puy-de-Dôme' AND zone_country_id = @coid0), '63390', 'Puy-de-Dôme', 'Sauret-Besserve', ''),
@@ -28428,7 +28428,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pyrénées-Atlantiques' AND zone_country_id = @coid0), '64680', 'Pyrénées-Atlantiques', 'Herrère', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pyrénées-Atlantiques' AND zone_country_id = @coid0), '64680', 'Pyrénées-Atlantiques', 'Ogeu-les-Bains', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pyrénées-Atlantiques' AND zone_country_id = @coid0), '64700', 'Pyrénées-Atlantiques', 'Biriatou', ''),
@@ -29243,7 +29243,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bas-Rhin' AND zone_country_id = @coid0), '67130', 'Bas-Rhin', 'Barembach', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bas-Rhin' AND zone_country_id = @coid0), '67130', 'Bas-Rhin', 'Bellefosse', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bas-Rhin' AND zone_country_id = @coid0), '67130', 'Bas-Rhin', 'Belmont', ''),
@@ -30142,7 +30142,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haut-Rhin' AND zone_country_id = @coid0), '68700', 'Haut-Rhin', 'Aspach-le-Bas', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haut-Rhin' AND zone_country_id = @coid0), '68700', 'Haut-Rhin', 'Aspach-Michelbach', 'Aspach-le-Haut'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haut-Rhin' AND zone_country_id = @coid0), '68700', 'Haut-Rhin', 'Aspach-Michelbach', 'Michelbach'),
@@ -31016,7 +31016,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Saône' AND zone_country_id = @coid0), '70400', 'Haute-Saône', 'Errevet', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Saône' AND zone_country_id = @coid0), '70400', 'Haute-Saône', 'Étobon', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Saône' AND zone_country_id = @coid0), '70400', 'Haute-Saône', 'Frahier-et-Chatebier', ''),
@@ -31832,7 +31832,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Sarthe' AND zone_country_id = @coid0), '72200', 'Sarthe', 'Bazouges-Cré-sur-Loir', 'Cré-sur-Loir'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Sarthe' AND zone_country_id = @coid0), '72200', 'Sarthe', 'Clermont-Créans', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Sarthe' AND zone_country_id = @coid0), '72200', 'Sarthe', 'Crosmières', ''),
@@ -32709,7 +32709,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Savoie' AND zone_country_id = @coid0), '74520', 'Haute-Savoie', 'Chevrier', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Savoie' AND zone_country_id = @coid0), '74520', 'Haute-Savoie', 'Dingy-en-Vuache', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Haute-Savoie' AND zone_country_id = @coid0), '74520', 'Haute-Savoie', 'Jonzier-Epagny', ''),
@@ -33502,7 +33502,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Seine-Maritime' AND zone_country_id = @coid0), '76780', 'Seine-Maritime', 'Sigy-en-Bray', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Seine-Maritime' AND zone_country_id = @coid0), '76790', 'Seine-Maritime', 'Bénouville', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Seine-Maritime' AND zone_country_id = @coid0), '76790', 'Seine-Maritime', 'Bordeaux-Saint-Clair', ''),
@@ -34314,7 +34314,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Yvelines' AND zone_country_id = @coid0), '78660', 'Yvelines', 'Prunay-en-Yvelines', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Yvelines' AND zone_country_id = @coid0), '78660', 'Yvelines', 'Prunay-en-Yvelines', 'Craches'),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Yvelines' AND zone_country_id = @coid0), '78660', 'Yvelines', 'Saint-Martin-de-Bréthencourt', ''),
@@ -35197,7 +35197,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Somme' AND zone_country_id = @coid0), '80320', 'Somme', 'Fresnes-Mazancourt', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Somme' AND zone_country_id = @coid0), '80320', 'Somme', 'Hallu', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Somme' AND zone_country_id = @coid0), '80320', 'Somme', 'Licourt', ''),
@@ -36137,7 +36137,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Var' AND zone_country_id = @coid0), '83200', 'Var', 'Le Revest-les-Eaux', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Var' AND zone_country_id = @coid0), '83200', 'Var', 'Toulon', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Var' AND zone_country_id = @coid0), '83210', 'Var', 'Belgentier', ''),
@@ -37043,7 +37043,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vienne' AND zone_country_id = @coid0), '86800', 'Vienne', 'Pouillé', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vienne' AND zone_country_id = @coid0), '86800', 'Vienne', 'Saint-Julien-l\'Ars', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vienne' AND zone_country_id = @coid0), '86800', 'Vienne', 'Savigny-Lévescault', ''),
@@ -37943,7 +37943,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Yonne' AND zone_country_id = @coid0), '89200', 'Yonne', 'Provency', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Yonne' AND zone_country_id = @coid0), '89200', 'Yonne', 'Sauvigny-le-Bois', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Yonne' AND zone_country_id = @coid0), '89200', 'Yonne', 'Sermizelles', ''),
@@ -38819,7 +38819,7 @@ INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_fr (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name, zone_street_name) VALUES
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Val-d\'Oise' AND zone_country_id = @coid0), '95450', 'Val-d\'Oise', 'Théméricourt', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Val-d\'Oise' AND zone_country_id = @coid0), '95450', 'Val-d\'Oise', 'Us', ''),
 (@coid0, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Val-d\'Oise' AND zone_country_id = @coid0), '95450', 'Val-d\'Oise', 'Vigny', ''),

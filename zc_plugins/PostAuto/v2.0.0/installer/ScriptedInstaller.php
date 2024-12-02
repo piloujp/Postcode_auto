@@ -9,7 +9,9 @@ class ScriptedInstaller extends ScriptedInstallBase
     {
         // Create a table constant for each new table
         foreach ($this->data_country as $cod) {
-            define('TABLE_ZONES_TO_POST_CODE_' . strtoupper($cod), DB_PREFIX . 'zones_to_post_code_' . $cod);
+            if (!defined('TABLE_ZONES_TO_POST_CODE_' . strtoupper($cod))) {
+                define('TABLE_ZONES_TO_POST_CODE_' . strtoupper($cod), DB_PREFIX . 'zones_to_post_code_' . $cod);
+            }
         }
         unset($cod);
     }

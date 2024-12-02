@@ -11,15 +11,15 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_AT . " (
     UNIQUE KEY post_code (post_code,zone_name,zone_city_name),
     KEY zone_name (zone_name),
     KEY zone_id (zone_id)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid := countries_id FROM countries WHERE countries_iso_code_3 = 'AUT'";
+$sql = "SET @coid = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'AUT' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Wien' AND zone_country_id = @coid), '1010', 'Wien', 'Innere Stadt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Wien' AND zone_country_id = @coid), '1020', 'Wien', 'Leopoldstadt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Wien' AND zone_country_id = @coid), '1030', 'Wien', 'Landstraße'),
@@ -916,7 +916,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '2732', 'Niederösterreich', 'Raglitz'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '2732', 'Niederösterreich', 'Wolfsohl'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '2732', 'Niederösterreich', 'Oberhöflein'),
@@ -1814,7 +1814,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3211', 'Niederösterreich', 'Loicheckgegend'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3211', 'Niederösterreich', 'Loich'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3211', 'Niederösterreich', 'Rehgrabengegend'),
@@ -2711,7 +2711,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3385', 'Niederösterreich', 'Gerersdorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3385', 'Niederösterreich', 'Weitendorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3385', 'Niederösterreich', 'Markersdorf an der Pielach'),
@@ -3601,7 +3601,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3684', 'Niederösterreich', 'Loseneggeramt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3684', 'Niederösterreich', 'Fünflingeramt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niederösterreich' AND zone_country_id = @coid), '3684', 'Niederösterreich', 'Urthaleramt'),
@@ -4502,7 +4502,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4073', 'Oberösterreich', 'Katzing'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4073', 'Oberösterreich', 'Mühlbach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4073', 'Oberösterreich', 'Ufer'),
@@ -5438,7 +5438,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4192', 'Oberösterreich', 'Lichtenstein'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4193', 'Oberösterreich', 'Prechtleinschlag'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4193', 'Oberösterreich', 'Thierberg'),
@@ -6372,7 +6372,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4382', 'Oberösterreich', 'Sattl'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4391', 'Oberösterreich', 'Ettenberg'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4391', 'Oberösterreich', 'Dörfl'),
@@ -7309,7 +7309,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4671', 'Oberösterreich', 'Schörgendorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4671', 'Oberösterreich', 'Brunngasse'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4671', 'Oberösterreich', 'Eisgering'),
@@ -8250,7 +8250,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4732', 'Oberösterreich', 'Mitterwinkl'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4732', 'Oberösterreich', 'Aigelsberg'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4732', 'Oberösterreich', 'Naichet'),
@@ -9200,7 +9200,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4852', 'Oberösterreich', 'Alexenau'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4852', 'Oberösterreich', 'Bach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4852', 'Oberösterreich', 'Reichholz'),
@@ -10147,7 +10147,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4952', 'Oberösterreich', 'Steingassen'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4952', 'Oberösterreich', 'Gunderding'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '4952', 'Oberösterreich', 'Pirath'),
@@ -11106,7 +11106,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '5231', 'Oberösterreich', 'Baumgarten'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '5231', 'Oberösterreich', 'Wiesing'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Oberösterreich' AND zone_country_id = @coid), '5231', 'Oberösterreich', 'Schalchen'),
@@ -12118,7 +12118,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tirol' AND zone_country_id = @coid), '6230', 'Tirol', 'Zimmermoos'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tirol' AND zone_country_id = @coid), '6230', 'Tirol', 'Mehrn'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Tirol' AND zone_country_id = @coid), '6230', 'Tirol', 'Brixlegg'),
@@ -13096,7 +13096,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8063', 'Steiermark', 'Pircha'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8063', 'Steiermark', 'Präbach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8063', 'Steiermark', 'Rabnitz'),
@@ -14035,7 +14035,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8342', 'Steiermark', 'Aug'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8342', 'Steiermark', 'Ebersdorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8342', 'Steiermark', 'Trössing'),
@@ -14985,7 +14985,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8641', 'Steiermark', 'Sonnleiten-Wieden'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8641', 'Steiermark', 'Pötschach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Steiermark' AND zone_country_id = @coid), '8641', 'Steiermark', 'Sankt Marein im Mürztal'),
@@ -15953,7 +15953,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9072', 'Kärnten', 'Zedras / Sodražava'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9072', 'Kärnten', 'Rupertiberg / Na Gori'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9072', 'Kärnten', 'Pugrad / Podgrad'),
@@ -16991,7 +16991,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9363', 'Kärnten', 'Klachl'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9363', 'Kärnten', 'Schwarzenbach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9363', 'Kärnten', 'Maria Höfl'),
@@ -18040,7 +18040,7 @@ INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_at (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_AT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9623', 'Kärnten', 'Sussawitsch'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9623', 'Kärnten', 'Matschiedl'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Kärnten' AND zone_country_id = @coid), '9623', 'Kärnten', 'Bach'),

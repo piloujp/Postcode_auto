@@ -15,7 +15,8 @@
       It uses extra tables with postal codes data per countries.<br>
       An external jQuery plugin is used to display multiple possible answers in
       a JavaScript popup tool window:<br>
-      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"
+      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"
+
         title="PowerTip" target="_blank">https://stevenbenner.github.io/jquery-powertip/</a>.<br>
       <br>
       'Postal Code Automatic' is provided with ten countries data/tables: United
@@ -24,24 +25,16 @@
       want to add a country, you must build a new table with necessary data and
       add some PHP code (in SWITCH loop) to the Ajax query function.<br>
       Instructions for that are at the end of this page.</p>
-    <div style="margin-left: 40px;"> </div>
     <h3 style="margin-left: 40px;">INSTALL:</h3>
-    <div style="margin-left: 40px;"> </div>
     <p style="margin-left: 80px;"><b>Copy <code>zc_plugins</code> folder</b>
       content to the <code>zc_plugins</code> folder in your cart. Then go to
       Zen Cart <b>admin menu <code>Modules-&gt;Plugin Manager</code></b>. You
       should now see Postal Code Automatic in the plugin list. <b>Click on <i>Install</i></b>
       button on the right. Postal code tables to install in database are big and
-      it may take a while. <b>Wait</b> until a success message displays.</p>
-    <div style="margin-left: 40px;"> </div>
-    <div style="margin-left: 80px;"> </div>
-    <div style="margin-left: 40px;"> </div>
+      it may take a while. <b>Wait</b> (and wait more) until a success message
+      displays.</p>
     <p style="margin-left: 80px;"><strong><em>Important notes:</em></strong></p>
-    <div style="margin-left: 40px;"> </div>
-    <div style="margin-left: 80px;"> </div>
-    <div style="margin-left: 40px;"> </div>
-    <ol style="margin-left: 40px;">
-      <ol>
+    <ol style="margin-left: 80px;">
         <li><strong><em></em></strong>If an <b>old version</b> of this plugin,
           v1 non encapsulated, is already <b>installed</b>, it is better to <b>uninstall
             it before</b> you install v2 encapsulated. The plugin installer can
@@ -66,31 +59,31 @@
           for example) which is probably incomplete due to the timeout.
           Installer won't try to install again tables that are already there,
           only those that are missing.</li>
-      </ol>
     </ol>
-    <div style="margin-left: 40px;"> </div>
-    <p style="margin-left: 40px;"> </p>
-    <div style="margin-left: 40px;"> </div>
     <h3 style="margin-left: 40px;">UNINSTALL:</h3>
-    <div style="margin-left: 40px;"> </div>
     <p style="margin-left: 80px;">Like for installation, use Zen Cart's <b>Plugin
         Manager</b> in admin: <code>Modules-&gt;Plugin Manager</code>. You can
       either disable the plugin or uninstall it. <b>Disable</b> option will
       just deactivate the plugin but deletes nothing. <b>Uninstall</b> will
       delete postal code tables in database and deactivate the plugin.</p>
-    <div style="margin-left: 40px;"> </div>
     <p style="margin-left: 80px;">Once uninstalled and you do not plan to use it
       again, you can save space on server by deleting folder <code>PostAuto</code>
       in Zen Cart's <code>zc_plugins</code> folder.</p>
-    <div style="margin-left: 40px;"> </div>
     <p style="margin-left: 80px;"><em><strong>Note:</strong></em></p>
-    <div style="margin-left: 40px;"> </div>
     <p style="margin-left: 120px;">If you want to keep postal codes tables when
       uninstalling, you can do it by commenting out the appropriate line
       (between 40 and 48) in file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>.</p>
-    <div style="margin-left: 40px;"> </div>
+    <h3 style="margin-left: 40px;"> UPDATING ZONES ID:</h3>
+    <p style="margin-left: 40px;">When you add zones for a country listed in
+      this plugin after the plugin was installed, you can update zones ids in
+      the plugin table using this SQL query:</p>
+    <p style="margin-left: 80px;"><code>UPDATE zones_to_post_code_{CountryCode}
+        AS ztp INNER JOIN zones AS z ON ztp.zone_name = z.zone_name AND
+        ztp.zone_country_id = z.zone_country_id SET ztp.zone_id = z.zone_id;</code></p>
+    <p style="margin-left: 40px;">Replace <code>{CountryCode}</code> by the two
+      letters ISO code for the country you want to update. Note that the new
+      zones names must match the data in this plugin for this to work.</p>
     <h3 style="margin-left: 40px;"> BUILDING A NEW COUNTRY TABLE DATA:</h3>
-    <div style="margin-left: 40px;"> </div>
     <p style="margin-left: 40px;">- First you need to download data. First place
       to start is your country's national Post Office site. Be careful that
       there are lots of services providing postal code data, but they are not
@@ -98,20 +91,20 @@
       - You then must format these data to build a MySQL database table with a
       name following this format <code>zones_to_post_code_{2 letters country
         code}</code> and with these fields at minimum:</p>
-    <div style="margin-left: 40px;"> </div>
     <ul style="margin-left: 40px;">
-      <li> <code>zone_country_id</code> for the country id&nbsp; number used in
-        Zen Cart. Set for the country you downloaded data.</li>
-      <li> <code>zone_id</code> for this country zones id numbers in Zen Cart
-        if they exist. First setting it to zero is easier and then when table is
-        created (and zones exist), update it with an SQL query like this:
+      <li> <b><code>zone_country_id</code></b> for the country id&nbsp; number
+        used in Zen Cart. Set for the country you downloaded data.</li>
+      <li> <b><code>zone_id</code></b> for this country zones id numbers in Zen
+        Cart if they exist. First setting it to zero is easier and then when
+        table is created (and zones exist), update it with an SQL query like
+        this:
         <p style="margin-left: 40px;"> (example for United States):<br>
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_us INNER JOIN zones ON
           zones_to_post_code_us.zone_name = zones.zone_name AND
           zen_zones.zone_country_id = 223 SET zones_to_post_code_us.zone_id =
           zones.zone_id;<br>
           (example for France and other countries that includes territories or
-          other small coutries):<br>
+          other small countries):<br>
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_fr INNER JOIN zones ON
           zones_to_post_code_fr.zone_name = zones.zone_name SET
           zones_to_post_code_fr.zone_id = zones.zone_id;<br>
@@ -125,31 +118,43 @@
           zen_zones.zone_country_id = 107 SET
           zones_to_post_code_jp.zone_id_romaji = zen_zones.zone_id;</p>
       </li>
-      <li> <code>post_code</code> obviously for postal/zip code. This plugin is
-        programmed for a minimum of five characters long.</li>
-      <li> <code>zone_name</code> for state, district, prefecture or whatever
-        it is called in the country.</li>
-      <li> <code>zone_city_name</code> for city name corresponding to the
-        postal code.</li>
-      <li> <code>zone_street_name</code> for area, county, or any street level
-        information. This can be omitted like in US table, but it must be taken
-        in account in PHP code in AJAX function.</li>
+      <li> <b><code>post_code</code></b> obviously for postal/zip code. This
+        plugin is programmed for a minimum of five characters long.</li>
+      <li> <b><code>zone_name</code></b> for state, district, prefecture or
+        whatever it is called in the country.</li>
+      <li> <b><code>zone_city_name</code></b> for city name corresponding to
+        the postal code.</li>
+      <li> <b><code>zone_street_name</code></b> for area, county, or any street
+        level information. This can be omitted like in US table, but it must be
+        taken in account in PHP code in AJAX function.</li>
     </ul>
-    <div style="margin-left: 40px;"> </div>
-    <p style="margin-left: 80px;"> Then I add a <code>post_zone_id</code> field
-      as an auto_increment index. Have a look at provided tables data to get an
-      idea of the structure. All this can be done using different tools, like
-      Excel and/or a good text editor like notepad++ to finally build an SQL
-      file to import in Zen Cart.<br>
-      With countries using non-alphabet writting you might want to double fields
-      (adding an aplhabet written field), but it will make SQL requests and PHP
+    <p style="margin-left: 80px;"> Then I add a <b><code>post_zone_id</code></b>
+      field as an auto_increment index. Have a look at provided tables data to
+      get an idea of the structure. All this can be done using different tools,
+      like Excel and/or a good text editor like notepad++ to finally build an
+      SQL file to import in Zen Cart.<br>
+      With countries using non-alphabet writing you might want to double fields
+      (adding an alphabet written field), but it will make SQL requests and PHP
       loops more complicated. Have a look at Japanese version.</p>
-    <div style="margin-left: 40px;"> </div>
-    <p style="margin-left: 40px;"> - Finally, <code>zcAjaxPostcodeQuery.php</code>
-      file (in folder <code>zc_plugins/PostAuto/v2.0.0/catalog/includes/classes/ajax</code>)
-      must be modified. In the 'switch' loop you need to add a 'case' for the
-      new country. You can copy an existing one and modify country code and SQL
-      request especially if you have street data or not.</p>
-    <p></p>
+    <p style="margin-left: 40px;"> - Finally, few files need to be
+      updated/created: </p>
+    <ul style="margin-left: 40px;">
+      <li>Create a new file <code>zc_plugins/PostAuto/v2.0.0/installer/sql/zone_to_post_code_{NewCountryCode}.php</code>.
+        Look at other files in same folder to reproduce the structure.</li>
+      <li>Update file <code>zc_plugins/PostAuto/v2.0.0/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
+        In the 'switch' loop you need to add a 'case' for the new country. You
+        can copy an existing one and modify country code and SQL request
+        especially if you have street data or not.</li>
+      <li>Update file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>.
+        In function <code>executeUninstall()</code>, add a line like this:<br>
+        <span style="margin-left: 80px;"><code>$this-&gt;executeInstallerSql("DROP
+            TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_{NewCountryCode});</code></span></li>
+      <li>Update files <code>zc_plugins/PostAuto/v2.0.0/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
+        and <code>zc_plugins/PostAuto/v2.0.0/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
+        add a line like this:<br>
+        <span style="margin-left: 80px;"><code>zen_define_default('TABLE_ZONES_TO_POST_CODE_{NewCountryCode}',
+            DB_PREFIX . 'zones_to_post_code_{NewCountryCode}');</code></span></li>
+    </ul>
+    <hr>
   </body>
 </html>

@@ -12,15 +12,15 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_IT . " (
     KEY zone_country_id (zone_country_id),
     KEY post_code_2 (post_code),
     KEY zone_id (zone_id)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid := countries_id FROM countries WHERE countries_iso_code_3 = 'ITA'";
+$sql = "SET @coid = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'ITA' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Roma' AND zone_country_id = @coid), '00010', 'Roma', 'Marcellina'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Roma' AND zone_country_id = @coid), '00010', 'Roma', 'Sant\'Angelo Romano'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Roma' AND zone_country_id = @coid), '00010', 'Roma', 'Setteville'),
@@ -1047,7 +1047,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Terni' AND zone_country_id = @coid), '05100', 'Terni', 'Cecalocco'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Terni' AND zone_country_id = @coid), '05100', 'Terni', 'Giuncano'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Terni' AND zone_country_id = @coid), '05100', 'Terni', 'Miranda'),
@@ -2043,7 +2043,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Torino' AND zone_country_id = @coid), '10016', 'Torino', 'Montalto Dora'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Torino' AND zone_country_id = @coid), '10017', 'Torino', 'Montanaro'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Torino' AND zone_country_id = @coid), '10018', 'Torino', 'Pavone Canavese'),
@@ -3044,7 +3044,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vercelli' AND zone_country_id = @coid), '13020', 'Vercelli', 'Balmuccia'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vercelli' AND zone_country_id = @coid), '13020', 'Vercelli', 'Rassa'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Vercelli' AND zone_country_id = @coid), '13020', 'Vercelli', 'Ca\' Di Ianzo'),
@@ -4030,7 +4030,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Savona' AND zone_country_id = @coid), '17048', 'Savona', 'Vara Superiore'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Savona' AND zone_country_id = @coid), '17048', 'Savona', 'Vara'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Savona' AND zone_country_id = @coid), '17048', 'Savona', 'Urbe'),
@@ -5026,7 +5026,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Como' AND zone_country_id = @coid), '22040', 'Como', 'Alzate Brianza'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Como' AND zone_country_id = @coid), '22040', 'Como', 'Monguzzo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Como' AND zone_country_id = @coid), '22041', 'Como', 'Colverde'),
@@ -6036,7 +6036,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brescia' AND zone_country_id = @coid), '25070', 'Brescia', 'San Faustino'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brescia' AND zone_country_id = @coid), '25070', 'Brescia', 'Caino'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brescia' AND zone_country_id = @coid), '25070', 'Brescia', 'Anfo'),
@@ -6994,7 +6994,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Piacenza' AND zone_country_id = @coid), '29023', 'Piacenza', 'Farini'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Piacenza' AND zone_country_id = @coid), '29023', 'Piacenza', 'Groppallo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Piacenza' AND zone_country_id = @coid), '29024', 'Piacenza', 'Centenaro'),
@@ -7994,7 +7994,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pordenone' AND zone_country_id = @coid), '33074', 'Pordenone', 'Vigonovo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pordenone' AND zone_country_id = @coid), '33075', 'Pordenone', 'Mussons'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pordenone' AND zone_country_id = @coid), '33075', 'Pordenone', 'Morsano Al Tagliamento'),
@@ -8990,7 +8990,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Trento' AND zone_country_id = @coid), '38010', 'Trento', 'Casez'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Trento' AND zone_country_id = @coid), '38010', 'Trento', 'Andalo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Trento' AND zone_country_id = @coid), '38010', 'Trento', 'Ton'),
@@ -10016,7 +10016,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bolzano' AND zone_country_id = @coid), '39043', 'Bolzano', 'Teis'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bolzano' AND zone_country_id = @coid), '39043', 'Bolzano', 'Latzfons'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bolzano' AND zone_country_id = @coid), '39043', 'Bolzano', 'Chiusa'),
@@ -10973,7 +10973,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Parma' AND zone_country_id = @coid), '43029', 'Parma', 'Vignale'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Parma' AND zone_country_id = @coid), '43029', 'Parma', 'Mamiano'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Parma' AND zone_country_id = @coid), '43029', 'Parma', 'Castione De\' Baratti'),
@@ -11928,7 +11928,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Firenze' AND zone_country_id = @coid), '50026', 'Firenze', 'Spedaletto'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Firenze' AND zone_country_id = @coid), '50026', 'Firenze', 'Romola'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Firenze' AND zone_country_id = @coid), '50026', 'Firenze', 'Montefiridolfi'),
@@ -12899,7 +12899,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pisa' AND zone_country_id = @coid), '56021', 'Pisa', 'San Lorenzo A Pagnatico'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pisa' AND zone_country_id = @coid), '56021', 'Pisa', 'Latignano'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Pisa' AND zone_country_id = @coid), '56021', 'Pisa', 'San Frediano A Settimo'),
@@ -13829,7 +13829,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Fermo' AND zone_country_id = @coid), '63811', 'Fermo', 'La Luce'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Fermo' AND zone_country_id = @coid), '63811', 'Fermo', 'Casette D\'Ete'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Fermo' AND zone_country_id = @coid), '63811', 'Fermo', 'Cretarola'),
@@ -14780,7 +14780,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brindisi' AND zone_country_id = @coid), '72012', 'Brindisi', 'Serranova Di Carovigno'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brindisi' AND zone_country_id = @coid), '72012', 'Brindisi', 'Carovigno'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brindisi' AND zone_country_id = @coid), '72013', 'Brindisi', 'Ceglie Messapica'),
@@ -15741,7 +15741,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Avellino' AND zone_country_id = @coid), '83020', 'Avellino', 'Sperone'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Avellino' AND zone_country_id = @coid), '83020', 'Avellino', 'Aiello Del Sabato'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Avellino' AND zone_country_id = @coid), '83021', 'Avellino', 'Avella'),
@@ -16680,7 +16680,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cosenza' AND zone_country_id = @coid), '87010', 'Cosenza', 'Torano Castello Scalo'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cosenza' AND zone_country_id = @coid), '87010', 'Cosenza', 'Policastrello'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Cosenza' AND zone_country_id = @coid), '87010', 'Cosenza', 'Lungro'),
@@ -17571,7 +17571,7 @@ INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_it (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_IT . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Palermo' AND zone_country_id = @coid), '90012', 'Palermo', 'Sambuchi'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Palermo' AND zone_country_id = @coid), '90013', 'Palermo', 'Castelbuono'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Palermo' AND zone_country_id = @coid), '90014', 'Palermo', 'Casteldaccia'),

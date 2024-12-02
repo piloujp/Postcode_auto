@@ -12,15 +12,15 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_DE . " (
     KEY post_code (post_code),
     KEY zone_id (zone_id),
     KEY zone_name (zone_name)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SELECT @coid := countries_id FROM countries WHERE countries_iso_code_3 = 'DEU'";
+$sql = "SET @coid = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'DEU' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brandenburg' AND zone_country_id = @coid), '1998', 'Brandenburg', 'Schipkau Meuro'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brandenburg' AND zone_country_id = @coid), '3058', 'Brandenburg', 'Klein Döbbern'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brandenburg' AND zone_country_id = @coid), '3058', 'Brandenburg', 'Laubsdorf'),
@@ -964,7 +964,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '23827', 'Schleswig-Holstein', 'Wensin'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '23863', 'Schleswig-Holstein', 'Nienwohld'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '23879', 'Schleswig-Holstein', 'Mölln'),
@@ -1885,7 +1885,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brandenburg' AND zone_country_id = @coid), '15848', 'Brandenburg', 'Friedland Karras'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brandenburg' AND zone_country_id = @coid), '15848', 'Brandenburg', 'Tauche Ranzig'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Brandenburg' AND zone_country_id = @coid), '15848', 'Brandenburg', 'Rietz-Neuendorf Birkholz'),
@@ -2811,7 +2811,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '57610', 'Rheinland-Pfalz', 'Almersbach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '65558', 'Rheinland-Pfalz', 'Flacht'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '66851', 'Rheinland-Pfalz', 'Oberarnbach'),
@@ -3731,7 +3731,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '24257', 'Schleswig-Holstein', 'Schwartbuck'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '24395', 'Schleswig-Holstein', 'Niesgrau'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '24398', 'Schleswig-Holstein', 'Winnemark'),
@@ -4656,7 +4656,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '66957', 'Rheinland-Pfalz', 'Obersimten'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '66989', 'Rheinland-Pfalz', 'Nünschweiler'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '66989', 'Rheinland-Pfalz', 'Höheischweiler'),
@@ -5595,7 +5595,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hamburg' AND zone_country_id = @coid), '22159', 'Hamburg', 'Hamburg Sasel'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hamburg' AND zone_country_id = @coid), '22303', 'Hamburg', 'Hamburg Winterhude'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Hamburg' AND zone_country_id = @coid), '22417', 'Hamburg', 'Hamburg'),
@@ -6513,7 +6513,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niedersachsen' AND zone_country_id = @coid), '31036', 'Niedersachsen', 'Eime'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niedersachsen' AND zone_country_id = @coid), '31174', 'Niedersachsen', 'Schellerten'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Niedersachsen' AND zone_country_id = @coid), '31547', 'Niedersachsen', 'Rehburg-Loccum Loccum'),
@@ -7437,7 +7437,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '56479', 'Rheinland-Pfalz', 'Bretthausen'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '56637', 'Rheinland-Pfalz', 'Plaidt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '56727', 'Rheinland-Pfalz', 'Sankt Johann'),
@@ -8353,7 +8353,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '55288', 'Rheinland-Pfalz', 'Schornsheim'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '55444', 'Rheinland-Pfalz', 'Waldlaubersheim'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Rheinland-Pfalz' AND zone_country_id = @coid), '55483', 'Rheinland-Pfalz', 'Hirschfeld'),
@@ -9287,7 +9287,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99610', 'Thüringen', 'Kleinbrembach'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99628', 'Thüringen', 'Mannstedt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99817', 'Thüringen', 'Eisenach'),
@@ -10204,7 +10204,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bayern' AND zone_country_id = @coid), '97499', 'Bayern', 'Donnersdorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bayern' AND zone_country_id = @coid), '97534', 'Bayern', 'Waigolshausen'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Bayern' AND zone_country_id = @coid), '97618', 'Bayern', 'Wollbach'),
@@ -11109,7 +11109,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99510', 'Thüringen', 'Mattstedt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99518', 'Thüringen', 'Reisdorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99718', 'Thüringen', 'Oberbösa'),
@@ -12001,7 +12001,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '24217', 'Schleswig-Holstein', 'Bendfeld'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '24245', 'Schleswig-Holstein', 'Kirchbarkau'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Schleswig-Holstein' AND zone_country_id = @coid), '24250', 'Schleswig-Holstein', 'Löptin'),
@@ -12919,7 +12919,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99310', 'Thüringen', 'Arnstadt'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99428', 'Thüringen', 'Niederzimmern'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Thüringen' AND zone_country_id = @coid), '99438', 'Thüringen', 'Buchfart'),
@@ -13827,7 +13827,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '58739', 'Nordrhein-Westfalen', 'Wickede'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '58762', 'Nordrhein-Westfalen', 'Altena'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '59439', 'Nordrhein-Westfalen', 'Holzwickede'),
@@ -14730,7 +14730,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '32423', 'Nordrhein-Westfalen', 'Minden'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '33039', 'Nordrhein-Westfalen', 'Nieheim'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '33165', 'Nordrhein-Westfalen', 'Lichtenau'),
@@ -15632,7 +15632,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Mecklenburg-Vorpommern' AND zone_country_id = @coid), '18513', 'Mecklenburg-Vorpommern', 'Deyelsdorf'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Mecklenburg-Vorpommern' AND zone_country_id = @coid), '18519', 'Mecklenburg-Vorpommern', 'Brandshagen'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Mecklenburg-Vorpommern' AND zone_country_id = @coid), '18528', 'Mecklenburg-Vorpommern', 'Rappin'),
@@ -16535,7 +16535,7 @@ INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_nam
 ";
 $this->executeInstallerSql($sql);
 $sql = "
-INSERT INTO zones_to_post_code_de (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_DE . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '41466', 'Nordrhein-Westfalen', 'Neuss'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '41517', 'Nordrhein-Westfalen', 'Grevenbroich'),
 (@coid, (SELECT IFNULL(zone_id,0) FROM zones WHERE zone_name = 'Nordrhein-Westfalen' AND zone_country_id = @coid), '45147', 'Nordrhein-Westfalen', 'Essen'),
