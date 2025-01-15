@@ -35,30 +35,29 @@
       displays.</p>
     <p style="margin-left: 80px;"><strong><em>Important notes:</em></strong></p>
     <ol style="margin-left: 80px;">
-        <li><strong><em></em></strong>If an <b>old version</b> of this plugin,
-          v1 non encapsulated, is already <b>installed</b>, it is better to <b>uninstall
-            it before</b> you install v2 encapsulated. The plugin installer can
-          do it automatically. For that, you have to edit the file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>
-          . Just uncomment this line (33):<br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> </i><b>$this-&gt;removeOldNonencapsulatedPostauto();</b></code>
-          <br>
-          After installation, comment it out again.</li>
-        <li>If your server is slow you might encounter script timeout during
-          install. Installer already increased script execution time to 240s,
-          but if it is not enough, you can increase this time by editing <code>ScriptedInstaller.php</code>
-          on line 19 or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
-            Set max_execution_time for processes</code>. In case it already
-          happened, see note 3 below.</li>
-        <li>Postal code tables are big, depending on countries they can have few
-          thousand records to over 124 000 records for Japan. If the server
-          encountered a <b>timeout during installation</b>, plugin won't be
-          installed. In this case you have to <b>run again the installer</b>
-          (by clicking on install button again), but <b>before</b> that you
-          must <b>delete</b> (using phpMyAdmin for example) the <b>last
-            created postal code table</b> (<code>zones_to_post_code_jp</code>
-          for example) which is probably incomplete due to the timeout.
-          Installer won't try to install again tables that are already there,
-          only those that are missing.</li>
+      <li><strong><em></em></strong>If an <b>old version</b> of this plugin, v1
+        non encapsulated, is already <b>installed</b>, it is better to <b>uninstall
+          it before</b> you install v2 encapsulated. The plugin installer can do
+        it automatically. For that, you have to edit the file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>
+        . Just uncomment this line (33):<br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> </i><b>$this-&gt;removeOldNonencapsulatedPostauto();</b></code>
+        <br>
+        After installation, comment it out again.</li>
+      <li>If your server is slow you might encounter script timeout during
+        install. Installer already increased script execution time to 240s, but
+        if it is not enough, you can increase this time by editing <code>ScriptedInstaller.php</code>
+        on line 19 or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
+          Set max_execution_time for processes</code>. In case it already
+        happened, see note 3 below.</li>
+      <li>Postal code tables are big, depending on countries they can have few
+        thousand records to over 124 000 records for Japan. If the server
+        encountered a <b>timeout during installation</b>, plugin won't be
+        installed. In this case you have to <b>run again the installer</b> (by
+        clicking on install button again), but <b>before</b> that you must <b>delete</b>
+        (using phpMyAdmin for example) the <b>last created postal code table</b>
+        (<code>zones_to_post_code_jp</code> for example) which is probably
+        incomplete due to the timeout. Installer won't try to install again
+        tables that are already there, only those that are missing.</li>
     </ol>
     <h3 style="margin-left: 40px;">UNINSTALL:</h3>
     <p style="margin-left: 80px;">Like for installation, use Zen Cart's <b>Plugin
@@ -110,13 +109,9 @@
           zones_to_post_code_fr.zone_id = zones.zone_id;<br>
           (example for Japan):<br>
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_jp INNER JOIN zen_zones
-          ON zones_to_post_code_jp.zone_name = zen_zones.zone_name AND
+          ON zones_to_post_code_jp.zone_name = zen_zones.zone_code AND
           zen_zones.zone_country_id = 107 SET zones_to_post_code_jp.zone_id =
-          zen_zones.zone_id;<br>
-          &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_jp INNER JOIN zen_zones
-          ON zones_to_post_code_jp.zone_name_romaji = zen_zones.zone_name AND
-          zen_zones.zone_country_id = 107 SET
-          zones_to_post_code_jp.zone_id_romaji = zen_zones.zone_id;</p>
+          zen_zones.zone_id;</p>
       </li>
       <li> <b><code>post_code</code></b> obviously for postal/zip code. This
         plugin is programmed for a minimum of five characters long.</li>
