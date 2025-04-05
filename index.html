@@ -7,7 +7,7 @@
   <body>
     <h1 style=" text-align: center;">Postal Code Automatic documentation</h1>
     <p> </p>
-    <p style="margin-left: 20px;">Postal Code Automatic v2.0.0 (or newer) is an
+    <p style="margin-left: 20px;">Postal Code Automatic v2.0.x is an
       encapsulated plugin for Zen Cart v2.1 and above that automatically fills
       state, city and if available street address fields in a form when you
       enter postal/zip code. An Ajax request and JavaScript (jQuery) make this
@@ -38,7 +38,7 @@
       <li><strong><em></em></strong>If an <b>old version</b> of this plugin, v1
         non encapsulated, is already <b>installed</b>, it is better to <b>uninstall
           it before</b> you install v2 encapsulated. The plugin installer can do
-        it automatically. For that, you have to edit the file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>
+        it automatically. For that, you have to edit the file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>
         . Just uncomment this line (33):<br>
         <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> </i><b>$this-&gt;removeOldNonencapsulatedPostauto();</b></code>
         <br>
@@ -71,7 +71,7 @@
     <p style="margin-left: 80px;"><em><strong>Note:</strong></em></p>
     <p style="margin-left: 120px;">If you want to keep postal codes tables when
       uninstalling, you can do it by commenting out the appropriate line
-      (between 40 and 48) in file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>.</p>
+      (between 55 and 63) in file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>.</p>
     <h3 style="margin-left: 40px;"> UPDATING ZONES ID:</h3>
     <p style="margin-left: 40px;">When you add zones for a country listed in
       this plugin after the plugin was installed, you can update zones ids in
@@ -134,18 +134,18 @@
     <p style="margin-left: 40px;"> - Finally, few files need to be
       updated/created: </p>
     <ul style="margin-left: 40px;">
-      <li>Create a new file <code>zc_plugins/PostAuto/v2.0.0/installer/sql/zone_to_post_code_{NewCountryCode}.php</code>.
+      <li>Create a new file <code>zc_plugins/PostAuto/v2.0.1/installer/sql/install/zone_to_post_code_{NewCountryCode}.php</code>.
         Look at other files in same folder to reproduce the structure.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.0.0/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
+      <li>Update file <code>zc_plugins/PostAuto/v2.0.1/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
         In the 'switch' loop you need to add a 'case' for the new country. You
         can copy an existing one and modify country code and SQL request
         especially if you have street data or not.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.0.0/installer/ScriptedInstaller.php</code>.
+      <li>Update file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>.
         In function <code>executeUninstall()</code>, add a line like this:<br>
         <span style="margin-left: 80px;"><code>$this-&gt;executeInstallerSql("DROP
             TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_{NewCountryCode});</code></span></li>
-      <li>Update files <code>zc_plugins/PostAuto/v2.0.0/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
-        and <code>zc_plugins/PostAuto/v2.0.0/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
+      <li>Update files <code>zc_plugins/PostAuto/v2.0.1/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
+        and <code>zc_plugins/PostAuto/v2.0.1/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
         add a line like this:<br>
         <span style="margin-left: 80px;"><code>zen_define_default('TABLE_ZONES_TO_POST_CODE_{NewCountryCode}',
             DB_PREFIX . 'zones_to_post_code_{NewCountryCode}');</code></span></li>
