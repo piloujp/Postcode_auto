@@ -19,11 +19,11 @@ class ScriptedInstaller extends ScriptedInstallBase
     protected function executeInstall()
     {
         zen_set_time_limit(240);
-        
+
         global $sniffer;
-        
+
         $this->tableconstants(); // Create each of the database tables for the post codes data.
-        
+
         foreach ($this->data_country as $v) {
             if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v)), 'zone_country_id') !== true) {
                 @$result = include 'sql/install/zones_to_post_code_' . $v . '.php';
@@ -42,11 +42,9 @@ class ScriptedInstaller extends ScriptedInstallBase
     protected function executeUpgrade($oldVersion)
     {
         $this->tableconstants();
-        
+
         include_once 'sql/upgrade/zones_to_post_code_jp_update2025-03.php';
     }
-
-
 
     protected function executeUninstall()
     {
@@ -91,7 +89,7 @@ class ScriptedInstaller extends ScriptedInstallBase
                 } else {
                     $isOld = true;
                 }
-                
+
             }
         }
         if ($isOld !== true) {
