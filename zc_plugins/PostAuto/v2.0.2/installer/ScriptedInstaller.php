@@ -22,7 +22,7 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         global $sniffer;
 
-        // This can be uncommented after first installation or if you have never installed a non-encapsulated version of this plugin.
+        // This can be commented out after first installation or if you have never installed a non-encapsulated version of this plugin.
         $this->removeOldNonencapsulatedPostauto();
 
         $this->tableconstants(); // Create each constant of the database tables for the post codes data.
@@ -41,9 +41,10 @@ class ScriptedInstaller extends ScriptedInstallBase
     //
     protected function executeUpgrade($oldVersion)
     {
-        $this->tableconstants();
-
-        include_once 'sql/upgrade/zones_to_post_code_jp_update2025-03.php';
+        if ($this->version < '4.0.1') {
+            $this->tableconstants();
+            include_once 'sql/upgrade/zones_to_post_code_jp_update2025-03.php';
+        }
     }
 
     protected function executeUninstall()
