@@ -86,7 +86,7 @@ class zcAjaxPostcodeQuery extends base
             if (!empty($request)){
                 try {
                     $request->execute();
-                    foreach($request as $k=>$v) {
+                    foreach($request as $v) {
                         $state = (!empty($v['zone_id']) && ACCOUNT_STATE_DRAW_INITIAL_DROPDOWN === 'true') ? $v['zone_id'] : $v['zone_name'];
                         $suburb_street = (empty($v['zone_street_name'])) ? '' : $v['zone_street_name'];
                         $zone[] = array('zone_id' => $state, 'city' => $v['zone_city_name'], 'street_name' => $suburb_street);
