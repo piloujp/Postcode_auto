@@ -1,6 +1,6 @@
 <?php
 return [
-    'pluginVersion' => 'v2.0.2',
+    'pluginVersion' => 'v2.0.3',
     'pluginName' => "Postal Code Automatic",
     'pluginDescription' => 'This plugin autofill form fields state, city and street address (if data is available), when postal/zip code is provided.',
     'pluginAuthor' => 'piloujp',
