@@ -29,7 +29,7 @@ class zcAjaxPostcodeQuery extends base
                     } else {
                         $request = $conn->prepare("SELECT zone_id, zone_name_romaji AS zone_name, zone_city_name_romaji AS zone_city_name, zone_street_name_romaji AS zone_street_name FROM " . TABLE_ZONES_TO_POST_CODE_JP . " WHERE post_code = :postcode;");
                     }
-                    $request->bindParam(':postcode', $_POST['postcode']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
                     break;
                 case 'FRA':
                 case 'GUF':
@@ -43,40 +43,40 @@ class zcAjaxPostcodeQuery extends base
                 case 'WLF':
                 case 'SPM':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name, zone_street_name FROM " . TABLE_ZONES_TO_POST_CODE_FR . " WHERE post_code = :postcode AND zone_country_id = :country;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
-                    $request->bindParam(':country', $_POST['country']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
+                    $request->bindParam(':country', $_POST['country'], PDO::PARAM_INT);
                     break;
                 case 'PLW':
                 case 'USA':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_US . " WHERE post_code = :postcode AND zone_country_id = :country;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
-                    $request->bindParam(':country', $_POST['country']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
+                    $request->bindParam(':country', $_POST['country'], PDO::PARAM_INT);
                     break;
                 case 'ESP':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_ES . " WHERE post_code = :postcode;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
                     break;
                 case 'DEU':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_DE . " WHERE post_code = :postcode;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
                     break;
                 case 'ITA':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_IT . " WHERE post_code = :postcode;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
                     break;
                 case 'LIE':
                 case 'CHE':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_CH . " WHERE post_code = :postcode AND zone_country_id = :country;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
-                    $request->bindParam(':country', $_POST['country']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
+                    $request->bindParam(':country', $_POST['country'], PDO::PARAM_INT);
                     break;
                 case 'AUS':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_AU . " WHERE post_code = :postcode;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
                     break;
                 case 'AUT':
                     $request = $conn->prepare("SELECT zone_id, zone_name, zone_city_name FROM " . TABLE_ZONES_TO_POST_CODE_AT . " WHERE post_code = :postcode;");
-                    $request->bindParam(':postcode', $_POST['postcode']);
+                    $request->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
                     break;
                 default:
                     $request = null;
@@ -86,7 +86,8 @@ class zcAjaxPostcodeQuery extends base
             if (!empty($request)){
                 try {
                     $request->execute();
-                    foreach($request as $v) {
+                    $result = request->fetch_all();
+                    foreach($result as $v) {
                         $state = (!empty($v['zone_id']) && ACCOUNT_STATE_DRAW_INITIAL_DROPDOWN === 'true') ? $v['zone_id'] : $v['zone_name'];
                         $suburb_street = (empty($v['zone_street_name'])) ? '' : $v['zone_street_name'];
                         $zone[] = array('zone_id' => $state, 'city' => $v['zone_city_name'], 'street_name' => $suburb_street);
