@@ -15,8 +15,7 @@
       It uses extra tables with postal codes data per countries.<br>
       An external jQuery plugin is used to display multiple possible answers in
       a JavaScript popup tool window:<br>
-      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"
-
+      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"
         title="PowerTip" target="_blank">https://stevenbenner.github.io/jquery-powertip/</a>.<br>
       <br>
       'Postal Code Automatic' is provided with ten countries data/tables: United
@@ -30,25 +29,17 @@
       content to the <code>zc_plugins</code> folder in your cart. Then go to
       Zen Cart <b>admin menu <code>Modules-&gt;Plugin Manager</code></b>. You
       should now see Postal Code Automatic in the plugin list. <b>Click on <i>Install</i></b>
-      button on the right. Postal code tables to install in database are big and
-      it may take a while. <b>Wait</b> (and wait more) until a success message
-      displays.</p>
+      button on the right. The postal codes tables to install in database are
+      big and it may take a while. <b>Wait</b> (and wait more) until a success
+      message displays.</p>
     <p style="margin-left: 80px;"><strong><em>Important notes:</em></strong></p>
     <ol style="margin-left: 80px;">
-      <li><strong><em></em></strong>If an <b>old version</b> of this plugin, v1
-        non encapsulated, is already <b>installed</b>, it is better to <b>uninstall
-          it before</b> you install v2 encapsulated. The plugin installer can do
-        it automatically. For that, you have to edit the file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>
-        . Just uncomment this line (33):<br>
-        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> </i><b>$this-&gt;removeOldNonencapsulatedPostauto();</b></code>
-        <br>
-        After installation, comment it out again.</li>
       <li>If your server is slow you might encounter script timeout during
         install. Installer already increased script execution time to 240s, but
         if it is not enough, you can increase this time by editing <code>ScriptedInstaller.php</code>
-        on line 19 or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
+        on line 21 or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
           Set max_execution_time for processes</code>. In case it already
-        happened, see note 3 below.</li>
+        happened, see note below.</li>
       <li>Postal code tables are big, depending on countries they can have few
         thousand records to over 124 000 records for Japan. If the server
         encountered a <b>timeout during installation</b>, plugin won't be
@@ -71,7 +62,7 @@
     <p style="margin-left: 80px;"><em><strong>Note:</strong></em></p>
     <p style="margin-left: 120px;">If you want to keep postal codes tables when
       uninstalling, you can do it by commenting out the appropriate line
-      (between 55 and 63) in file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>.</p>
+      (between 54 and 62) in file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>.</p>
     <h3 style="margin-left: 40px;"> UPDATING ZONES ID:</h3>
     <p style="margin-left: 40px;">When you add zones for a country listed in
       this plugin after the plugin was installed, you can update zones ids in
@@ -136,16 +127,16 @@
     <ul style="margin-left: 40px;">
       <li>Create a new file <code>zc_plugins/PostAuto/v2.0.1/installer/sql/install/zone_to_post_code_{NewCountryCode}.php</code>.
         Look at other files in same folder to reproduce the structure.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.0.1/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
+      <li>Update file <code>zc_plugins/PostAuto/v2.0.3/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
         In the 'switch' loop you need to add a 'case' for the new country. You
         can copy an existing one and modify country code and SQL request
         especially if you have street data or not.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.0.1/installer/ScriptedInstaller.php</code>.
+      <li>Update file <code>zc_plugins/PostAuto/v2.0.3/installer/ScriptedInstaller.php</code>.
         In function <code>executeUninstall()</code>, add a line like this:<br>
         <span style="margin-left: 80px;"><code>$this-&gt;executeInstallerSql("DROP
             TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_{NewCountryCode});</code></span></li>
-      <li>Update files <code>zc_plugins/PostAuto/v2.0.1/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
-        and <code>zc_plugins/PostAuto/v2.0.1/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
+      <li>Update files <code>zc_plugins/PostAuto/v2.0.3/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
+        and <code>zc_plugins/PostAuto/v2.0.3/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
         add a line like this:<br>
         <span style="margin-left: 80px;"><code>zen_define_default('TABLE_ZONES_TO_POST_CODE_{NewCountryCode}',
             DB_PREFIX . 'zones_to_post_code_{NewCountryCode}');</code></span></li>
