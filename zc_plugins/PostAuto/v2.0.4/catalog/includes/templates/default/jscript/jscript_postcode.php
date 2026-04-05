@@ -32,7 +32,9 @@ $.when(
                     $('#state').val(response[0].zone_id);
                 }
                 $('#city').val(response[0].city);
-                $('#street-address').val(response[0].street_name);
+                if (response[0].street_name.length > 0) {
+                    $('#street-address').val(response[0].street_name);
+                }
                 if (response.length > 1) {
                     for (let i = 0; i < response.length; ++i) {
                         if (response[i].city.length > 0 && response[i].city != preced_cit) {
