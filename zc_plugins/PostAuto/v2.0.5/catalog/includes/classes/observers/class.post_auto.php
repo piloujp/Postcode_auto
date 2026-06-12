@@ -21,7 +21,7 @@ class zcObserverPostAuto
         /**
          * Determine this zc_plugin's paths: $this->zcPluginCatalogPath is used to load more template assets
          */
-        $this->detectZcPluginDetails(DIR_FS_CATALOG . 'zc_plugins/PostAuto/v2.0.0/catalog');
+        $this->detectZcPluginDetails(DIR_FS_CATALOG . 'zc_plugins/PostAuto/v2.0.5/catalog');
     }
 
     /**
