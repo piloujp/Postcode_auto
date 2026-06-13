@@ -3,15 +3,12 @@
  * Designed for v2.1.0+ (depends on InteractsWithPlugins trait and NOTIFY_HTML_HEAD_END notifier added in v2.1.0 )
  */
 
-use Zencart\PageLoader\PageLoader;
 use Zencart\Traits\InteractsWithPlugins;
-use Zencart\Traits\NotifierManager;
 use Zencart\Traits\ObserverManager;
 
 class zcObserverPostAuto
 {
     use InteractsWithPlugins;
-    use NotifierManager;
     use ObserverManager;
 
     public function __construct()
@@ -21,7 +18,7 @@ class zcObserverPostAuto
         /**
          * Determine this zc_plugin's paths: $this->zcPluginCatalogPath is used to load more template assets
          */
-        $this->detectZcPluginDetails(DIR_FS_CATALOG . 'zc_plugins/PostAuto/v2.0.5/catalog');
+        $this->detectZcPluginDetails(__DIR__);
     }
 
     /**
@@ -35,10 +32,18 @@ class zcObserverPostAuto
             $this->linkCatalogStylesheet('stylesheet_jquery.powertip.min.css', $current_page_base);
 
             // load a JS/PHP file from the plugin's jscript directory:
-            $pageLoader = PageLoader::getInstance();
-            $filename = 'jscript_postcode.php';
-            if (file_exists($file = $pageLoader->getTemplatePluginDir($filename, 'jscript', $this->zcPluginDirName) . $filename)) {
-                include($file);
+            global $pageLoader;
+            if (!$pageLoader) {
+                $pageLoader = PageLoader::getInstance();
+            }
+
+            $jsFilename = basename('js_postcode.php');
+            $pluginDir = $pageLoader->getTemplatePluginDir($jsFilename, 'jscript', $this->zcPluginDirName);
+            if ($pluginDir !== false) {
+                $file = $pluginDir . $jsFilename;
+                if (file_exists($file)) {
+                    require_once $file;
+                }
             }
         }
     }
