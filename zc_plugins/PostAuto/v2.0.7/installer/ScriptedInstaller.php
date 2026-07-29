@@ -18,7 +18,7 @@ class ScriptedInstaller extends ScriptedInstallBase
 
     protected function executeInstall()
     {
-        zen_set_time_limit(240);
+        zen_set_time_limit(300);
 
         global $sniffer;
 

@@ -8,7 +8,7 @@ $.when(
 
     $('#postcode').on('keyup change', function() {
         var cleancode = $('#postcode').val().replace(/[-|―|ー]/g,'');
-        if (cleancode.length >= 4) {
+        if (cleancode.length >= 4 && /^\d+$/.test($('#country').val())) {
             var donnees = 'country=' + $('#country').val() + '&postcode=' + cleancode;
             zcJS.ajax({
                 url: \"ajax.php?act=AjaxPostcodeQuery&method=postcodequery\",
@@ -20,7 +20,7 @@ $.when(
                 let preced_str = 'none';
                 let countcities = 0;
                 let countstreet = 0;
-                let reg = /[1-9]/;
+                let reg = /^\d*[1-9]\d*$/;
 
                 if (response.length === 0) {
                     return;
@@ -80,49 +80,51 @@ $.when(
     $('#city').on('keyup change', function() {
         if ($('#city').val().length > 1) {
             var cleancode = $('#postcode').val().replace(/[-|―|ー]/g,'');
-            var citydata = 'country=' + $('#country').val() + '&postcode=' + cleancode + '&city=' + $('#city').val();
-            zcJS.ajax({
-                url: \"ajax.php?act=AjaxPostcodeQuery&method=postcodequery\",
-                data: citydata
-            }).done(function( resp ) {
-                let optionss = '';
-                let preced_str = 'none';
-                let countstreet = 0;
-                let reg = /[1-9]/;
+            if (cleancode.length >= 4 && /^\d+$/.test($('#country').val())) {
+                var citydata = 'country=' + $('#country').val() + '&postcode=' + cleancode + '&city=' + $('#city').val();
+                zcJS.ajax({
+                    url: \"ajax.php?act=AjaxPostcodeQuery&method=postcodequery\",
+                    data: citydata
+                }).done(function( resp ) {
+                    let optionss = '';
+                    let preced_str = 'none';
+                    let countstreet = 0;
+                    let reg = /^\d*[1-9]\d*$/;
 
-                if (resp.length === 0) {
-                    return;
-                }
-                if (reg.test(resp[0].zone_id)) {
-                    $('#stateZone').val(resp[0].zone_id);
-                } else {
-                    $('#state').val(resp[0].zone_id);
-                }
-                if ($('#street-address').val() == '' || resp[0].street_name != '') {
-                    $('#street-address').val(resp[0].street_name);
-                }
-                if (resp.length > 1) {
-                    for (let i = 0; i < resp.length; ++i) {
-                        if (resp[i].street_name != preced_str) {
-                            if (resp[i].street_name.length > 0 && $('#city').val() === resp[i].city) {
-                                optionss += '<p onclick=\"document.getElementById(\'street-address\').value = \'' + resp[i].street_name.replace(/'/g, '\\\\\'') + '\'\">' + resp[i].street_name + '</p>';
-                            }
-                            preced_str = resp[i].street_name;
-                            countstreet++;
-                        }
+                    if (resp.length === 0) {
+                        return;
                     }
-                    optionss = (countstreet > 0) ? optionss : [] ;
-                }
-                $(function() {
-                    var mouseOndiv = $('#street-address');
-                    var tipContent = $(optionss);
-                    mouseOndiv.data('powertipjq', tipContent);
-                    mouseOndiv.powerTip({
-                        placement: 'e',
-                        mouseOnToPopup: true
+                    if (reg.test(resp[0].zone_id)) {
+                        $('#stateZone').val(resp[0].zone_id);
+                    } else {
+                        $('#state').val(resp[0].zone_id);
+                    }
+                    if ($('#street-address').val() == '' || resp[0].street_name != '') {
+                        $('#street-address').val(resp[0].street_name);
+                    }
+                    if (resp.length > 1) {
+                        for (let i = 0; i < resp.length; ++i) {
+                            if (resp[i].street_name != preced_str) {
+                                if (resp[i].street_name.length > 0 && $('#city').val() === resp[i].city) {
+                                    optionss += '<p onclick=\"document.getElementById(\'street-address\').value = \'' + resp[i].street_name.replace(/'/g, '\\\\\'') + '\'\">' + resp[i].street_name + '</p>';
+                                }
+                                preced_str = resp[i].street_name;
+                                countstreet++;
+                            }
+                        }
+                        optionss = (countstreet > 0) ? optionss : [] ;
+                    }
+                    $(function() {
+                        var mouseOndiv = $('#street-address');
+                        var tipContent = $(optionss);
+                        mouseOndiv.data('powertipjq', tipContent);
+                        mouseOndiv.powerTip({
+                            placement: 'e',
+                            mouseOnToPopup: true
+                        });
                     });
                 });
-            });
+            }
         }
     });
 

@@ -9,8 +9,8 @@ class zcAjaxPostcodeQuery extends base
 {
     public function postcodequery()
     {
-        $zone = array();
-        if (isset($_POST['postcode']) and isset($_POST['country'])) { // uses postcode to define zone, limited to country where postcode zones have been put in database
+        $zone = [];
+        if (!empty($_POST['postcode']) && !empty($_POST['country'])) { // uses postcode to define zone, limited to country where postcode zones have been put in database
             $conn = new PDO("mysql:host=" . constant('DB_SERVER') . ";dbname=" . constant('DB_DATABASE') . "", DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -91,8 +91,8 @@ class zcAjaxPostcodeQuery extends base
                     $request->execute();
                     foreach($request as $v) {
                         $state = (!empty($v['zone_id']) && ACCOUNT_STATE_DRAW_INITIAL_DROPDOWN === 'true') ? $v['zone_id'] : $v['zone_name'];
-                        $suburb_street = (empty($v['zone_street_name'])) ? '' : $v['zone_street_name'];
-                        $zone[] = array('zone_id' => $state, 'city' => $v['zone_city_name'], 'street_name' => $suburb_street);
+                        $suburb_street = $v['zone_street_name'] ?? '' ;
+                        $zone[] = ['zone_id' => $state, 'city' => $v['zone_city_name'], 'street_name' => $suburb_street];
                     }
                     return $zone;
                 } catch(PDOException $e) {
