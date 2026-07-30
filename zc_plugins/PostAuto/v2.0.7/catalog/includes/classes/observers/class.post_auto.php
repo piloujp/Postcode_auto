@@ -13,7 +13,7 @@ class zcObserverPostAuto
 
     public function __construct()
     {
-        $this->attach($this, ['NOTIFY_HTML_HEAD_END']);
+        $this->attach($this, ['NOTIFY_HTML_HEAD_END', 'NOTIFY_ZEN_REDIRECT']);
 
         /**
          * Determine this zc_plugin's paths: $this->zcPluginCatalogPath is used to load more template assets
@@ -46,5 +46,9 @@ class zcObserverPostAuto
                 }
             }
         }
+    }
+    public function notify_zen_redirect(&$class, $eventID, array $params, bool &$stopRedirect): void
+    {
+        $stopRedirect = true;
     }
 }
