@@ -49,6 +49,8 @@ class zcObserverPostAuto
     }
     public function notify_zen_redirect(&$class, $eventID, array $params, bool &$stopRedirect): void
     {
-        $stopRedirect = true;
+        if (htmlentities($_SERVER['SCRIPT_NAME']) === '/ajax.php') {
+            $stopRedirect = true;
+        }
     }
 }
