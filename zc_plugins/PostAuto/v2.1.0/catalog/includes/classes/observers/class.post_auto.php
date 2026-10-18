@@ -27,7 +27,7 @@ class zcObserverPostAuto
      */
     public function notify_html_head_end(&$class, $eventID, string $current_page_base): void
     {
-        if (in_array($current_page_base, ['address_book_process', 'checkout_shipping_address', 'login', 'create_account', 'checkout_one'])) {
+        if (in_array($current_page_base, ['address_book_process', 'checkout_shipping_address', 'checkout_payment_address', 'login', 'create_account', 'checkout_one'])) {
             // load a plugin-specific stylesheet, first from plugin dir, then from store's template:
             $this->linkCatalogStylesheet('stylesheet_jquery.powertip.min.css', $current_page_base);
 
@@ -53,7 +53,7 @@ class zcObserverPostAuto
     }
     public function notify_zen_redirect(&$class, $eventID, array $params, bool &$stopRedirect): void
     {
-        if (htmlentities($_SERVER['SCRIPT_NAME']) === '/ajax.php') {
+        if (basename($_SERVER['SCRIPT_NAME'] ?? '') === 'ajax.php' && ($_GET['act'] ?? '') === 'AjaxPostcodeQuery') {
             $stopRedirect = true;
         }
     }

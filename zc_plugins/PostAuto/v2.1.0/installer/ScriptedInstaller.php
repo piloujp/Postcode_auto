@@ -28,13 +28,13 @@ class ScriptedInstaller extends ScriptedInstallBase
         $this->tableconstants(); // Create each constant of the database tables for the post codes data.
 
         foreach ($this->data_country as $v) {
-            if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v)), 'zone_country_id') !== true) {
-                @$result = include 'sql/install/zones_to_post_code_' . $v . '.php';
+            if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v))) !== true) {
+                @$result = include './sql/install/zones_to_post_code_' . $v . '.php';
             }
         }
         unset($v);
-        
-        parent::executeInstall();
+
+        return parent::executeInstall();
     }
 
     // Note: This (https://github.com/zencart/zencart/pull/6498) Zen Cart PR must
@@ -49,27 +49,25 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         $this->tableconstants();
 
-        if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_JP'), 'zone_country_id') === true) {
+        if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_JP')) === true) {
             if (version_compare($this->version, '2.0.1', '<')) {
-                $this->tableconstants();
-                include_once 'sql/upgrade/zones_to_post_code_jp_update2025-03.php';
+                include './sql/upgrade/zones_to_post_code_jp_update2025-03.php';
             }
             if (version_compare($this->version, '2.1.0', '<')) {
-                $this->tableconstants();
-                include_once 'sql/upgrade/zones_to_post_code_jp_update2026-09.php';
+                include './sql/upgrade/zones_to_post_code_jp_update2026-09.php';
             }
         }
 
         // Comment out following lines if you don't want missing tables to be reinstalled.
         foreach ($this->data_country as $v) {
-            if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v)), 'zone_country_id') !== true) {
-                @$result = include 'sql/install/zones_to_post_code_' . $v . '.php';
+            if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v))) !== true) {
+                $result = include './sql/install/zones_to_post_code_' . $v . '.php';
             }
         }
         unset($v);
         // --------------------------------------------------------------------------------
 
-        parent::executeUpgrade($oldVersion);
+        return parent::executeUpgrade($oldVersion);
     }
 
     protected function executeUninstall()
@@ -86,7 +84,7 @@ class ScriptedInstaller extends ScriptedInstallBase
         $this->executeInstallerSql("DROP TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_JP);
         $this->executeInstallerSql("DROP TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_US);
 
-        parent::executeUninstall();
+        return parent::executeUninstall();
     }
 
     protected function removeOldNonencapsulatedPostauto(): void
