@@ -27,7 +27,7 @@ class zcObserverPostAuto
      */
     public function notify_html_head_end(&$class, $eventID, string $current_page_base): void
     {
-        if (in_array($current_page_base, ['address_book_process', 'checkout_shipping_address', 'login'])) {
+        if (in_array($current_page_base, ['address_book_process', 'checkout_shipping_address', 'login', 'create_account', 'checkout_one'])) {
             // load a plugin-specific stylesheet, first from plugin dir, then from store's template:
             $this->linkCatalogStylesheet('stylesheet_jquery.powertip.min.css', $current_page_base);
 
@@ -37,7 +37,11 @@ class zcObserverPostAuto
                 $pageLoader = PageLoader::getInstance();
             }
 
-            $jsFilename = basename('js_postcode.php');
+            if ($current_page_base === 'checkout_one') {
+                $jsFilename = 'js_postcode_bill_ship.php';
+            } else {
+                $jsFilename = 'js_postcode.php';
+            }
             $pluginDir = $pageLoader->getTemplatePluginDir($jsFilename, 'jscript', $this->zcPluginDirName);
             if ($pluginDir !== false) {
                 $file = $pluginDir . $jsFilename;
