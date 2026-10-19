@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Postal Code Atumatic plugin documentation</title>
+    <title>Postal Code Automatic plugin documentation</title>
   </head>
   <body>
     <h1 style=" text-align: center;">Postal Code Automatic documentation</h1>
     <p> </p>
-    <p style="margin-left: 20px;">Postal Code Automatic v2.0.x is an
+    <p style="margin-left: 20px;">Postal Code Automatic v2.x.x is an
       encapsulated plugin for Zen Cart v2.1 and above that automatically fills
       state, city and if available street address fields in a form when you
       enter postal/zip code. An Ajax request and JavaScript (jQuery) make this
@@ -15,8 +15,7 @@
       It uses extra tables with postal codes data per countries.<br>
       An external jQuery plugin is used to display multiple possible answers in
       a JavaScript popup tool window:<br>
-      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"
-        title="PowerTip" target="_blank">https://stevenbenner.github.io/jquery-powertip/</a>.<br>
+      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"        title="PowerTip" target="_blank">https://stevenbenner.github.io/jquery-powertip/</a>.<br>
       <br>
       'Postal Code Automatic' is provided with ten countries data/tables: United
       States, Spain, France and its territories, Germany, Italy, Swiss,
@@ -48,7 +47,7 @@
           Set max_execution_time for processes</code>. In case it already
         happened, see note below.</li>
       <li>Postal code tables are big, depending on countries they can have few
-        thousand records to over 124 501 records for Japan. If the server
+        thousand records to over 124 000 records for Japan. If the server
         encountered a <b>timeout during installation</b>, plugin won't be
         installed. In this case you have to <b>run again the installer</b> (by
         clicking on install button again), but <b>before</b> that you must <b>delete</b>
@@ -90,7 +89,7 @@
     <p style="margin-left: 80px;"><em><strong>Note:</strong></em></p>
     <p style="margin-left: 120px;">If you want to keep postal codes tables when
       uninstalling, you can do it by commenting out the appropriate line
-      (between 54 and 62) in file <code>zc_plugins/PostAuto/v2.0.x/installer/ScriptedInstaller.php</code>.</p>
+      (between 54 and 62) in file <code>zc_plugins/PostAuto/v2.x.x/installer/ScriptedInstaller.php</code>.</p>
     <h3 style="margin-left: 40px;"> UPDATING ZONES ID:</h3>
     <p style="margin-left: 40px;">When you add zones for a country listed in
       this plugin after the plugin was installed, you can update zones ids in
@@ -126,14 +125,14 @@
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_fr INNER JOIN zones ON
           zones_to_post_code_fr.zone_name = zones.zone_name SET
           zones_to_post_code_fr.zone_id = zones.zone_id;<br>
-          (example for Japan):<br>
+          (example for Japan where zones names are not using alphabet):<br>
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_jp INNER JOIN zen_zones
           ON zones_to_post_code_jp.zone_name = zen_zones.zone_code AND
           zen_zones.zone_country_id = <i>107</i> SET
           zones_to_post_code_jp.zone_id = zen_zones.zone_id;</p>
       </li>
       <li> <b><code>post_code</code></b> obviously for postal/zip code. This
-        plugin is programmed for a minimum of five characters long.</li>
+        plugin is programmed for a minimum of four characters long.</li>
       <li> <b><code>zone_name</code></b> for state, district, prefecture or
         whatever it is called in the country.</li>
       <li> <b><code>zone_city_name</code></b> for city name corresponding to
@@ -153,18 +152,18 @@
     <p style="margin-left: 40px;"> - Finally, few files need to be
       updated/created: </p>
     <ul style="margin-left: 40px;">
-      <li>Create a new file <code>zc_plugins/PostAuto/v2.0.x/installer/sql/install/zone_to_post_code_{NewCountryCode}.php</code>.
+      <li>Create a new file <code>zc_plugins/PostAuto/v2.x.x/installer/sql/install/zone_to_post_code_{NewCountryCode}.php</code>.
         Look at other files in same folder to reproduce the structure.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.0.x/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
+      <li>Update file <code>zc_plugins/PostAuto/v2.x.x/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
         In the 'switch' loop you need to add a 'case' for the new country. You
         can copy an existing one and modify country code and SQL request
         especially if you have street data or not.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.0.x/installer/ScriptedInstaller.php</code>.
+      <li>Update file <code>zc_plugins/PostAuto/v2.x.x/installer/ScriptedInstaller.php</code>.
         In function <code>executeUninstall()</code>, add a line like this:<br>
         <span style="margin-left: 80px;"><code>$this-&gt;executeInstallerSql("DROP
             TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_{NewCountryCode});</code></span></li>
-      <li>Update files <code>zc_plugins/PostAuto/v2.0.x/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
-        and <code>zc_plugins/PostAuto/v2.0.x/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
+      <li>Update files <code>zc_plugins/PostAuto/v2.x.x/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
+        and <code>zc_plugins/PostAuto/v2.x.x/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
         add a line like this:<br>
         <span style="margin-left: 80px;"><code>zen_define_default('TABLE_ZONES_TO_POST_CODE_{NewCountryCode}',
             DB_PREFIX . 'zones_to_post_code_{NewCountryCode}');</code></span></li>

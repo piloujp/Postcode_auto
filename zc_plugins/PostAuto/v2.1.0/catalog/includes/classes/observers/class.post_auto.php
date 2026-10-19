@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * Designed for v2.1.0+ (depends on InteractsWithPlugins trait and NOTIFY_HTML_HEAD_END notifier added in v2.1.0 )
  */
