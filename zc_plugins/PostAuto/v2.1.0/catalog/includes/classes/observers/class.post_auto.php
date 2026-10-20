@@ -29,7 +29,7 @@ class zcObserverPostAuto
     {
         if (in_array($current_page_base, ['address_book_process', 'checkout_shipping_address', 'checkout_payment_address', 'login', 'create_account', 'checkout_one'])) {
             // load a plugin-specific stylesheet, first from plugin dir, then from store's template:
-            $this->linkCatalogStylesheet('stylesheet_jquery.powertip.min.css', $current_page_base);
+            $this->linkCatalogStylesheet('jquery.powertip.min.css', $current_page_base);
 
             // load a JS/PHP file from the plugin's jscript directory:
             global $pageLoader;
