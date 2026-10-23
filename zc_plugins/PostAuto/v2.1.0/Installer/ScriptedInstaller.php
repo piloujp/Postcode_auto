@@ -29,7 +29,7 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         foreach ($this->data_country as $v) {
             if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v))) !== true) {
-                $result = include 'sql/install/zones_to_post_code_' . $v . '.php';
+                $result = include __DIR__ . '/sql/install/zones_to_post_code_' . $v . '.php';
             }
         }
         unset($v);
@@ -51,17 +51,18 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_JP')) === true) {
             if (version_compare($this->version, '2.0.1', '<')) {
-                include 'sql/upgrade/zones_to_post_code_jp_update2025-03.php';
+                include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2025-03.php';
             }
             if (version_compare($this->version, '2.1.0', '<')) {
-                include 'sql/upgrade/zones_to_post_code_jp_update2026-09.php';
+                include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-09.php';
+                include __DIR__ . '/sql/upgrade/zones_to_post_code_us_update2026-10.php';
             }
         }
 
         // Comment out following lines if you don't want missing tables to be reinstalled.
         foreach ($this->data_country as $v) {
             if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v))) !== true) {
-                $result = include 'sql/install/zones_to_post_code_' . $v . '.php';
+                $result = include __DIR__ . '/sql/install/zones_to_post_code_' . $v . '.php';
             }
         }
         unset($v);
