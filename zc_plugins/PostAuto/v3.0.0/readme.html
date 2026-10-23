@@ -7,15 +7,19 @@
   <body>
     <h1 style=" text-align: center;">Postcode Auto Fill documentation</h1>
     <p> </p>
-    <p style="margin-left: 20px;">Postcode Auto Fill v2.x.x is an
-      encapsulated plugin for Zen Cart v2.1 and above that automatically fills
+    <p style="margin-left: 20px;">Postcode Auto Fill v3.0.x is an
+      encapsulated plugin for Zen Cart v1.5.8 through v3.0.0 (PHP 7.4 to 8.5) that automatically fills
       state, city and if available street address fields in a form when you
       enter postal/zip code. An Ajax request and JavaScript (jQuery) make this
       possible on the fly without submitting the form.<br>
+      It works on the account, address book and checkout address pages, and on
+      One-Page Checkout's checkout page (billing and shipping addresses, for
+      guests and account holders alike).<br>
       It uses extra tables with postal codes data per countries.<br>
       An external jQuery plugin is used to display multiple possible answers in
       a JavaScript popup tool window:<br>
-      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"        title="PowerTip" target="_blank">https://stevenbenner.github.io/jquery-powertip/</a>.<br>
+      PowerTip&nbsp; from Steven Benner at <a href="https://stevenbenner.github.io/jquery-powertip/"
+        title="PowerTip" target="_blank">https://stevenbenner.github.io/jquery-powertip/</a>.<br>
       <br>
       'Postcode Auto Fill' is provided with ten countries data/tables: United
       States, Spain, France and its territories, Germany, Italy, Swiss,
@@ -42,8 +46,8 @@
     <ol style="margin-left: 80px;">
       <li>If your server is slow you might encounter script timeout during
         install. Installer already increased script execution time to 300s, but
-        if it is not enough, you can increase this time by editing <code>ScriptedInstaller.php</code>
-        on line 21 or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
+        if it is not enough, you can increase this time by editing the <code>zen_set_time_limit(300)</code>
+        lines in <code>Installer/ScriptedInstaller.php</code> or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
           Set max_execution_time for processes</code>. In case it already
         happened, see note below.</li>
       <li>Postal code tables are big, depending on countries they can have few
@@ -89,7 +93,7 @@
     <p style="margin-left: 80px;"><em><strong>Note:</strong></em></p>
     <p style="margin-left: 120px;">If you want to keep postal codes tables when
       uninstalling, you can do it by commenting out the appropriate line
-      (between 54 and 62) in file <code>zc_plugins/PostAuto/v2.x.x/installer/ScriptedInstaller.php</code>.</p>
+      (in function <code>executeUninstall()</code>) in file <code>zc_plugins/PostAuto/v3.0.x/Installer/ScriptedInstaller.php</code>.</p>
     <h3 style="margin-left: 40px;"> UPDATING ZONES ID:</h3>
     <p style="margin-left: 40px;">When you add zones for a country listed in
       this plugin after the plugin was installed, you can update zones ids in
@@ -125,7 +129,7 @@
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_fr INNER JOIN zones ON
           zones_to_post_code_fr.zone_name = zones.zone_name SET
           zones_to_post_code_fr.zone_id = zones.zone_id;<br>
-          (example for Japan where zones names are not using alphabet):<br>
+          (example for Japan):<br>
           &nbsp;&nbsp;&nbsp; UPDATE zones_to_post_code_jp INNER JOIN zen_zones
           ON zones_to_post_code_jp.zone_name = zen_zones.zone_code AND
           zen_zones.zone_country_id = <i>107</i> SET
@@ -152,18 +156,20 @@
     <p style="margin-left: 40px;"> - Finally, few files need to be
       updated/created: </p>
     <ul style="margin-left: 40px;">
-      <li>Create a new file <code>zc_plugins/PostAuto/v2.x.x/installer/sql/install/zone_to_post_code_{NewCountryCode}.php</code>.
-        Look at other files in same folder to reproduce the structure.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.x.x/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
+      <li>Create a new file <code>zc_plugins/PostAuto/v3.0.x/Installer/sql/install/zone_to_post_code_{NewCountryCode}.php</code>.
+        Look at other files in same folder to reproduce the structure. Write the core
+        tables as <code>FROM zones WHERE</code>;
+        the installer adds the store's table prefix to those.</li>
+      <li>Update file <code>zc_plugins/PostAuto/v3.0.x/catalog/includes/classes/ajax/zcAjaxPostcodeQuery.php</code>.
         In the 'switch' loop you need to add a 'case' for the new country. You
-        can copy an existing one and modify country code and SQL request
-        especially if you have street data or not.</li>
-      <li>Update file <code>zc_plugins/PostAuto/v2.x.x/installer/ScriptedInstaller.php</code>.
+        can copy an existing one and modify country code, table and columns,
+        especially if you have street data or not (<code>$by_city</code>).</li>
+      <li>Update file <code>zc_plugins/PostAuto/v3.0.x/Installer/ScriptedInstaller.php</code>.
         In function <code>executeUninstall()</code>, add a line like this:<br>
         <span style="margin-left: 80px;"><code>$this-&gt;executeInstallerSql("DROP
             TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_{NewCountryCode});</code></span></li>
-      <li>Update files <code>zc_plugins/PostAuto/v2.x.x/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
-        and <code>zc_plugins/PostAuto/v2.x.x/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
+      <li>Update files <code>zc_plugins/PostAuto/v3.0.x/admin/includes/extra_datafiles/postcode_auto__database_names.php</code>
+        and <code>zc_plugins/PostAuto/v3.0.x/catalog/includes/extra_datafiles/postcode_auto__database_names.php</code>.
         add a line like this:<br>
         <span style="margin-left: 80px;"><code>zen_define_default('TABLE_ZONES_TO_POST_CODE_{NewCountryCode}',
             DB_PREFIX . 'zones_to_post_code_{NewCountryCode}');</code></span></li>
