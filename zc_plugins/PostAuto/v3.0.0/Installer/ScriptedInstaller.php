@@ -16,6 +16,21 @@ class ScriptedInstaller extends ScriptedInstallBase
         unset($cod);
     }
 
+    /**
+     * The data files name the core tables literally ("FROM zones WHERE", "FROM countries WHERE") inside
+     * multi-megabyte string literals; splitting those literals with constants makes PHP need far more than
+     * 128M just to compile the Japanese file. So the store's DB_PREFIX is applied here, once per statement.
+     *
+     * Declared with ": bool" so it is compatible with both the untyped (1.5.8/2.0) and typed (2.1+) parent.
+     */
+    protected function executeInstallerSql($sql): bool
+    {
+        if (DB_PREFIX !== '') {
+            $sql = str_replace('FROM zones WHERE', 'FROM ' . TABLE_ZONES . ' WHERE', $sql);
+        }
+        return (bool)parent::executeInstallerSql($sql);
+    }
+
     protected function executeInstall()
     {
         zen_set_time_limit(300);
@@ -37,11 +52,12 @@ class ScriptedInstaller extends ScriptedInstallBase
         return parent::executeInstall();
     }
 
-    // Note: This (https://github.com/zencart/zencart/pull/6498) Zen Cart PR must
-    // be present in the base code or a PHP Fatal error is generated due to the
-    // function signature difference.
+    // Zen Cart 1.5.8 and 2.0.x call executeUpgrade() with no argument; 2.1.0 and later pass the
+    // previously-installed version (e.g. 'v2.0.8').  The default keeps this signature compatible
+    // with both.  No release before v3.0.0 ran on 1.5.8 or 2.0.x, so there an unknown old version
+    // is a v3 one and the older data updates below are skipped.
     //
-    protected function executeUpgrade($oldVersion)
+    protected function executeUpgrade($oldVersion = '')
     {
         zen_set_time_limit(300);
 
@@ -49,11 +65,16 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         $this->tableconstants();
 
+        $oldVersion = ltrim((string)$oldVersion, 'vV');
+        if ($oldVersion === '') {
+            $oldVersion = '3.0.0';
+        }
+
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_JP')) === true) {
-            if (version_compare($this->version, '2.0.1', '<')) {
+            if (version_compare($oldVersion, '2.0.1', '<')) {
                 include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2025-03.php';
             }
-            if (version_compare($this->version, '2.1.0', '<')) {
+            if (version_compare($oldVersion, '2.1.0', '<')) {
                 include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-09.php';
                 include __DIR__ . '/sql/upgrade/zones_to_post_code_us_update2026-10.php';
             }
@@ -100,17 +121,20 @@ class ScriptedInstaller extends ScriptedInstallBase
         ];
         $isOld = false;
 
+        // Zen Cart 1.5.8 and 2.0.x load only the admin's own language from Installer/languages (no English fallback).
+        $error_message = defined('ERROR_UNABLE_TO_DELETE_FILE') ? ERROR_UNABLE_TO_DELETE_FILE : 'Failed to delete old file: %s - Please remove manually.';
+
         foreach ($filesToDelete as $nextFile) {
             if (file_exists($nextFile)) {
                 $result = unlink($nextFile);
                 if (!$result && file_exists($nextFile)) {
                     $this->errorContainer->addError(
                         0,
-                        sprintf(ERROR_UNABLE_TO_DELETE_FILE, $nextFile),
+                        sprintf($error_message, $nextFile),
                         false,
                         // this str_replace has to do DIR_FS_ADMIN before CATALOG because catalog is contained within admin, so results are wrong.
                         // also, '[admin_directory]' is used to obfuscate the admin dir name, in case the user copy/pastes output to a public forum for help.
-                        sprintf(ERROR_UNABLE_TO_DELETE_FILE, str_replace([DIR_FS_ADMIN, DIR_FS_CATALOG], ['[admin_directory]/', ''], $nextFile))
+                        sprintf($error_message, str_replace([DIR_FS_ADMIN, DIR_FS_CATALOG], ['[admin_directory]/', ''], $nextFile))
                     );
                 } else {
                     $isOld = true;

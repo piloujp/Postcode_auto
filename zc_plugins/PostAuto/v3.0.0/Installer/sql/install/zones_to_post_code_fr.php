@@ -19,7 +19,7 @@ $this->executeInstallerSql($sql);
 
 $frenchcountries = ['FRA', 'GLP', 'GUF', 'PYF', 'MTQ', 'MYT', 'MCO', 'REU', 'NCL', 'SPM', 'WLF'];
 for ($i = 0; $i < count($frenchcountries); $i++) {
-    $sql = "SET @coid" . $i . " = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = '" . $frenchcountries[$i] . "' ORDER BY countries_id DESC LIMIT 1);";
+    $sql = "SET @coid" . $i . " = (SELECT countries_id FROM " . TABLE_COUNTRIES . " WHERE countries_iso_code_3 = '" . $frenchcountries[$i] . "' ORDER BY countries_id DESC LIMIT 1);";
     $this->executeInstallerSql($sql);
 }
 

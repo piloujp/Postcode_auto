@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_IT . " (
 ";
 $this->executeInstallerSql($sql);
 
-$sql = "SET @coid = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'ITA' ORDER BY countries_id DESC LIMIT 1);";
+$sql = "SET @coid = (SELECT countries_id FROM " . TABLE_COUNTRIES . " WHERE countries_iso_code_3 = 'ITA' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 $sql = "

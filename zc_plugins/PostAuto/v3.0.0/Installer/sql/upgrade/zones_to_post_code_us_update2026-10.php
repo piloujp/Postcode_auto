@@ -1,6 +1,6 @@
 <?php
 
-$sql = "SET @coid0 = (SELECT countries_id FROM countries WHERE countries_iso_code_3 = 'USA' ORDER BY countries_id DESC LIMIT 1);";
+$sql = "SET @coid0 = (SELECT countries_id FROM " . TABLE_COUNTRIES . " WHERE countries_iso_code_3 = 'USA' ORDER BY countries_id DESC LIMIT 1);";
 $this->executeInstallerSql($sql);
 
 // ---- Additional ZIP codes (source: GeoNames US postal codes), inserted in batches of 1000 (provided by njcyx) ----
