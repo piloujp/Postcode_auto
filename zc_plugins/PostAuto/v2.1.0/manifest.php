@@ -15,7 +15,7 @@ $buttons = '<div class="buttons my-2">' . $button_readme . ' ' . $button_github 
 
 return [
     'pluginVersion' => 'v2.1.0',
-    'pluginName' => 'Postal Code Automatic',
+    'pluginName' => 'Postcode Auto Fill',
     'pluginDescription' => 'This plugin autofill form fields state, city and street address (if data is available), when postal/zip code is provided.' . $buttons,
     'pluginAuthor' => 'piloujp',
     'pluginId' => 2370, // ID from Zen Cart forum
