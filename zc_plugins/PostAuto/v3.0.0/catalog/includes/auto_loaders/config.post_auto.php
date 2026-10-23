@@ -19,3 +19,9 @@ $autoLoadConfig[139][] = [
     // the name of the global object into which the class is instantiated
     'objectName'=>'zcObserverPostAuto'
 ];
+// Zen Cart 1.5.x only (the script returns at once on 2.0.0+): answers the plugin's ajax.php
+// request, which 1.5.8's ajax.php cannot route to a plugin.  Runs after every core init step.
+$autoLoadConfig[200][] = [
+    'autoType'=>'init_script',
+    'loadFile'=>'init_post_auto_ajax.php'
+];
