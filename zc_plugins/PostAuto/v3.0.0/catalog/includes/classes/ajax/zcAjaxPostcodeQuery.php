@@ -70,8 +70,10 @@ class zcAjaxPostcodeQuery extends base
                 $by_country = true;
                 $by_city = true;
                 break;
-            case 'PLW':
             case 'USA':
+            case 'PLW':
+            case 'FSM':
+            case 'MHL':
                 $table = TABLE_ZONES_TO_POST_CODE_US;
                 $by_country = true;
                 break;
