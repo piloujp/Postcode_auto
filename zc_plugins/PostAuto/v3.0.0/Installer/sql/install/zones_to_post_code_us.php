@@ -523,7 +523,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01844', 'Massachusetts', 'Methuen'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01845', 'Massachusetts', 'Lawrence'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01845', 'Massachusetts', 'North Andover'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01850', 'Massachusetts', 'Dracut'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01850', 'Massachusetts', 'Dracut')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01851', 'Massachusetts', 'Lowell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01852', 'Massachusetts', 'Lowell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Massachusetts' AND zone_country_id = @coid0), 0), '01852', 'Massachusetts', 'Billerica'),
@@ -996,12 +1001,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02885', 'Rhode Island', 'Warren'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02886', 'Rhode Island', 'Warwick'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02887', 'Rhode Island', 'Warwick'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02888', 'Rhode Island', 'Warwick')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02888', 'Rhode Island', 'Warwick'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02889', 'Rhode Island', 'Warwick'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02891', 'Rhode Island', 'Westerly'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02892', 'Rhode Island', 'West Kingston'),
@@ -1028,7 +1028,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02915', 'Rhode Island', 'Riverside'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02916', 'Rhode Island', 'Rumford'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02917', 'Rhode Island', 'Smithfield'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02919', 'Rhode Island', 'Johnston'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02919', 'Rhode Island', 'Johnston')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02920', 'Rhode Island', 'Cranston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02921', 'Rhode Island', 'Johnston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Rhode Island' AND zone_country_id = @coid0), 0), '02940', 'Rhode Island', 'Providence'),
@@ -1528,7 +1533,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04341', 'Maine', 'Coopers Mills'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04342', 'Maine', 'Dresden'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04343', 'Maine', 'East Winthrop'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04344', 'Maine', 'Gardiner'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04344', 'Maine', 'Gardiner')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04345', 'Maine', 'Gardiner'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04346', 'Maine', 'Gardiner'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maine' AND zone_country_id = @coid0), 0), '04347', 'Maine', 'Augusta'),
@@ -2001,12 +2011,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05462', 'Vermont', 'Huntington'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05463', 'Vermont', 'Isle La Motte'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05464', 'Vermont', 'Jeffersonville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05465', 'Vermont', 'Jericho')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05465', 'Vermont', 'Jericho'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05466', 'Vermont', 'Jonesville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05468', 'Vermont', 'Milton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05469', 'Vermont', 'Monkton'),
@@ -2033,7 +2038,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05494', 'Vermont', 'Westford'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05495', 'Vermont', 'Williston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05601', 'Vermont', 'Montpelier'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05602', 'Vermont', 'Berlin'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05602', 'Vermont', 'Berlin')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05640', 'Vermont', 'Adamant'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05641', 'Vermont', 'Barre'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Vermont' AND zone_country_id = @coid0), 0), '05647', 'Vermont', 'Cabot'),
@@ -2533,7 +2543,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06762', 'Connecticut', 'Naugatuck'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06763', 'Connecticut', 'Thomaston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06770', 'Connecticut', 'Naugatuck'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06776', 'Connecticut', 'New Milford'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06776', 'Connecticut', 'New Milford')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06777', 'Connecticut', 'Washington Depot'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06777', 'Connecticut', 'New Preston Marble Dale'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Connecticut' AND zone_country_id = @coid0), 0), '06778', 'Connecticut', 'Thomaston'),
@@ -3006,12 +3021,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07926', 'New Jersey', 'Brookside'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07927', 'New Jersey', 'Cedar Knolls'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07927', 'New Jersey', 'Morris Plains'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07928', 'New Jersey', 'Chatham')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07928', 'New Jersey', 'Chatham'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07930', 'New Jersey', 'Chester'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07931', 'New Jersey', 'Bedminster'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07931', 'New Jersey', 'Far Hills'),
@@ -3038,7 +3048,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07977', 'New Jersey', 'Peapack'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07978', 'New Jersey', 'Pluckemin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07979', 'New Jersey', 'Pottersville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07980', 'New Jersey', 'Stirling'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07980', 'New Jersey', 'Stirling')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '07981', 'New Jersey', 'Morristown'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '08001', 'New Jersey', 'Alloway'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Jersey' AND zone_country_id = @coid0), 0), '08002', 'New Jersey', 'Cherry Hill'),
@@ -3538,7 +3553,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10034', 'New York', 'New York'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10035', 'New York', 'New York'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10036', 'New York', 'New York'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10037', 'New York', 'New York'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10037', 'New York', 'New York')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10038', 'New York', 'New York'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10039', 'New York', 'New York'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '10040', 'New York', 'New York'),
@@ -4011,12 +4031,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11758', 'New York', 'Massapequa'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11762', 'New York', 'Massapequa Park'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11763', 'New York', 'Medford'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11764', 'New York', 'Miller Place')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11764', 'New York', 'Miller Place'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11765', 'New York', 'Mill Neck'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11766', 'New York', 'Mount Sinai'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11767', 'New York', 'Nesconset'),
@@ -4043,7 +4058,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11791', 'New York', 'Syosset'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11792', 'New York', 'Wading River'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11793', 'New York', 'Wantagh'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11795', 'New York', 'West Islip'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11795', 'New York', 'West Islip')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11796', 'New York', 'West Sayville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11797', 'New York', 'Syosset'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '11797', 'New York', 'Woodbury'),
@@ -4543,7 +4563,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12808', 'New York', 'Adirondack'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12809', 'New York', 'Argyle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12810', 'New York', 'Athol'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12811', 'New York', 'Bakers Mills'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12811', 'New York', 'Bakers Mills')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12812', 'New York', 'Blue Mountain Lake'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12814', 'New York', 'Bolton Landing'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '12815', 'New York', 'Brant Lake'),
@@ -5016,12 +5041,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13667', 'New York', 'Norfolk'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13668', 'New York', 'Norwood'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13669', 'New York', 'Ogdensburg'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13672', 'New York', 'Parishville')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13672', 'New York', 'Parishville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13673', 'New York', 'Philadelphia'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13674', 'New York', 'Pierrepont Manor'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13676', 'New York', 'Potsdam'),
@@ -5048,7 +5068,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13731', 'New York', 'Andes'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13732', 'New York', 'Apalachin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13733', 'New York', 'Bainbridge'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13733', 'New York', 'Sidney'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13733', 'New York', 'Sidney')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13734', 'New York', 'Nichols'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13736', 'New York', 'Berkshire'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '13737', 'New York', 'Bible School Park'),
@@ -5548,7 +5573,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14814', 'New York', 'Big Flats'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14814', 'New York', 'Elmira'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14815', 'New York', 'Tyrone'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14816', 'New York', 'Breesport'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14816', 'New York', 'Breesport')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14817', 'New York', 'Brooktondale'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14818', 'New York', 'Burdett'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New York' AND zone_country_id = @coid0), 0), '14819', 'New York', 'Cameron Mills'),
@@ -6021,12 +6051,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15636', 'Pennsylvania', 'Irwin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15636', 'Pennsylvania', 'Harrison City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15637', 'Pennsylvania', 'Irwin'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15637', 'Pennsylvania', 'Herminie')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15637', 'Pennsylvania', 'Herminie'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15638', 'Pennsylvania', 'Hostetter'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15639', 'Pennsylvania', 'Hunker'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15640', 'Pennsylvania', 'Hutchinson'),
@@ -6053,7 +6078,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15671', 'Pennsylvania', 'New Derry'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15672', 'Pennsylvania', 'New Stanton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15673', 'Pennsylvania', 'North Apollo'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15674', 'Pennsylvania', 'Norvelt'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15674', 'Pennsylvania', 'Norvelt')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15675', 'Pennsylvania', 'Penn'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15675', 'Pennsylvania', 'Jeannette'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '15676', 'Pennsylvania', 'Pleasant Unity'),
@@ -6553,7 +6583,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16749', 'Pennsylvania', 'Smethport'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16750', 'Pennsylvania', 'Turtlepoint'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16801', 'Pennsylvania', 'State College'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16802', 'Pennsylvania', 'State College'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16802', 'Pennsylvania', 'State College')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16803', 'Pennsylvania', 'State College'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16804', 'Pennsylvania', 'State College'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '16805', 'Pennsylvania', 'State College'),
@@ -7026,12 +7061,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17812', 'Pennsylvania', 'Beaver Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17812', 'Pennsylvania', 'Mc Clure'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17813', 'Pennsylvania', 'Beavertown'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17813', 'Pennsylvania', 'Middleburg')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17813', 'Pennsylvania', 'Middleburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17814', 'Pennsylvania', 'Benton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17815', 'Pennsylvania', 'Bloomsburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17820', 'Pennsylvania', 'Catawissa'),
@@ -7058,7 +7088,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17845', 'Pennsylvania', 'Mifflinburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17845', 'Pennsylvania', 'Millmont'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17846', 'Pennsylvania', 'Millville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17847', 'Pennsylvania', 'Milton'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17847', 'Pennsylvania', 'Milton')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17850', 'Pennsylvania', 'Montandon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17851', 'Pennsylvania', 'Mount Carmel'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '17853', 'Pennsylvania', 'Mount Pleasant Mills'),
@@ -7558,7 +7593,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19003', 'Pennsylvania', 'Ardmore'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19004', 'Pennsylvania', 'Bala Cynwyd'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19006', 'Pennsylvania', 'Huntingdon Valley'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19007', 'Pennsylvania', 'Bristol'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19007', 'Pennsylvania', 'Bristol')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19008', 'Pennsylvania', 'Broomall'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19009', 'Pennsylvania', 'Bryn Athyn'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Pennsylvania' AND zone_country_id = @coid0), 0), '19010', 'Pennsylvania', 'Bryn Mawr'),
@@ -8031,12 +8071,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20124', 'Virginia', 'Centreville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20124', 'Virginia', 'Clifton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20128', 'Virginia', 'Orlean'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20129', 'Virginia', 'Leesburg')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20129', 'Virginia', 'Leesburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20129', 'Virginia', 'Paeonian Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20131', 'Virginia', 'Philomont'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20132', 'Virginia', 'Purcellville'),
@@ -8063,7 +8098,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20151', 'Virginia', 'Chantilly'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20152', 'Virginia', 'Chantilly'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20153', 'Virginia', 'Chantilly'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20155', 'Virginia', 'Gainesville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20155', 'Virginia', 'Gainesville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20156', 'Virginia', 'Gainesville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20158', 'Virginia', 'Purcellville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '20159', 'Virginia', 'Hamilton'),
@@ -8563,7 +8603,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21675', 'Maryland', 'Cambridge'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21676', 'Maryland', 'Wittman'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21677', 'Maryland', 'Woolford'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21678', 'Maryland', 'Worton'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21678', 'Maryland', 'Worton')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21679', 'Maryland', 'Wye Mills'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21701', 'Maryland', 'Frederick'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Maryland' AND zone_country_id = @coid0), 0), '21702', 'Maryland', 'Frederick'),
@@ -9036,12 +9081,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22969', 'Virginia', 'Schuyler'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22971', 'Virginia', 'Lovingston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22971', 'Virginia', 'Shipman'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22972', 'Virginia', 'Somerset')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22972', 'Virginia', 'Somerset'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22973', 'Virginia', 'Stanardsville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22974', 'Virginia', 'Troy'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '22974', 'Virginia', 'Charlottesville'),
@@ -9068,7 +9108,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23030', 'Virginia', 'Charles City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23032', 'Virginia', 'Church View'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23032', 'Virginia', 'Urbanna'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23035', 'Virginia', 'Cobbs Creek'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23035', 'Virginia', 'Cobbs Creek')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23038', 'Virginia', 'Columbia'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23039', 'Virginia', 'Crozier'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '23039', 'Virginia', 'Maidens'),
@@ -9568,7 +9613,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24132', 'Virginia', 'Parrott'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24133', 'Virginia', 'Patrick Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24134', 'Virginia', 'Pearisburg'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24136', 'Virginia', 'Pembroke'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24136', 'Virginia', 'Pembroke')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24137', 'Virginia', 'Penhook'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24138', 'Virginia', 'Pilot'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Virginia' AND zone_country_id = @coid0), 0), '24138', 'Virginia', 'Riner'),
@@ -10041,12 +10091,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25132', 'West Virginia', 'Mammoth'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25133', 'West Virginia', 'Maysel'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25134', 'West Virginia', 'Miami'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25136', 'West Virginia', 'Montgomery')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25136', 'West Virginia', 'Montgomery'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25139', 'West Virginia', 'Mount Carbon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25140', 'West Virginia', 'Naoma'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25141', 'West Virginia', 'Clay'),
@@ -10073,7 +10118,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25181', 'West Virginia', 'Seth'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25183', 'West Virginia', 'Sharples'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25186', 'West Virginia', 'Smithers'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25193', 'West Virginia', 'Sylvester'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25193', 'West Virginia', 'Sylvester')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25201', 'West Virginia', 'Tad'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25202', 'West Virginia', 'Alum Creek'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '25202', 'West Virginia', 'Tornado'),
@@ -10573,7 +10623,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26419', 'West Virginia', 'Pine Grove'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26421', 'West Virginia', 'Pullman'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26422', 'West Virginia', 'Reynoldsville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26424', 'West Virginia', 'Rosemont'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26424', 'West Virginia', 'Rosemont')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26425', 'West Virginia', 'Rowlesburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26426', 'West Virginia', 'Salem'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'West Virginia' AND zone_country_id = @coid0), 0), '26430', 'West Virginia', 'Sand Fork'),
@@ -11046,12 +11101,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27810', 'North Carolina', 'Belhaven'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27811', 'North Carolina', 'Bellarthur'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27812', 'North Carolina', 'Bethel'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27813', 'North Carolina', 'Black Creek')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27813', 'North Carolina', 'Black Creek'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27814', 'North Carolina', 'Blounts Creek'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27816', 'North Carolina', 'Castalia'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27817', 'North Carolina', 'Chocowinity'),
@@ -11078,7 +11128,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27834', 'North Carolina', 'Greenville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27835', 'North Carolina', 'Greenville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27836', 'North Carolina', 'Greenville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27837', 'North Carolina', 'Grimesland'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27837', 'North Carolina', 'Grimesland')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27839', 'North Carolina', 'Halifax'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27840', 'North Carolina', 'Hamilton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '27840', 'North Carolina', 'Robersonville'),
@@ -11578,7 +11633,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28523', 'North Carolina', 'Trenton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28524', 'North Carolina', 'Davis'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28525', 'North Carolina', 'Deep Run'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28525', 'North Carolina', 'Pink Hill'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28525', 'North Carolina', 'Pink Hill')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28526', 'North Carolina', 'Dover'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28526', 'North Carolina', 'Kinston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Carolina' AND zone_country_id = @coid0), 0), '28527', 'North Carolina', 'Ernul'),
@@ -12051,12 +12111,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29385', 'South Carolina', 'Lyman'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29385', 'South Carolina', 'Wellford'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29386', 'South Carolina', 'White Stone'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29388', 'South Carolina', 'Woodruff')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29388', 'South Carolina', 'Woodruff'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29401', 'South Carolina', 'Charleston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29402', 'South Carolina', 'Charleston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29403', 'South Carolina', 'Charleston'),
@@ -12083,7 +12138,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29431', 'South Carolina', 'Saint Stephen'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29432', 'South Carolina', 'Branchville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29434', 'South Carolina', 'Cordesville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29434', 'South Carolina', 'Moncks Corner'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29434', 'South Carolina', 'Moncks Corner')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29435', 'South Carolina', 'Cottageville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29436', 'South Carolina', 'Cross'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Carolina' AND zone_country_id = @coid0), 0), '29437', 'South Carolina', 'Dorchester'),
@@ -12583,7 +12643,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30182', 'Georgia', 'Waco'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30183', 'Georgia', 'Waleska'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30184', 'Georgia', 'White'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30185', 'Georgia', 'Whitesburg'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30185', 'Georgia', 'Whitesburg')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30187', 'Georgia', 'Douglasville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30187', 'Georgia', 'Winston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '30188', 'Georgia', 'Woodstock'),
@@ -13056,12 +13121,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31047', 'Georgia', 'Perry'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31049', 'Georgia', 'Kite'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31051', 'Georgia', 'Lilly'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31052', 'Georgia', 'Lizella')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31052', 'Georgia', 'Lizella'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31054', 'Georgia', 'Mc Intyre'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31055', 'Georgia', 'Mc Rae Helena'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31057', 'Georgia', 'Marshallville'),
@@ -13088,7 +13148,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31078', 'Georgia', 'Roberta'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31079', 'Georgia', 'Rochelle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31081', 'Georgia', 'Butler'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31081', 'Georgia', 'Rupert'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31081', 'Georgia', 'Rupert')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31082', 'Georgia', 'Sandersville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31083', 'Georgia', 'Scotland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Georgia' AND zone_country_id = @coid0), 0), '31085', 'Georgia', 'Shady Dale'),
@@ -13588,7 +13653,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32340', 'Florida', 'Madison'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32341', 'Florida', 'Madison'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32343', 'Florida', 'Midway'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32344', 'Florida', 'Monticello'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32344', 'Florida', 'Monticello')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32345', 'Florida', 'Monticello'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32346', 'Florida', 'Panacea'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '32347', 'Florida', 'Perry'),
@@ -14061,12 +14131,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33164', 'Florida', 'North Miami Beach'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33165', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33166', 'Florida', 'Miami'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33167', 'Florida', 'Miami')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33167', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33168', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33169', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33170', 'Florida', 'Miami'),
@@ -14093,7 +14158,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33196', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33197', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33222', 'Florida', 'Doral'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33231', 'Florida', 'Miami'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33231', 'Florida', 'Miami')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33233', 'Florida', 'Miami'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33234', 'Florida', 'Coral Gables'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '33238', 'Florida', 'Miami'),
@@ -14593,7 +14663,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34221', 'Florida', 'Palmetto'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34222', 'Florida', 'Ellenton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34223', 'Florida', 'Englewood'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34224', 'Florida', 'Englewood'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34224', 'Florida', 'Englewood')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34228', 'Florida', 'Longboat Key'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34229', 'Florida', 'Osprey'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Florida' AND zone_country_id = @coid0), 0), '34230', 'Florida', 'Sarasota'),
@@ -15066,12 +15141,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35602', 'Alabama', 'Decatur'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35603', 'Alabama', 'Decatur'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35609', 'Alabama', 'Decatur'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35610', 'Alabama', 'Anderson')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35610', 'Alabama', 'Anderson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35611', 'Alabama', 'Athens'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35612', 'Alabama', 'Athens'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35613', 'Alabama', 'Athens'),
@@ -15098,7 +15168,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35649', 'Alabama', 'Mooresville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35650', 'Alabama', 'Moulton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35651', 'Alabama', 'Mount Hope'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35652', 'Alabama', 'Rogersville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35652', 'Alabama', 'Rogersville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35653', 'Alabama', 'Russellville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35654', 'Alabama', 'Russellville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '35660', 'Alabama', 'Sheffield'),
@@ -15598,7 +15673,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Alabama' AND zone_country_id = @coid0), 0), '36925', 'Alabama', 'York'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37010', 'Tennessee', 'Adams'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37011', 'Tennessee', 'Antioch'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37012', 'Tennessee', 'Alexandria'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37012', 'Tennessee', 'Alexandria')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37012', 'Tennessee', 'Watertown'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37013', 'Tennessee', 'Antioch'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '37014', 'Tennessee', 'Arrington'),
@@ -16071,12 +16151,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38002', 'Tennessee', 'Arlington'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38004', 'Tennessee', 'Atoka'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38006', 'Tennessee', 'Bells'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38007', 'Tennessee', 'Dyersburg')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38007', 'Tennessee', 'Dyersburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38008', 'Tennessee', 'Bolivar'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38010', 'Tennessee', 'Mason'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38011', 'Tennessee', 'Brighton'),
@@ -16103,7 +16178,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38041', 'Tennessee', 'Henning'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38041', 'Tennessee', 'Ripley'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38042', 'Tennessee', 'Hickory Valley'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38044', 'Tennessee', 'Hornsby'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38044', 'Tennessee', 'Hornsby')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38046', 'Tennessee', 'La Grange'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38047', 'Tennessee', 'Lenox'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Tennessee' AND zone_country_id = @coid0), 0), '38048', 'Tennessee', 'Oakland'),
@@ -16603,7 +16683,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39080', 'Mississippi', 'Harperville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39082', 'Mississippi', 'Harrisville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39083', 'Mississippi', 'Hazlehurst'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39086', 'Mississippi', 'Hermanville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39086', 'Mississippi', 'Hermanville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39087', 'Mississippi', 'Hillsboro'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39088', 'Mississippi', 'Holly Bluff'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Mississippi' AND zone_country_id = @coid0), 0), '39090', 'Mississippi', 'Kosciusko'),
@@ -17076,12 +17161,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40259', 'Kentucky', 'Louisville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40268', 'Kentucky', 'Louisville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40269', 'Kentucky', 'Louisville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40270', 'Kentucky', 'Louisville')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40270', 'Kentucky', 'Louisville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40272', 'Kentucky', 'Louisville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40285', 'Kentucky', 'Louisville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40290', 'Kentucky', 'Louisville'),
@@ -17108,7 +17188,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40336', 'Kentucky', 'Irvine'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40337', 'Kentucky', 'Jeffersonville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40339', 'Kentucky', 'Keene'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40340', 'Kentucky', 'Nicholasville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40340', 'Kentucky', 'Nicholasville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40342', 'Kentucky', 'Lawrenceburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40346', 'Kentucky', 'Frenchburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '40346', 'Kentucky', 'Means'),
@@ -17608,7 +17693,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41759', 'Kentucky', 'Sassafras'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41762', 'Kentucky', 'Hyden'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41763', 'Kentucky', 'Hazard'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41763', 'Kentucky', 'Slemp'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41763', 'Kentucky', 'Slemp')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41764', 'Kentucky', 'Wooton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41766', 'Kentucky', 'Hyden'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kentucky' AND zone_country_id = @coid0), 0), '41772', 'Kentucky', 'Hazard'),
@@ -18081,12 +18171,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43155', 'Ohio', 'Sugar Grove'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43156', 'Ohio', 'Tarlton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43157', 'Ohio', 'Thurston'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43158', 'Ohio', 'Union Furnace')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43158', 'Ohio', 'Union Furnace'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43160', 'Ohio', 'Washington Court House'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43162', 'Ohio', 'West Jefferson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43164', 'Ohio', 'Williamsport'),
@@ -18113,7 +18198,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43222', 'Ohio', 'Columbus'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43223', 'Ohio', 'Columbus'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43224', 'Ohio', 'Columbus'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43226', 'Ohio', 'Columbus'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43226', 'Ohio', 'Columbus')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43227', 'Ohio', 'Columbus'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43228', 'Ohio', 'Columbus'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '43229', 'Ohio', 'Columbus'),
@@ -18613,7 +18703,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44250', 'Ohio', 'Lakemore'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44251', 'Ohio', 'Westfield Center'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44253', 'Ohio', 'Medina'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44254', 'Ohio', 'Lodi'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44254', 'Ohio', 'Lodi')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44255', 'Ohio', 'Mantua'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44256', 'Ohio', 'Medina'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '44258', 'Ohio', 'Medina'),
@@ -19086,12 +19181,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45320', 'Ohio', 'Eaton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45321', 'Ohio', 'Eldorado'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45322', 'Ohio', 'Englewood'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45323', 'Ohio', 'Enon')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45323', 'Ohio', 'Enon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45324', 'Ohio', 'Fairborn'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45325', 'Ohio', 'Germantown'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45326', 'Ohio', 'Piqua'),
@@ -19118,7 +19208,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45344', 'Ohio', 'New Carlisle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45345', 'Ohio', 'New Lebanon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45346', 'Ohio', 'New Madison'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45347', 'Ohio', 'New Paris'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45347', 'Ohio', 'New Paris')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45348', 'Ohio', 'Rossburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45349', 'Ohio', 'North Hampton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ohio' AND zone_country_id = @coid0), 0), '45350', 'Ohio', 'North Star'),
@@ -19618,7 +19713,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46356', 'Indiana', 'Lowell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46360', 'Indiana', 'Michigan City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46361', 'Indiana', 'Michigan City'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46365', 'Indiana', 'Mill Creek'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46365', 'Indiana', 'Mill Creek')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46366', 'Indiana', 'North Judson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46368', 'Indiana', 'Portage'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '46371', 'Indiana', 'Rolling Prairie'),
@@ -20091,12 +20191,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47348', 'Indiana', 'Hartford City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47351', 'Indiana', 'Kennard'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47352', 'Indiana', 'Lewisville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47353', 'Indiana', 'Liberty')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47353', 'Indiana', 'Liberty'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47354', 'Indiana', 'Losantville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47355', 'Indiana', 'Lynn'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47356', 'Indiana', 'Middletown'),
@@ -20123,7 +20218,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47386', 'Indiana', 'New Castle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47386', 'Indiana', 'Springport'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47387', 'Indiana', 'Straughn'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47388', 'Indiana', 'Sulphur Springs'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47388', 'Indiana', 'Sulphur Springs')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47390', 'Indiana', 'Union City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47392', 'Indiana', 'Webster'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Indiana' AND zone_country_id = @coid0), 0), '47393', 'Indiana', 'Williamsburg'),
@@ -20623,7 +20723,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48210', 'Michigan', 'Detroit'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48211', 'Michigan', 'Detroit'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48212', 'Michigan', 'Hamtramck'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48212', 'Michigan', 'Detroit'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48212', 'Michigan', 'Detroit')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48213', 'Michigan', 'Detroit'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48214', 'Michigan', 'Detroit'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '48215', 'Michigan', 'Detroit'),
@@ -21096,12 +21201,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49055', 'Michigan', 'Gobles'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49056', 'Michigan', 'Grand Junction'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49057', 'Michigan', 'Hartford'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49058', 'Michigan', 'Hastings')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49058', 'Michigan', 'Hastings'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49060', 'Michigan', 'Delton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49060', 'Michigan', 'Hickory Corners'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49061', 'Michigan', 'Jones'),
@@ -21128,7 +21228,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49080', 'Michigan', 'Plainwell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49081', 'Michigan', 'Portage'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49082', 'Michigan', 'Quincy'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49083', 'Michigan', 'Richland'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49083', 'Michigan', 'Richland')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49084', 'Michigan', 'Riverside'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49085', 'Michigan', 'Benton Harbor'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49085', 'Michigan', 'Saint Joseph'),
@@ -21628,7 +21733,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49912', 'Michigan', 'Bruce Crossing'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49913', 'Michigan', 'Calumet'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49913', 'Michigan', 'Laurium'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49915', 'Michigan', 'Caspian'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49915', 'Michigan', 'Caspian')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49916', 'Michigan', 'Chassell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49917', 'Michigan', 'Copper City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Michigan' AND zone_country_id = @coid0), 0), '49918', 'Michigan', 'Copper Harbor'),
@@ -22101,12 +22211,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51003', 'Iowa', 'Alton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51004', 'Iowa', 'Anthon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51005', 'Iowa', 'Aurelia'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51006', 'Iowa', 'Battle Creek')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51006', 'Iowa', 'Battle Creek'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51007', 'Iowa', 'Bronson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51008', 'Iowa', 'Brunsville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51009', 'Iowa', 'Calumet'),
@@ -22133,7 +22238,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51036', 'Iowa', 'Maurice'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51037', 'Iowa', 'Meriden'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51038', 'Iowa', 'Merrill'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51039', 'Iowa', 'Moville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51039', 'Iowa', 'Moville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51040', 'Iowa', 'Onawa'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51041', 'Iowa', 'Orange City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Iowa' AND zone_country_id = @coid0), 0), '51044', 'Iowa', 'Mapleton'),
@@ -22633,7 +22743,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53006', 'Wisconsin', 'Brownsville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53006', 'Wisconsin', 'Lomira'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53007', 'Wisconsin', 'Brookfield'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53007', 'Wisconsin', 'Butler'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53007', 'Wisconsin', 'Butler')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53008', 'Wisconsin', 'Brookfield'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53010', 'Wisconsin', 'Campbellsport'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '53011', 'Wisconsin', 'Cascade'),
@@ -23106,12 +23221,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54150', 'Wisconsin', 'Gresham'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54150', 'Wisconsin', 'Neopit'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54151', 'Wisconsin', 'Niagara'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54152', 'Wisconsin', 'Nichols')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54152', 'Wisconsin', 'Nichols'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54153', 'Wisconsin', 'Oconto'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54154', 'Wisconsin', 'Oconto Falls'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54155', 'Wisconsin', 'Oneida'),
@@ -23138,7 +23248,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54202', 'Wisconsin', 'Baileys Harbor'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54204', 'Wisconsin', 'Brussels'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54205', 'Wisconsin', 'Casco'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54207', 'Wisconsin', 'Collins'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54207', 'Wisconsin', 'Collins')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54208', 'Wisconsin', 'Denmark'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54209', 'Wisconsin', 'Egg Harbor'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wisconsin' AND zone_country_id = @coid0), 0), '54210', 'Wisconsin', 'Ellison Bay'),
@@ -23638,7 +23753,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55065', 'Minnesota', 'Cannon Falls'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55065', 'Minnesota', 'Randolph'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55066', 'Minnesota', 'Red Wing'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55067', 'Minnesota', 'Rush City'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55067', 'Minnesota', 'Rush City')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55068', 'Minnesota', 'Rosemount'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55069', 'Minnesota', 'Rush City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '55070', 'Minnesota', 'Saint Francis'),
@@ -24111,12 +24231,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56097', 'Minnesota', 'Wells'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56098', 'Minnesota', 'Winnebago'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56101', 'Minnesota', 'Windom'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56110', 'Minnesota', 'Adrian')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56110', 'Minnesota', 'Adrian'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56111', 'Minnesota', 'Alpha'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56113', 'Minnesota', 'Arco'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56114', 'Minnesota', 'Avoca'),
@@ -24143,7 +24258,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56144', 'Minnesota', 'Jasper'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56145', 'Minnesota', 'Jeffers'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56149', 'Minnesota', 'Lake Benton'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56150', 'Minnesota', 'Lakefield'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56150', 'Minnesota', 'Lakefield')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56151', 'Minnesota', 'Lake Wilson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56152', 'Minnesota', 'Lamberton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Minnesota' AND zone_country_id = @coid0), 0), '56153', 'Minnesota', 'Leota'),
@@ -24643,7 +24763,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57239', 'South Dakota', 'Grenville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57241', 'South Dakota', 'Hayti'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57242', 'South Dakota', 'Hazel'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57243', 'South Dakota', 'Henry'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57243', 'South Dakota', 'Henry')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57245', 'South Dakota', 'Kranzburg'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57246', 'South Dakota', 'Labolt'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'South Dakota' AND zone_country_id = @coid0), 0), '57247', 'South Dakota', 'Lake City'),
@@ -25116,12 +25241,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58481', 'North Dakota', 'Spiritwood'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58482', 'North Dakota', 'Steele'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58483', 'North Dakota', 'Streeter'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58486', 'North Dakota', 'Sykeston')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58486', 'North Dakota', 'Sykeston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58487', 'North Dakota', 'Tappen'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58488', 'North Dakota', 'Tuttle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58490', 'North Dakota', 'Verona'),
@@ -25148,7 +25268,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58530', 'North Dakota', 'Center'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58531', 'North Dakota', 'Coleharbor'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58531', 'North Dakota', 'Underwood'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58532', 'North Dakota', 'Sterling'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58532', 'North Dakota', 'Sterling')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58533', 'North Dakota', 'Elgin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58535', 'North Dakota', 'Flasher'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'North Dakota' AND zone_country_id = @coid0), 0), '58538', 'North Dakota', 'Fort Yates'),
@@ -25648,7 +25773,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59920', 'Montana', 'Kila'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59922', 'Montana', 'Lakeside'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59923', 'Montana', 'Libby'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59925', 'Montana', 'Marion'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59925', 'Montana', 'Marion')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59926', 'Montana', 'Hungry Horse'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59927', 'Montana', 'Olney'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Montana' AND zone_country_id = @coid0), 0), '59930', 'Montana', 'Rexford'),
@@ -26121,12 +26251,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60948', 'Illinois', 'Loda'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60948', 'Illinois', 'Paxton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60949', 'Illinois', 'Ludlow'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60950', 'Illinois', 'Manteno')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60950', 'Illinois', 'Manteno'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60951', 'Illinois', 'Martinton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60952', 'Illinois', 'Melvin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '60953', 'Illinois', 'Milford'),
@@ -26153,7 +26278,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61001', 'Illinois', 'Stockton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61006', 'Illinois', 'Ashton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61006', 'Illinois', 'Rochelle'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61007', 'Illinois', 'Baileyville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61007', 'Illinois', 'Baileyville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61008', 'Illinois', 'Belvidere'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61010', 'Illinois', 'Byron'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61011', 'Illinois', 'Belvidere'),
@@ -26653,7 +26783,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61942', 'Illinois', 'Newman'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61943', 'Illinois', 'Oakland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61944', 'Illinois', 'Paris'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61949', 'Illinois', 'Redmon'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61949', 'Illinois', 'Redmon')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61951', 'Illinois', 'Sullivan'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61953', 'Illinois', 'Tuscola'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '61955', 'Illinois', 'Vermilion'),
@@ -27126,12 +27261,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62891', 'Illinois', 'Valier'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62892', 'Illinois', 'Vernon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62893', 'Illinois', 'Centralia'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62893', 'Illinois', 'Walnut Hill')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62893', 'Illinois', 'Walnut Hill'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62894', 'Illinois', 'Waltonville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62895', 'Illinois', 'Wayne City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62896', 'Illinois', 'West Frankfort'),
@@ -27158,7 +27288,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62921', 'Illinois', 'Colp'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62922', 'Illinois', 'Creal Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62923', 'Illinois', 'Buncombe'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62924', 'Illinois', 'De Soto'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62924', 'Illinois', 'De Soto')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62924', 'Illinois', 'Carbondale'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62926', 'Illinois', 'Dongola'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Illinois' AND zone_country_id = @coid0), 0), '62927', 'Illinois', 'Dowell'),
@@ -27658,7 +27793,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64001', 'Missouri', 'Alma'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64001', 'Missouri', 'Concordia'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64011', 'Missouri', 'Bates City'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64011', 'Missouri', 'Oak Grove'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64011', 'Missouri', 'Oak Grove')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64012', 'Missouri', 'Belton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64013', 'Missouri', 'Blue Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '64014', 'Missouri', 'Blue Springs'),
@@ -28131,12 +28271,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65258', 'Missouri', 'Holliday'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65259', 'Missouri', 'Huntsville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65260', 'Missouri', 'Jacksonville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65261', 'Missouri', 'Keytesville')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65261', 'Missouri', 'Keytesville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65262', 'Missouri', 'Kingdom City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65263', 'Missouri', 'Madison'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65264', 'Missouri', 'Martinsburg'),
@@ -28163,7 +28298,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65321', 'Missouri', 'Blackburn'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65322', 'Missouri', 'Blackwater'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65323', 'Missouri', 'Calhoun'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65324', 'Missouri', 'Climax Springs'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65324', 'Missouri', 'Climax Springs')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65325', 'Missouri', 'Cole Camp'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65326', 'Missouri', 'Edwards'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Missouri' AND zone_country_id = @coid0), 0), '65327', 'Missouri', 'Emma'),
@@ -28663,7 +28803,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66441', 'Kansas', 'Junction City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66442', 'Kansas', 'Fort Riley'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66449', 'Kansas', 'Leonardville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66451', 'Kansas', 'Lyndon'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66451', 'Kansas', 'Lyndon')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66451', 'Kansas', 'Osage City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66501', 'Kansas', 'Mc Farland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '66502', 'Kansas', 'Manhattan'),
@@ -29136,12 +29281,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67625', 'Kansas', 'Bogue'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67626', 'Kansas', 'Bunker Hill'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67628', 'Kansas', 'Cedar'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67631', 'Kansas', 'Collyer')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67631', 'Kansas', 'Collyer'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67632', 'Kansas', 'Damar'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67634', 'Kansas', 'Dorrance'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67637', 'Kansas', 'Ellis'),
@@ -29168,7 +29308,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67665', 'Kansas', 'Russell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67669', 'Kansas', 'Stockton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67671', 'Kansas', 'Victoria'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67672', 'Kansas', 'Wakeeney'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67672', 'Kansas', 'Wakeeney')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67675', 'Kansas', 'Woodston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67701', 'Kansas', 'Colby'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Kansas' AND zone_country_id = @coid0), 0), '67730', 'Kansas', 'Atwood'),
@@ -29668,7 +29813,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68922', 'Nebraska', 'Arapahoe'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68924', 'Nebraska', 'Axtell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68925', 'Nebraska', 'Ayr'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68926', 'Nebraska', 'Arapahoe'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68926', 'Nebraska', 'Arapahoe')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68926', 'Nebraska', 'Beaver City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68927', 'Nebraska', 'Bertrand'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nebraska' AND zone_country_id = @coid0), 0), '68928', 'Nebraska', 'Bladen'),
@@ -30141,12 +30291,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70655', 'Louisiana', 'Oberlin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70656', 'Louisiana', 'Pitkin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70657', 'Louisiana', 'Ragley'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70658', 'Louisiana', 'Kinder')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70658', 'Louisiana', 'Kinder'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70659', 'Louisiana', 'Rosepine'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70660', 'Louisiana', 'Merryville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70660', 'Louisiana', 'Singer'),
@@ -30173,7 +30318,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70722', 'Louisiana', 'Clinton'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70723', 'Louisiana', 'Convent'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70725', 'Louisiana', 'Darrow'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70726', 'Louisiana', 'Denham Springs'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70726', 'Louisiana', 'Denham Springs')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70727', 'Louisiana', 'Denham Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70728', 'Louisiana', 'Gonzales'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Louisiana' AND zone_country_id = @coid0), 0), '70729', 'Louisiana', 'Erwinville'),
@@ -30673,7 +30823,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71937', 'Arkansas', 'Cove'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71940', 'Arkansas', 'Delight'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71941', 'Arkansas', 'Donaldson'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71942', 'Arkansas', 'Friendship'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71942', 'Arkansas', 'Friendship')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71943', 'Arkansas', 'Glenwood'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71944', 'Arkansas', 'Grannis'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '71945', 'Arkansas', 'Hatfield'),
@@ -31146,12 +31301,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72727', 'Arkansas', 'Elkins'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72728', 'Arkansas', 'Elm Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72729', 'Arkansas', 'Evansville'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72730', 'Arkansas', 'Farmington')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72730', 'Arkansas', 'Farmington'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72732', 'Arkansas', 'Garfield'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72733', 'Arkansas', 'Gateway'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72734', 'Arkansas', 'Gentry'),
@@ -31178,7 +31328,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72761', 'Arkansas', 'Siloam Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72762', 'Arkansas', 'Springdale'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72764', 'Arkansas', 'Springdale'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72765', 'Arkansas', 'Springdale'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72765', 'Arkansas', 'Springdale')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72766', 'Arkansas', 'Springdale'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72768', 'Arkansas', 'Sulphur Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arkansas' AND zone_country_id = @coid0), 0), '72769', 'Arkansas', 'Summers'),
@@ -31678,7 +31833,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74029', 'Oklahoma', 'Dewey'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74030', 'Oklahoma', 'Drumright'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74031', 'Oklahoma', 'Foyil'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74032', 'Oklahoma', 'Glencoe'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74032', 'Oklahoma', 'Glencoe')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74032', 'Oklahoma', 'Pawnee'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74033', 'Oklahoma', 'Glenpool'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oklahoma' AND zone_country_id = @coid0), 0), '74034', 'Oklahoma', 'Hallett'),
@@ -32151,12 +32311,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75138', 'Texas', 'Duncanville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75140', 'Texas', 'Grand Saline'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75141', 'Texas', 'Hutchins'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75141', 'Texas', 'Wilmer')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75141', 'Texas', 'Wilmer'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75142', 'Texas', 'Kaufman'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75143', 'Texas', 'Kemp'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75144', 'Texas', 'Kerens'),
@@ -32183,7 +32338,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75167', 'Texas', 'Waxahachie'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75168', 'Texas', 'Waxahachie'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75169', 'Texas', 'Wills Point'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75172', 'Texas', 'Wilmer'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75172', 'Texas', 'Wilmer')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75173', 'Texas', 'Nevada'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75180', 'Texas', 'Balch Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '75180', 'Texas', 'Mesquite'),
@@ -32683,7 +32843,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76163', 'Texas', 'Fort Worth'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76164', 'Texas', 'Fort Worth'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76177', 'Texas', 'Fort Worth'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76179', 'Texas', 'Saginaw'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76179', 'Texas', 'Saginaw')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76179', 'Texas', 'Fort Worth'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76180', 'Texas', 'North Richland Hills'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '76181', 'Texas', 'Fort Worth'),
@@ -33156,12 +33321,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77241', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77242', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77243', 'Texas', 'Houston'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77244', 'Texas', 'Houston')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77244', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77245', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77248', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77249', 'Texas', 'Houston'),
@@ -33188,7 +33348,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77273', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77274', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77275', 'Texas', 'Houston'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77277', 'Texas', 'Houston'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77277', 'Texas', 'Houston')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77279', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77280', 'Texas', 'Houston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '77282', 'Texas', 'Houston'),
@@ -33688,7 +33853,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78221', 'Texas', 'San Antonio'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78222', 'Texas', 'San Antonio'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78223', 'Texas', 'San Antonio'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78224', 'Texas', 'San Antonio'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78224', 'Texas', 'San Antonio')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78225', 'Texas', 'San Antonio'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78226', 'Texas', 'San Antonio'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '78227', 'Texas', 'San Antonio'),
@@ -34161,12 +34331,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79078', 'Texas', 'Sanford'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79079', 'Texas', 'Shamrock'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79080', 'Texas', 'Skellytown'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79081', 'Texas', 'Spearman')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79081', 'Texas', 'Spearman'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79082', 'Texas', 'Springlake'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79083', 'Texas', 'Stinnett'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79084', 'Texas', 'Stratford'),
@@ -34193,7 +34358,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79108', 'Texas', 'Amarillo'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79109', 'Texas', 'Amarillo'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79110', 'Texas', 'Amarillo'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79111', 'Texas', 'Amarillo'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79111', 'Texas', 'Amarillo')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79114', 'Texas', 'Amarillo'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79116', 'Texas', 'Amarillo'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Texas' AND zone_country_id = @coid0), 0), '79117', 'Texas', 'Amarillo'),
@@ -34693,7 +34863,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80488', 'Colorado', 'Steamboat Springs'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80497', 'Colorado', 'Silverthorne'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80498', 'Colorado', 'Dillon'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80498', 'Colorado', 'Silverthorne'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80498', 'Colorado', 'Silverthorne')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80501', 'Colorado', 'Longmont'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80502', 'Colorado', 'Longmont'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Colorado' AND zone_country_id = @coid0), 0), '80503', 'Colorado', 'Longmont'),
@@ -35166,12 +35341,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82431', 'Wyoming', 'Lovell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82432', 'Wyoming', 'Manderson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82433', 'Wyoming', 'Meeteetse'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82434', 'Wyoming', 'Basin')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82434', 'Wyoming', 'Basin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82435', 'Wyoming', 'Powell'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82440', 'Wyoming', 'Ralston'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82441', 'Wyoming', 'Shell'),
@@ -35198,7 +35368,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82636', 'Wyoming', 'Evansville'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82637', 'Wyoming', 'Glenrock'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82639', 'Wyoming', 'Kaycee'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82640', 'Wyoming', 'Linch'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82640', 'Wyoming', 'Linch')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82642', 'Wyoming', 'Shoshoni'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82643', 'Wyoming', 'Midwest'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Wyoming' AND zone_country_id = @coid0), 0), '82644', 'Wyoming', 'Mills'),
@@ -35698,7 +35873,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84126', 'Utah', 'Salt Lake City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84127', 'Utah', 'Salt Lake City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84128', 'Utah', 'Salt Lake City'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84129', 'Utah', 'Taylorsville'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84129', 'Utah', 'Taylorsville')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84130', 'Utah', 'Salt Lake City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84131', 'Utah', 'Salt Lake City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Utah' AND zone_country_id = @coid0), 0), '84145', 'Utah', 'Salt Lake City'),
@@ -36171,12 +36351,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85553', 'Arizona', 'Tonto Basin'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85554', 'Arizona', 'Young'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85601', 'Arizona', 'Arivaca'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85602', 'Arizona', 'Benson')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85602', 'Arizona', 'Benson'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85603', 'Arizona', 'Bisbee'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85605', 'Arizona', 'Bowie'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85606', 'Arizona', 'Cochise'),
@@ -36203,7 +36378,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85628', 'Arizona', 'Nogales'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85629', 'Arizona', 'Sahuarita'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85630', 'Arizona', 'Saint David'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85631', 'Arizona', 'San Manuel'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85631', 'Arizona', 'San Manuel')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85632', 'Arizona', 'San Simon'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85633', 'Arizona', 'Sasabe'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Arizona' AND zone_country_id = @coid0), 0), '85634', 'Arizona', 'Sells'),
@@ -36703,7 +36883,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88062', 'New Mexico', 'Silver City'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88063', 'New Mexico', 'Sunland Park'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88065', 'New Mexico', 'Tyrone'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88081', 'New Mexico', 'Anthony'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88081', 'New Mexico', 'Anthony')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88101', 'New Mexico', 'Clovis'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88102', 'New Mexico', 'Clovis'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'New Mexico' AND zone_country_id = @coid0), 0), '88113', 'New Mexico', 'Causey'),
@@ -37176,12 +37361,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90309', 'California', 'Inglewood'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90310', 'California', 'Inglewood'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90312', 'California', 'Inglewood'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90401', 'California', 'Santa Monica')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90401', 'California', 'Santa Monica'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90402', 'California', 'Santa Monica'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90403', 'California', 'Santa Monica'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90404', 'California', 'Santa Monica'),
@@ -37208,7 +37388,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90606', 'California', 'Whittier'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90607', 'California', 'Whittier'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90608', 'California', 'Whittier'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90609', 'California', 'Whittier'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90609', 'California', 'Whittier')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90610', 'California', 'Whittier'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90620', 'California', 'Buena Park'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '90621', 'California', 'Buena Park'),
@@ -37708,7 +37893,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92266', 'California', 'Palo Verde'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92267', 'California', 'Parker Dam'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92268', 'California', 'Pioneertown'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92270', 'California', 'Rancho Mirage'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92270', 'California', 'Rancho Mirage')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92273', 'California', 'Seeley'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92274', 'California', 'Coachella'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '92274', 'California', 'Thermal'),
@@ -38181,12 +38371,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93450', 'California', 'San Ardo'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93451', 'California', 'San Miguel'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93452', 'California', 'San Simeon'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93453', 'California', 'Santa Margarita')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93453', 'California', 'Santa Margarita'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93454', 'California', 'Santa Maria'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93455', 'California', 'Santa Maria'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93456', 'California', 'Santa Maria'),
@@ -38213,7 +38398,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93518', 'California', 'Caliente'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93519', 'California', 'Mojave'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93522', 'California', 'Darwin'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93523', 'California', 'Edwards'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93523', 'California', 'Edwards')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93526', 'California', 'Independence'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93527', 'California', 'Inyokern'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '93528', 'California', 'Johannesburg'),
@@ -38713,7 +38903,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95030', 'California', 'Los Gatos'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95031', 'California', 'Los Gatos'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95032', 'California', 'Campbell'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95033', 'California', 'Los Gatos'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95033', 'California', 'Los Gatos')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95035', 'California', 'Milpitas'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95036', 'California', 'Milpitas'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95037', 'California', 'Morgan Hill'),
@@ -39186,12 +39381,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95816', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95817', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95818', 'California', 'Sacramento'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95819', 'California', 'Sacramento')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95819', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95820', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95821', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95822', 'California', 'Sacramento'),
@@ -39218,7 +39408,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95853', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95860', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95864', 'California', 'Sacramento'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95865', 'California', 'Sacramento'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95865', 'California', 'Sacramento')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95866', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95899', 'California', 'Sacramento'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'California' AND zone_country_id = @coid0), 0), '95901', 'California', 'Marysville'),
@@ -39718,7 +39913,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97219', 'Oregon', 'Portland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97220', 'Oregon', 'Portland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97221', 'Oregon', 'Portland'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97222', 'Oregon', 'Portland'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97222', 'Oregon', 'Portland')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97223', 'Oregon', 'Portland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97224', 'Oregon', 'Portland'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97225', 'Oregon', 'Portland'),
@@ -40191,12 +40391,7 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98155', 'Washington', 'Shoreline'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98158', 'Washington', 'Seatac'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98160', 'Washington', 'Shoreline'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98161', 'Washington', 'Seattle')
-";
-$this->executeInstallerSql($sql);
-
-$sql = "
-INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98161', 'Washington', 'Seattle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98164', 'Washington', 'Seattle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98165', 'Washington', 'Seattle'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98166', 'Washington', 'Burien'),
@@ -40223,7 +40418,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98225', 'Washington', 'Bellingham'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98226', 'Washington', 'Bellingham'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98227', 'Washington', 'Bellingham'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98228', 'Washington', 'Bellingham'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98228', 'Washington', 'Bellingham')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98229', 'Washington', 'Bellingham'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98230', 'Washington', 'Blaine'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '98231', 'Washington', 'Blaine'),
@@ -40723,7 +40923,12 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99179', 'Washington', 'Uniontown'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99180', 'Washington', 'Usk'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99181', 'Washington', 'Chewelah'),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99181', 'Washington', 'Valley'),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99181', 'Washington', 'Valley')
+";
+$this->executeInstallerSql($sql);
+
+$sql = "
+INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_code, zone_name, zone_city_name) VALUES
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99185', 'Washington', 'Wilbur'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99201', 'Washington', 'Spokane'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Washington' AND zone_country_id = @coid0), 0), '99202', 'Washington', 'Spokane Valley'),
