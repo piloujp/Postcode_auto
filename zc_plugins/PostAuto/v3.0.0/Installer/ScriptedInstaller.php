@@ -80,9 +80,9 @@ class ScriptedInstaller extends ScriptedInstallBase
         }
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_US')) === true) {
             if (version_compare($oldVersion, '3.0.0', '<')) {
-                sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_US;
+                $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_US;
                 $this->executeInstallerSql($sql);
-                include_once __DIR__ . '/sql/upgrade/zones_to_post_code_us.php';
+                include_once __DIR__ . '/sql/install/zones_to_post_code_us.php';
             }
         }
 
@@ -92,8 +92,6 @@ class ScriptedInstaller extends ScriptedInstallBase
                 $result = include __DIR__ . '/sql/install/zones_to_post_code_' . $v . '.php';
             }
         }
-        unset($v);
-        // --------------------------------------------------------------------------------
 
         return parent::executeUpgrade($oldVersion);
     }
