@@ -17,7 +17,7 @@ return [
     'pluginVersion' => 'v3.0.0',
     'pluginName' => 'Postcode Auto Fill',
     'pluginDescription' => 'Fills in the state, city and (where the data has it) street address as soon as a postal/zip code is typed, on the account, address book and checkout forms, One-Page Checkout included.' . $buttons,
-    'pluginAuthor' => 'piloujp; v3 by My Zen Cart Host (dbltoe)',
+    'pluginAuthor' => 'My Zen Cart Host (dbltoe), piloujp',
     'pluginId' => 2370, // ID from Zen Cart forum
     'zcVersions' => ['v1.5.8', 'v1.5.8a', 'v2.0.0', 'v2.0.1', 'v2.1.0', 'v2.2.0', 'v2.2.1', 'v2.2.2', 'v2.3.0', 'v3.0.0'],
     'changelog' => 'https://github.com/piloujp/Postcode_auto/releases/tag/v3.0.0', // online URL (eg github release tag page, or changelog file there) or local filename only, ie: changelog.txt (in same dir as this manifest file)

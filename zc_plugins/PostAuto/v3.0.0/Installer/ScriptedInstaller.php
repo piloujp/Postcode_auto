@@ -78,11 +78,18 @@ class ScriptedInstaller extends ScriptedInstallBase
                 include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-09.php';
             }
         }
+        if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_FR')) === true) {
+            if (version_compare($oldVersion, '3.0.0', '<')) {
+                $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_FR;
+                $this->executeInstallerSql($sql);
+                include __DIR__ . '/sql/install/zones_to_post_code_fr.php';
+            }
+        }
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_US')) === true) {
             if (version_compare($oldVersion, '3.0.0', '<')) {
                 $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_US;
                 $this->executeInstallerSql($sql);
-                include_once __DIR__ . '/sql/install/zones_to_post_code_us.php';
+                include __DIR__ . '/sql/install/zones_to_post_code_us.php';
             }
         }
 
