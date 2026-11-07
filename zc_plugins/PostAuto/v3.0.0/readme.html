@@ -44,12 +44,15 @@
       database first and the installer will reinstall it.</p>
     <p style="margin-left: 80px;"><strong><em>Important notes:</em></strong></p>
     <ol style="margin-left: 80px;">
-      <li>If your server is slow you might encounter script timeout during
+      <li>If your <b>server is slow</b> you might encounter script timeout during
         install. Installer already increased script execution time to 300s, but
         if it is not enough, you can increase this time by editing the <code>zen_set_time_limit(300)</code>
         lines in <code>Installer/ScriptedInstaller.php</code> or in Zen Cart admin menu <code>Configuration-&gt;MyStore-&gt;Admin
           Set max_execution_time for processes</code>. In case it already
-        happened, see note below.</li>
+        happened, <b>see note 3</b> below.</li>
+      <li>If your <b>server uses CloudFlare proxy</b> to hide its IP, there is a timeout setting from CloudFlare that is fixed and <b>cannot be changed</b>. It is set from 1 min 30 to 2 min depending on where you are.
+        During our tests, this plugin installed in a little bit less than 1 min 30 (90s), but if the server or connection is slower, you can reach CloudFlare limit. In this case, you will get a timeout message from CloudFlare,
+        please see note 3.</li>
       <li>Postal code tables are big, depending on countries they can have few
         thousand records to over 124 000 records for Japan. If the server
         encountered a <b>timeout during installation</b>, plugin won't be
@@ -101,9 +104,9 @@
     <p style="margin-left: 80px;"><code>UPDATE zones_to_post_code_{CountryCode}
         AS ztp INNER JOIN zones AS z ON ztp.zone_name = z.zone_name AND
         ztp.zone_country_id = z.zone_country_id SET ztp.zone_id = z.zone_id;</code></p>
-    <p style="margin-left: 40px;">Replace <code>{CountryCode}</code> by the two
-      letters ISO code for the country you want to update. Note that the new
-      zones names must match the data in this plugin for this to work.<br><br>
+    <p style="margin-left: 40px;"><b>Replace <code>{CountryCode}</code></b> by the two
+      letters ISO code for the country you want to update. Note that the <b>new
+      zones names and the data in this plugin must match</b> for this to work.<br><br>
       <small><b>Note:</b> If you use some prefix for your table names, add it to any table name in the provided SQL query examples.</small></p>
     <h3 style="margin-left: 40px;"> BUILDING A NEW COUNTRY TABLE DATA:</h3>
     <p style="margin-left: 40px;">- First you need to download data. First place
