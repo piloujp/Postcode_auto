@@ -27472,6 +27472,7 @@ INSERT IGNORE INTO " . TABLE_ZONES_TO_POST_CODE_JP . " (zone_country_id, zone_id
 (@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130062', '茨城県', '常陸太田市', '塙町', 'Ibaraki', 'Hitachiota Shi', 'Hanawacho'),
 (@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130063', '茨城県', '常陸太田市', '内堀町', 'Ibaraki', 'Hitachiota Shi', 'Uchiboricho'),
 (@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130064', '茨城県', '常陸太田市', '寿町', 'Ibaraki', 'Hitachiota Shi', 'Kotobukicho'),
+(@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130065', '茨城県', '常陸太田市', 'まいづる町', 'Ibaraki', 'Hitachiota Shi', 'Maizurucho'),
 (@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130101', '茨城県', '常陸太田市', '上宮河内町', 'Ibaraki', 'Hitachiota Shi', 'Kamimiyakawauchicho'),
 (@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130102', '茨城県', '常陸太田市', '赤土町', 'Ibaraki', 'Hitachiota Shi', 'Akazuchicho'),
 (@coid, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Ibaraki' AND zone_country_id = @coid), 0), '3130103', '茨城県', '常陸太田市', '下宮河内町', 'Ibaraki', 'Hitachiota Shi', 'Shimomiyakawauchicho'),

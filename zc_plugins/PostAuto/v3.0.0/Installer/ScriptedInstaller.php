@@ -77,6 +77,9 @@ class ScriptedInstaller extends ScriptedInstallBase
             if (version_compare($oldVersion, '2.1.0', '<')) {
                 include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-09.php';
             }
+            if (version_compare($oldVersion, '3.0.0', '<')) {
+                include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-10.php';
+            }
         }
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_FR')) === true) {
             if (version_compare($oldVersion, '3.0.0', '<')) {
