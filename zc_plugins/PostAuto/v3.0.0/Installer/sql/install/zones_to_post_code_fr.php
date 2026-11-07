@@ -39630,6 +39630,6 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_FR . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nouvelle-Calédonie' AND zone_country_id = @coid0), 0), '98884', 'Nouvelle-Calédonie', 'Lifou', 'Chépénéhé'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nouvelle-Calédonie' AND zone_country_id = @coid0), 0), '98885', 'Nouvelle-Calédonie', 'Lifou', 'Mou'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nouvelle-Calédonie' AND zone_country_id = @coid0), 0), '98889', 'Nouvelle-Calédonie', 'Païta', ''),
-(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nouvelle-Calédonie' AND zone_country_id = @coid0), 0), '98890', 'Nouvelle-Calédonie', 'Païta', ''),
+(@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Nouvelle-Calédonie' AND zone_country_id = @coid0), 0), '98890', 'Nouvelle-Calédonie', 'Païta', '')
 ";
 $this->executeInstallerSql($sql);
