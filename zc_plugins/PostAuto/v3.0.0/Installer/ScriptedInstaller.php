@@ -84,6 +84,18 @@ class ScriptedInstaller extends ScriptedInstallBase
                 $this->executeInstallerSql($sql);
                 include __DIR__ . '/sql/install/zones_to_post_code_fr.php';
             }
+            $zonesToUpdate = [
+                            'Côte-d\\\'Or' => 'Côte-d’Or',
+                            'Côtes-d\\\'Armor' => 'Côtes-d’Armor',
+                            'Val-d\\\'Oise' => 'Val-d’Oise',
+                            'Saint-Pierre et Miquelon' => 'Saint-Pierre-et-Miquelon',
+                            'Wallis et Futuna' => 'Wallis-et-Futuna',
+                            ];
+            foreach ($zonesToUpdate as $old_name => $new_name) {
+                $sql_zones = "UPDATE zones SET zone_name = '" . $new_name . "' WHERE zone_name = '" . $old_name . "'";
+                $this->executeInstallerSql($sql_zones);
+            }
+
         }
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_US')) === true) {
             if (version_compare($oldVersion, '3.0.0', '<')) {
