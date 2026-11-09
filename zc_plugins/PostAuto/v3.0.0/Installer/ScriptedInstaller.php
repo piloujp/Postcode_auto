@@ -42,6 +42,11 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         $this->tableconstants(); // Create each constant of the database tables for the post codes data.
 
+        $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_FR;
+        $this->executeInstallerSql($sql);
+        $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_US;
+        $this->executeInstallerSql($sql);
+
         foreach ($this->data_country as $v) {
             if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_' . strtoupper($v))) !== true) {
                 $result = include __DIR__ . '/sql/install/zones_to_post_code_' . $v . '.php';
