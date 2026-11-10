@@ -44,6 +44,8 @@ class ScriptedInstaller extends ScriptedInstallBase
 
         $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_FR;
         $this->executeInstallerSql($sql);
+        $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_JP;
+        $this->executeInstallerSql($sql);
         $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_US;
         $this->executeInstallerSql($sql);
 
@@ -75,17 +77,6 @@ class ScriptedInstaller extends ScriptedInstallBase
             $oldVersion = '3.0.0';
         }
 
-        if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_JP')) === true) {
-            if (version_compare($oldVersion, '2.0.1', '<')) {
-                include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2025-03.php';
-            }
-            if (version_compare($oldVersion, '2.1.0', '<')) {
-                include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-09.php';
-            }
-            if (version_compare($oldVersion, '3.0.0', '<')) {
-                include __DIR__ . '/sql/upgrade/zones_to_post_code_jp_update2026-10.php';
-            }
-        }
         if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_FR')) === true) {
             if (version_compare($oldVersion, '3.0.0', '<')) {
                 $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_FR;
@@ -99,6 +90,13 @@ class ScriptedInstaller extends ScriptedInstallBase
                 $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_US;
                 $this->executeInstallerSql($sql);
                 include __DIR__ . '/sql/install/zones_to_post_code_us.php';
+            }
+        }
+        if ($sniffer->table_exists(constant('TABLE_ZONES_TO_POST_CODE_JP')) === true) {
+            if (version_compare($oldVersion, '3.0.0', '<')) {
+                $sql = 'DROP TABLE IF EXISTS ' . TABLE_ZONES_TO_POST_CODE_JP;
+                $this->executeInstallerSql($sql);
+                include __DIR__ . '/sql/install/zones_to_post_code_jp.php';
             }
         }
 
@@ -115,7 +113,7 @@ class ScriptedInstaller extends ScriptedInstallBase
     protected function executeUninstall()
     {
         $this->tableconstants();
-        // To keep postal codes database for a country from being deleted when uninstalling, comment the corresponding line
+        // To keep postal codes database for a country from being deleted when uninstalling, comment out the corresponding line
         $this->executeInstallerSql("DROP TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_AT);
         $this->executeInstallerSql("DROP TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_AU);
         $this->executeInstallerSql("DROP TABLE IF EXISTS " . TABLE_ZONES_TO_POST_CODE_CH);
