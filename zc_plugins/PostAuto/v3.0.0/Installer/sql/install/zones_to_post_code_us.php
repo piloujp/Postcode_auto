@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS " . TABLE_ZONES_TO_POST_CODE_US . " (
 ";
 $this->executeInstallerSql($sql);
 
+// Country names in ZC database: USA -> 'United States', PLW -> 'Palau', FSM -> 'Micronesia, Federated States of', MHL -> 'Marshall Islands'
 $UScountries = ['USA', 'PLW', 'FSM', 'MHL'];
 for ($i = 0; $i < count($UScountries); $i++) {
     $sql = "SET @coid" . $i . " = (SELECT countries_id FROM " . TABLE_COUNTRIES . " WHERE countries_iso_code_3 = '" . $UScountries[$i] . "' ORDER BY countries_id DESC LIMIT 1);";
@@ -39766,8 +39767,8 @@ INSERT INTO " . TABLE_ZONES_TO_POST_CODE_US . " (zone_country_id, zone_id, post_
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Northern Mariana Islands' AND zone_country_id = @coid0), 0), '96950', 'Northern Mariana Islands', 'Saipan'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Northern Mariana Islands' AND zone_country_id = @coid0), 0), '96951', 'Northern Mariana Islands', 'Rota'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Northern Mariana Islands' AND zone_country_id = @coid0), 0), '96952', 'Northern Mariana Islands', 'Tinian'),
-(@coid3, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Marshall Islands' AND zone_country_id = @coid0), 3), '96960', 'Marshall Islands', 'Majuro'),
-(@coid3, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Marshall Islands' AND zone_country_id = @coid0), 3), '96970', 'Marshall Islands', 'Ebeye'),
+(@coid3, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Marshall Islands' AND zone_country_id = @coid3), 0), '96960', 'Marshall Islands', 'Majuro'),
+(@coid3, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Marshall Islands' AND zone_country_id = @coid3), 0), '96970', 'Marshall Islands', 'Ebeye'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97001', 'Oregon', 'Antelope'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97002', 'Oregon', 'Aurora'),
 (@coid0, IFNULL((SELECT zone_id FROM zones WHERE zone_name = 'Oregon' AND zone_country_id = @coid0), 0), '97003', 'Oregon', 'Portland'),
