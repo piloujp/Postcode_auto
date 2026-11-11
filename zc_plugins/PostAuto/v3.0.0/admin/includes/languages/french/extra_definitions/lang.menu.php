@@ -7,14 +7,24 @@
  * @version $Id: piloujp 2026 Oct 14 Modified in v3.3.0-dev $
 */
 
+$pluginForumUrl = 'https://www.zen-cart.com/threads/205577';
+$pluginGithubUrl = 'https://github.com/piloujp/Postcode_auto';
+$pluginVersion = basename(dirname(__DIR__, 5));
+
+$ButtonGap = '4px';
+$ButtonStyle = ' target="_blank" rel="noopener noreferrer" class="btn btn-primary" role="button" style="margin:0 ' . $ButtonGap . ' 0 0;padding-left:8px;padding-right:8px"';
+
+$ButtonsLinks =
+    '<div style="margin:10px 0 0;padding:0 0 0 ' . $ButtonGap . '">'
+    . '<a href="' . (defined('DIR_WS_CATALOG') ? DIR_WS_CATALOG : '/') . 'zc_plugins/PostAuto/' . $pluginVersion . '/readme.html"' . $ButtonStyle . '>Lisez-moi</a>'
+    . '<a href="' . $pluginForumUrl . '"' . $ButtonStyle . '>Forum</a>'
+    . '<a href="' . $pluginGithubUrl . '"' . $ButtonStyle . '>GitHub</a>'
+    . '</div>';
+
 $define = [
     'ADMIN_PLUGIN_MANAGER_NAME_FOR_POSTAUTO' => 'Code postal automatique',
-    'ADMIN_PLUGIN_MANAGER_DESCRIPTION_FOR_POSTAUTO' => 'Ce plugin remplit automatiquement les champs de formulaire département, ville et la rue (si les données sont disponibles), lorsque le code postal est fourni.' .
-    '<div class="buttons my-2">' .
-    '<a class="btn btn-primary btn-sm" href="' . DIR_WS_CATALOG . 'zc_plugins/PostAuto/' . basename(dirname(__DIR__, 5)) . '/readme.html " target="_blank"><i class="fa fa-book"></i> Lisez-moi</a> ' .
-    '<a class="btn btn-info btn-sm" href="https://github.com/piloujp/Postcode_auto" target="_blank"><i class="fa-solid fa-code-branch"></i> GitHub</a> ' .
-    '<a class="btn btn-success btn-sm" href="https://www.zen-cart.com/threads/205577" target="_blank"><i class="fa fa-comments"></i> Forum</a>' .
-    '</div>',
+    'ADMIN_PLUGIN_MANAGER_DESCRIPTION_FOR_POSTAUTO' => 'Ce plugin remplit automatiquement les champs de formulaire département, ville et la rue (si les données sont disponibles), lorsque le code postal est fourni.'
+    . $ButtonsLinks
 ];
 
 return $define;
